@@ -1,0 +1,245 @@
+﻿<Window x:Class="Helicopkki.SettingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Helicopkki"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        MouseDown="SettingWIndow_MouseDown"
+        Title="헬리콥끠 Dev 설정" Width="450" Height="550">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+        <SolidColorBrush x:Key="CustomSliderBackgroundSolidColorBrushKey" Color="#d2d2d2" />
+        <SolidColorBrush x:Key="CustomSliderForegroundSolidColorBrushKey" Color="#ffb900" />
+        <SolidColorBrush x:Key="CustomSliderBackgroundSolidColorBrushKey_Disable" Color="#dfdfdf" />
+        <SolidColorBrush x:Key="CustomSliderForegroundSolidColorBrushKey_Disable" Color="#d2d2d2" />
+        <ControlTemplate x:Key="CustomSliderThumbControlTemplateKey" TargetType="{x:Type Thumb}">
+            <Grid
+                HorizontalAlignment="Center"
+                UseLayoutRounding="True"
+                VerticalAlignment="Center">
+                <Path x:Name="gripPath"
+                    VerticalAlignment="Center"
+                    Margin="-1 -1"
+                    Stretch="Fill"
+                    Stroke="{StaticResource CustomSliderForegroundSolidColorBrushKey}"
+                    StrokeThickness="2.5"
+                    Fill="Transparent"
+                    UseLayoutRounding="True"
+                    Data="M 0 0 A 180 180 180 1 1 1 1 Z" />
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsDragging" Value="true">
+                    <Setter
+                        TargetName="gripPath"
+                        Property="Fill"
+                        Value="{StaticResource CustomSliderForegroundSolidColorBrushKey}" />
+                    <Setter
+                        TargetName="gripPath"
+                        Property="Stroke"
+                        Value="{StaticResource CustomSliderForegroundSolidColorBrushKey}" />
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="false">
+                    <Setter
+                        TargetName="gripPath"
+                        Property="Stroke"
+                        Value="{StaticResource CustomSliderForegroundSolidColorBrushKey_Disable}" />
+                </Trigger>
+                <Trigger Property="IsKeyboardFocused" Value="true">
+                    <Setter
+                        TargetName="gripPath"
+                        Property="Fill"
+                        Value="{StaticResource CustomSliderForegroundSolidColorBrushKey}" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        <ControlTemplate x:Key="CustomSliderControlTemplateKey" TargetType="{x:Type Slider}">
+            <Border x:Name="border"
+                Background="Transparent"
+                SnapsToDevicePixels="True">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="{TemplateBinding MinHeight}" />
+                    </Grid.RowDefinitions>
+                    <DockPanel LastChildFill="True">
+                        <Border x:Name="PART_SelectionRange"
+                            Height="3"
+                            ClipToBounds="True"
+                            Visibility="Visible">
+                            <Rectangle x:Name="PART_SelectionRangeRectangle"
+                                Margin="10 0 -10 0"
+                                RadiusX="1"
+                                RadiusY="1"
+                                Fill="{StaticResource CustomSliderForegroundSolidColorBrushKey}" />
+                        </Border>
+                        <Border x:Name="PART_NonSelectionRange"
+                            ClipToBounds="True"
+                            Height="3"
+                            Visibility="Visible">
+                            <Rectangle x:Name="PART_NonSelectionRangeRectangle"
+                                Margin="20 0 10 0"
+                                RadiusX="1"
+                                RadiusY="1"
+                                Fill="{StaticResource CustomSliderBackgroundSolidColorBrushKey}" />
+                        </Border>
+                    </DockPanel>
+                    <Track x:Name="PART_Track">
+                        <Track.Thumb>
+                            <Thumb x:Name="Thumb"
+                                Template="{StaticResource CustomSliderThumbControlTemplateKey}"
+                                VerticalAlignment="Center"
+                                Width="{TemplateBinding MinHeight}"
+                                Height="{TemplateBinding MinHeight}"
+                                OverridesDefaultStyle="True"
+                                Focusable="False" />
+                        </Track.Thumb>
+                    </Track>
+                </Grid>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled" Value="false">
+                    <Setter
+                        TargetName="PART_SelectionRangeRectangle"
+                        Property="Fill"
+                        Value="{StaticResource CustomSliderForegroundSolidColorBrushKey_Disable}" />
+                    <Setter
+                        TargetName="PART_NonSelectionRangeRectangle"
+                        Property="Fill"
+                        Value="{StaticResource CustomSliderBackgroundSolidColorBrushKey_Disable}" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        <Style x:Key="CustomSliderStyleKey" TargetType="{x:Type Slider}">
+            <Setter Property="Template" Value="{StaticResource CustomSliderControlTemplateKey}"/>
+            <Setter Property="VerticalAlignment"        Value="Center"/>
+            <Setter Property="MinHeight"                Value="20"/>
+            <Setter Property="Height"                   Value="20"/>
+            <Setter Property="MaxHeight"                Value="20"/>
+            <Setter Property="IsMoveToPointEnabled"     Value="True"/>
+            <Setter Property="SelectionStart"           Value="0"/>
+            <Setter Property="Width"                    Value="200"/>
+            <Setter Property="TickFrequency"            Value="1"/>
+            <Setter Property="Minimum"                  Value="1"/>
+            <Setter Property="Maximum"                  Value="100"/>
+            <Setter Property="IsSnapToTickEnabled"      Value="True"/>
+            <Setter Property="IsMoveToPointEnabled"     Value="True"/>
+            <Setter Property="Width"                    Value="200"/>
+            <Setter Property="SelectionEnd"             Value="{Binding Path=Value, RelativeSource={RelativeSource Self}}"/>
+        </Style>
+        <Style x:Key="CustomTextBoxStyleKey" TargetType="{x:Type TextBox}">
+            <Setter Property="VerticalAlignment"        Value="Stretch"/>
+            <Setter Property="Margin"                   Value="10 0 0 0"/>
+            <Setter Property="TextAlignment"            Value="Center"/>
+            <Setter Property="Width"                    Value="45"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+    <StackPanel Orientation="Vertical" VerticalAlignment="Top">
+        <GroupBox Header="기본" Margin="10">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical" Margin="10">
+                <WrapPanel Margin="10" 
+                               Orientation="Horizontal"
+                               Name="SizeSliderPanel">
+                    <Label Content="크기"/>
+                    <Slider Margin="10 0 10 0" Style="{DynamicResource CustomSliderStyleKey}"
+                            Name="SizeSlider"
+                            ValueChanged="SizeSlider_ValueChanged"/>
+                    <TextBox Style="{DynamicResource CustomTextBoxStyleKey}"
+                                 Text="{Binding ElementName=SizeSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}"/>
+                </WrapPanel>
+                <WrapPanel Margin="10" 
+                               Orientation="Horizontal"
+                               Name="qwerty"
+                               HorizontalAlignment="Center">
+                    <CheckBox x:Name="IsTopCheckBox" VerticalAlignment="Center" Content="항상 위에 배치 (엄크 주의)" Checked="IsTopCheckBox_CheckedChanged" Unchecked="IsTopCheckBox_CheckedChanged"/>
+
+                </WrapPanel>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="커서 따라오기" Margin="10">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical" Margin="10">
+                <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"  Orientation="Horizontal">
+                    <RadioButton Content="설정" Margin="10,0,10,0" Click="FollowCursorRadio_Click" Name="FollowRadioAgree"/>
+                    <RadioButton IsChecked="true" Content="해제" Margin="10,0,10,0" Click="FollowCursorRadio_Click" Name="FollowRadioDisagree"/>
+                </WrapPanel>
+                <StackPanel x:Name="FollowCursorPropertyPanel" Visibility="{Binding ElementName=FollowRadioAgree, Path=IsChecked, Converter={StaticResource BoolToVis}}">
+                    <WrapPanel Margin="10"
+                                    Orientation="Horizontal" 
+                                    Name="FollowSpeedSliderPanel">
+                        <Label Content="속도"/>
+                        <Slider Margin="10 0 10 0" Style="{DynamicResource CustomSliderStyleKey}"
+                                    Name="FollowSpeedSlider"
+                                    ValueChanged="FollowSpeedSlider_ValueChanged"/>
+                        <TextBox Style="{DynamicResource CustomTextBoxStyleKey}"
+                                    Text="{Binding ElementName=FollowSpeedSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" />
+                    </WrapPanel>
+                    <WrapPanel Margin="10"
+                                    Orientation="Horizontal"
+                                    x:Name="RelativePositionPanel"
+                                    HorizontalAlignment="Center">
+                        <CheckBox x:Name="RelativePositionFixCheckBox" VerticalAlignment="Center" Margin="10 0 10 0" Content="상대위치 고정" Checked="RelativePositionFixCheckBox_CheckedChanged" Unchecked="RelativePositionFixCheckBox_CheckedChanged"/>
+                        <ComboBox x:Name="RelativePositionFixComboBox" SelectionChanged="RelativePositionFixComboBox_SelectionChanged" SelectedIndex="0" Margin="10 0 10 0" Width="150" IsEnabled="{Binding ElementName=RelativePositionFixCheckBox, Path=IsChecked}">
+                            <ComboBoxItem Content="마우스 왼쪽 위" />
+                            <ComboBoxItem Content="마우스 왼쪽 아래" />
+                            <ComboBoxItem Content="마우스 오른쪽 위" />
+                            <ComboBoxItem Content="마우스 오른쪽 아래" />
+                        </ComboBox>
+                    </WrapPanel>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="소리에 맞춰 뛰기" Margin="10" Visibility="{Binding ElementName=FollowRadioDisagree, Path=IsChecked, Converter={StaticResource BoolToVis}}">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center"  Orientation="Vertical" Margin="10">
+                <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="10"  Orientation="Horizontal">
+                    <RadioButton Name="DanceRadioAgree" VerticalAlignment="Center" IsChecked="true" Content="설정" Margin="10,0,10,0" Click="DanceRadio_Click"/>
+                    <RadioButton Name="DanceRadioDisagree" VerticalAlignment="Center" Content="해제" Margin="10,0,10,0" Click="DanceRadio_Click"/>
+                    <Button Content="점프 테스트" Padding="5" Margin="10 0 0 0" IsEnabled="{Binding ElementName=DanceRadioDisagree, Path=IsChecked}" Click="DanceTestButton_Click"></Button>
+                </WrapPanel>
+                <StackPanel x:Name="DancePropertyPanel">
+                    <WrapPanel Margin="10"
+                                    Orientation="Horizontal" 
+                                    Name="JumpPowerSliderPanel">
+                        <Label Content="점프 높이" Width="75" HorizontalContentAlignment="Center"/>
+                        <Slider Margin="10 0 10 0" Style="{DynamicResource CustomSliderStyleKey}"
+                                    Maximum="100"
+                                    Name="JumpPowerSlider"
+                                    ValueChanged="JumpPowerSlider_ValueChanged"/>
+                        <TextBox Style="{DynamicResource CustomTextBoxStyleKey}"
+                                    Text="{Binding ElementName=JumpPowerSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" />
+                    </WrapPanel>
+                    <WrapPanel Margin="10"
+                                    Orientation="Horizontal"
+                                    x:Name="GSliderPanel"
+                                    HorizontalAlignment="Center">
+                        <Label Content="중력가속도" Width="75" HorizontalContentAlignment="Center"/>
+                        <Slider Margin="10 0 10 0" Style="{DynamicResource CustomSliderStyleKey}"
+                                    TickFrequency="0.01"
+                                    Minimum="0.01"
+                                    Maximum="300"
+                                    Name="GSlider"
+                                    ValueChanged="GSlider_ValueChanged"/>
+                        <Grid ShowGridLines="False" Name="GSliderTextBoxGrid" Focusable="True" >
+                            <TextBox  Style="{DynamicResource CustomTextBoxStyleKey}"
+                                      x:Name="GSliderTextBox"
+                                      LostFocus="GSliderTextBox_LostFocus"
+                                    Text="{Binding ElementName=GSlider, Path=Value, StringFormat=N2}" />
+                        </Grid>
+                    </WrapPanel>
+                    <WrapPanel Margin="10"
+                                    Orientation="Horizontal"
+                                    x:Name="SensitivitySliderPanel"
+                                   IsEnabled="{Binding ElementName=DanceRadioAgree, Path=IsChecked}"
+                                    HorizontalAlignment="Center">
+                        <Label Content="소리 민감도" Width="75" HorizontalContentAlignment="Center"/>
+                        <Slider Margin="10 0 10 0" Style="{DynamicResource CustomSliderStyleKey}"
+                                    Name="SensitivitySlider"
+                                    ValueChanged="SensitivitySlider_ValueChanged"/>
+                        <TextBox Style="{DynamicResource CustomTextBoxStyleKey}"
+                                    Text="{Binding ElementName=SensitivitySlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" />
+                    </WrapPanel>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+    </StackPanel>
+</Window>
