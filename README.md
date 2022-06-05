@@ -3,7 +3,7 @@
   
 ![main](https://user-images.githubusercontent.com/105589075/171989034-f17c04f0-6525-4160-812e-344d2dd32de5.png)
 ## 다운로드
-https://github.com/OmnickkiProject/HelicopkkiDev/releases/tag/v2.0.0
+https://github.com/OmnickkiProject/HelicopkkiDev/releases
 
 ## 설명서
 https://github.com/OmnickkiProject/HelicopkkiDev/wiki
