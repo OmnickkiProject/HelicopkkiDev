@@ -1,0 +1,378 @@
+﻿<UserControl x:Class="HelicopkkiDev.View.AudioSettingUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HelicopkkiDev.View"
+             mc:Ignorable="d" 
+             
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignWidth="560"
+             xmlns:converter="clr-namespace:HelicopkkiDev.View.Converter"
+             xmlns:behavior="clr-namespace:HelicopkkiDev.View.Behavior"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors">
+    <Grid x:Name="audioSettingGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Style="{StaticResource SpaceRow}"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="audioSettingToggleGrid" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Style="{StaticResource SpaceColumn}"/>
+                <ColumnDefinition Style="{StaticResource BodyIconColumn}"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Style="{StaticResource SpaceColumn}"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Style="{StaticResource SpaceColumn}"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Style="{StaticResource TwoLineListRow}"/>
+            </Grid.RowDefinitions>
+
+            <materialDesign:Card Style="{StaticResource MaterialDesignCard_Body}"
+                                 Grid.Row="0"
+                                 Grid.ColumnSpan="7"/>
+
+            <StackPanel Style="{StaticResource MaterialDesignTwoLineListStackPanel}"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="3">
+                <Border Style="{StaticResource MaterialDesignBodyLargeBorder}">
+                    <TextBlock Style="{StaticResource MaterialDesignBodyLargeTextBlock}"
+                       Text="소리 반응 활성화"/>
+                </Border>
+                <Border Style="{StaticResource MaterialDesignBodyMediumBorder}">
+                    <TextBlock Style="{StaticResource MaterialDesignBodyMediumTextBlock}"
+                       Text="캐릭터가 소리 출력에 따라 반응합니다."/>
+                </Border>
+            </StackPanel>
+            <CheckBox x:Name="allowsAudioReactionCheckBox"
+                      Style="{StaticResource MaterialDesignSwitchToggleButton_Normal}"
+                      IsChecked="{Binding AudioModel.AllowsAudioReaction, Mode=TwoWay}"
+                      Grid.Row="0"
+                      Grid.Column="5">
+                <i:Interaction.Behaviors>
+                    <behavior:AllowsAudioReactionCheckBoxClickBehavior AllowsAudioReaction="{Binding AudioModel.AllowsAudioReaction, Mode=OneWay}"
+                                                                       AudioCapture="{Binding SystemModel.AudioCapture, Mode=OneTime}"/>
+                </i:Interaction.Behaviors>
+            </CheckBox>
+        </Grid>
+        <Grid x:Name="audioSettingHandleGrid" Grid.Row="2"
+              IsEnabled="{Binding IsChecked, ElementName=allowsAudioReactionCheckBox, Mode=OneWay}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid x:Name="generalAudioSettingHandleGrid" Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Style="{StaticResource SpaceColumn}"/>
+                    <ColumnDefinition Style="{StaticResource BodyIconColumn}"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Style="{StaticResource SpaceColumn}"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Style="{StaticResource SpaceColumn}"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Style="{StaticResource SubtitleRow}"/>
+
+                    <RowDefinition Style="{StaticResource SpaceRow}"/>
+                    <RowDefinition Style="{StaticResource SingleLineListRow}"/>
+
+                    <RowDefinition Style="{StaticResource SpaceRow}"/>
+                    <RowDefinition Style="{StaticResource DividerRow}"/>
+                    <RowDefinition Style="{StaticResource SpaceRow}"/>
+
+                    <RowDefinition Style="{StaticResource SingleLineListRow}"/>
+                    <RowDefinition Style="{StaticResource SingleLineListRow}"/>
+                    <RowDefinition Style="{StaticResource SingleLineListRow}"/>
+                    <RowDefinition Style="{StaticResource SpaceRow}"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Style="{StaticResource MaterialDesignBodyMediumTextBlock}"
+                       Text="일반"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       Grid.ColumnSpan="7"/>
+
+                <materialDesign:Card Style="{StaticResource MaterialDesignCard_Body}"
+                                 Grid.Row="1"
+                                 Grid.RowSpan="9"
+                                 Grid.ColumnSpan="8"/>
+                
+                <StackPanel x:Name="danceModeSegmentButtonStackPanel"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="7">
+                    <ToggleButton Style="{StaticResource MaterialDesignFlatButton_Segment}"
+                                  IsChecked="{Binding AudioModel.AllowsCharacterToScaleDance, Mode=TwoWay}"
+                                  Margin="0 0 16 0">
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Center">
+                            <Path Style="{StaticResource AllowsCharacterToScaleDanceIconPath}"
+                                  Fill="{DynamicResource PrimaryLightBrush}"
+                              Margin="0 0 8 0"/>
+                            <TextBlock Style="{StaticResource MaterialDesignBodyLargeTextBlock}"
+                                       Foreground="{DynamicResource PrimaryLightBrush}"
+                                       Text="확대 변형"/>
+                        </StackPanel>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Unchecked">
+                                <i:InvokeCommandAction Command="{Binding AllowsCharacterToScaleDanceUncheckedCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ToggleButton>
+                    <ToggleButton Style="{StaticResource MaterialDesignFlatButton_Segment}"
+                                  IsChecked="{Binding AudioModel.AllowsCharacterToJumpDance, Mode=TwoWay}">
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Center">
+                            <Path Style="{StaticResource AllowsCharacterToJumpDanceIconPath}"
+                                  Fill="{DynamicResource PrimaryLightBrush}"
+                              Margin="0 0 8 0"/>
+                            <TextBlock Style="{StaticResource MaterialDesignBodyLargeTextBlock}"
+                                       Foreground="{DynamicResource PrimaryLightBrush}"
+                                       Text="점프 변형"/>
+                        </StackPanel>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Unchecked">
+                                <i:InvokeCommandAction Command="{Binding AllowsCharacterToJumpDanceUncheckedCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ToggleButton>
+                </StackPanel>
+                
+                <Path Style="{StaticResource CharacterMaxDanceScaleIconPath}"
+                      Grid.Row="6"
+                      Grid.Column="1"/>
+                <TextBlock Style="{StaticResource MaterialDesignBodyLargeTextBlock}"
+                       Text="변형 범위"
+                       Grid.Row="6"
+                       Grid.Column="2"/>
+                <Slider Style="{StaticResource MaterialDesignSlider_Normal}"
+                    x:Name="characterMaxDanceScaleSlider"
+                    Minimum="1" 
+                    Maximum="5"
+                    Value="{Binding AudioModel.CharacterMaxDanceScale, Mode=TwoWay}"
+                    Grid.Row="6"
+                    Grid.Column="3"/>
+                <TextBox Style="{StaticResource MaterialDesignFilledTextBox_SliderValue}"
+                     Grid.Row="6"
+                     Grid.Column="5" Cursor="IBeam">
+                    <TextBox.Text>
+                        <MultiBinding Converter="{converter:SliderTextBoxConverter}" StringFormat="{}x {0:0.##}">
+                            <Binding Path="Value" ElementName="characterMaxDanceScaleSlider" Mode="TwoWay"/>
+                            <Binding Path="Minimum" ElementName="characterMaxDanceScaleSlider" Mode="OneTime"/>
+                            <Binding Path="Maximum" ElementName="characterMaxDanceScaleSlider" Mode="OneTime"/>
+                        </MultiBinding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <Path Style="{StaticResource CharacterDanceIntensityIconPath}"
+                      Grid.Row="7"
+                      Grid.Column="1"/>
+                <TextBlock Style="{StaticResource MaterialDesignBodyLargeTextBlock}"
+                       Text="변형 감도"
+                       Grid.Row="7"
+                       Grid.Column="2"/>
+                <Slider Style="{StaticResource MaterialDesignSlider_Normal}"
+                    x:Name="characterDanceIntensitySlider"
+                    Minimum="0" 
+                    Maximum="1"
+                    Value="{Binding AudioModel.CharacterDanceIntensity, Mode=TwoWay}"
+                    Grid.Row="7"
+                    Grid.Column="3"/>
+                <TextBox Style="{StaticResource MaterialDesignFilledTextBox_SliderValue}"
+                     Grid.Row="7"
+                     Grid.Column="5">
+                    <TextBox.Text>
+                        <MultiBinding Converter="{converter:SliderTextBoxConverter}" StringFormat="{}{0:0.##}">
+                            <Binding Path="Value" ElementName="characterDanceIntensitySlider" Mode="TwoWay"/>
+                            <Binding Path="Minimum" ElementName="characterDanceIntensitySlider" Mode="OneTime"/>
+                            <Binding Path="Maximum" ElementName="characterDanceIntensitySlider" Mode="OneTime"/>
+                        </MultiBinding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <Path Style="{StaticResource AudioVolumeWeightIconPath}"
+                      Grid.Row="8"
+                      Grid.Column="1"/>
+                <TextBlock Style="{StaticResource MaterialDesignBodyLargeTextBlock}"
+                       Text="볼륨 가중치"
+                       Grid.Row="8"
+                       Grid.Column="2"/>
+                <Slider Style="{StaticResource MaterialDesignSlider_Normal}"
+                    x:Name="audioVolumeWeightSlider"
+                    Minimum="1" 
+                    Maximum="100"
+                    Value="{Binding AudioModel.AudioVolumeWeight, Mode=TwoWay}"
+                    Grid.Row="8"
+                    Grid.Column="3"/>
+                <TextBox Style="{StaticResource MaterialDesignFilledTextBox_SliderValue}"
+                     Grid.Row="8"
+                     Grid.Column="5">
+                    <TextBox.Text>
+                        <MultiBinding Converter="{converter:SliderTextBoxConverter}" StringFormat="{}x {0:0}">
+                            <Binding Path="Value" ElementName="audioVolumeWeightSlider" Mode="TwoWay"/>
+                            <Binding Path="Minimum" ElementName="audioVolumeWeightSlider" Mode="OneTime"/>
+                            <Binding Path="Maximum" ElementName="audioVolumeWeightSlider" Mode="OneTime"/>
+                        </MultiBinding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <Rectangle Style="{StaticResource MaterialDesignDividerRectangle}"
+                           Grid.Row="4"
+                           Grid.Column="1"
+                           Grid.ColumnSpan="5"/>
+
+            </Grid>
+            <Grid x:Name="advancedAudioSettingHandleGrid" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Style="{StaticResource SpaceColumn}"/>
+                    <ColumnDefinition Style="{StaticResource BodyIconColumn}"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Style="{StaticResource SpaceColumn}"/>
+                    <ColumnDefinition Style="{StaticResource BodyIconColumn}"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Style="{StaticResource SpaceColumn}"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Style="{StaticResource SpaceColumn}"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Style="{StaticResource SubtitleRow}"/>
+
+                    <RowDefinition Style="{StaticResource SpaceRow}"/>
+                    <RowDefinition Style="{StaticResource SingleLineListRow}"/>
+
+                    <RowDefinition Style="{StaticResource SpaceRow}"/>
+                    <RowDefinition Style="{StaticResource DividerRow}"/>
+                    <RowDefinition Style="{StaticResource SpaceRow}"/>
+
+                    <RowDefinition Style="{StaticResource TwoLineListRow}"/>
+                    <RowDefinition Style="{StaticResource SingleLineListRow}"/>
+                    <RowDefinition Style="{StaticResource SpaceRow}"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Style="{StaticResource MaterialDesignBodyMediumTextBlock}"
+                       Text="고급"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       Grid.ColumnSpan="9"/>
+
+                <materialDesign:Card Style="{StaticResource MaterialDesignCard_Body}"
+                                 Grid.Row="1"
+                                 Grid.RowSpan="8"
+                                 Grid.ColumnSpan="9"/>
+
+                <TextBlock Style="{StaticResource MaterialDesignBodyLargeTextBlock}"
+                       Text="스핀각"
+                       Grid.Row="2"
+                       Grid.Column="1"
+                       Grid.ColumnSpan="2"/>
+                <Border Style="{StaticResource InfoIconBorder}"
+                        Grid.Row="2"
+                        Grid.Column="4">
+                    <Border.ToolTip>
+                        <ToolTip Style="{StaticResource InfoIconPathToolTip}">
+                            <TextBlock Text="'소리에 맞춰 스핀'시 자동으로 바뀌는 고유의 각도를 설정해요."/>
+                        </ToolTip>
+                    </Border.ToolTip>
+                    <Path Style="{StaticResource InfoIconPath}"/>
+                </Border>
+                <Slider Style="{StaticResource MaterialDesignSlider_Indicator}"
+                    x:Name="characterSpunAngleSlider"
+                    Minimum="-179.99" 
+                    Maximum="180"
+                    Value="{Binding AudioModel.CharacterSpunAngle, Mode=TwoWay}"
+                    Grid.Row="2"
+                    Grid.Column="5"/>
+                <TextBox Style="{StaticResource MaterialDesignFilledTextBox_SliderValue}"
+                     Grid.Row="2"
+                     Grid.Column="7">
+                    <TextBox.Text>
+                        <MultiBinding Converter="{converter:SliderTextBoxConverter}" StringFormat="{}{0:0} °">
+                            <Binding Path="Value" ElementName="characterSpunAngleSlider" Mode="TwoWay"/>
+                            <Binding Path="Minimum" ElementName="characterSpunAngleSlider" Mode="OneTime"/>
+                            <Binding Path="Maximum" ElementName="characterSpunAngleSlider" Mode="OneTime"/>
+                        </MultiBinding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <Rectangle Style="{StaticResource MaterialDesignDividerRectangle}"
+                           Grid.Row="4"
+                           Grid.Column="1"
+                           Grid.ColumnSpan="7"/>
+
+                <StackPanel Style="{StaticResource MaterialDesignTwoLineListStackPanel}"
+                        Grid.Row="6"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="5">
+                    <Border Style="{StaticResource MaterialDesignBodyLargeBorder}">
+                        <TextBlock Style="{StaticResource MaterialDesignBodyLargeTextBlock}"
+                       Text="소리에 맞춰 스핀"/>
+                    </Border>
+                    <Border Style="{StaticResource MaterialDesignBodyMediumBorder}">
+                        <TextBlock Style="{StaticResource MaterialDesignBodyMediumTextBlock}"
+                       Text="소리를 인식한 경우 캐릭터가 회전합니다."/>
+                    </Border>
+                </StackPanel>
+                <CheckBox x:Name="allowsCharacterToSpinWithAudioCheckBox"
+                      Style="{StaticResource MaterialDesignSwitchToggleButton_Normal}"
+                      IsChecked="{Binding AudioModel.AllowsCharacterToSpinWithAudio, Mode=TwoWay}"
+                      Grid.Row="6"
+                      Grid.Column="7">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Unchecked">
+                            <i:InvokeCommandAction Command="{Binding AllowsCharacterToSpinWithAudioUncheckedCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </CheckBox>
+
+                <Grid x:Name="spinSettingGrid"
+                      IsEnabled="{Binding IsChecked, ElementName=allowsCharacterToSpinWithAudioCheckBox, Mode=OneWay}"
+                      Grid.Row="7"
+                      Grid.Column="1"
+                      Grid.ColumnSpan="7">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Style="{StaticResource SingleLineListRow}"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Style="{StaticResource SpaceColumn}"/>
+                        <ColumnDefinition Style="{StaticResource BodyIconColumn}"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Style="{StaticResource SpaceColumn}"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Style="{StaticResource MaterialDesignBodyLargeTextBlock}"
+                               Text="스핀 속도"
+                               Grid.Row="0"
+                               Grid.Column="0"/>
+                    <Slider Style="{StaticResource MaterialDesignSlider_Indicator}"
+                            x:Name="characterSpinSpeedSlider"
+                            Minimum="-6" 
+                            Maximum="6"
+                            Value="{Binding AudioModel.CharacterSpinSpeed, Mode=TwoWay}"
+                            Grid.Row="0"
+                            Grid.Column="3"/>
+                    <TextBox Style="{StaticResource MaterialDesignFilledTextBox_SliderValue}"
+                             Grid.Row="0"
+                             Grid.Column="5" Cursor="IBeam">
+                        <TextBox.Text>
+                            <MultiBinding Converter="{converter:SliderTextBoxConverter}" StringFormat="{}{0:0.#} °/fr">
+                                <Binding Path="Value" ElementName="characterSpinSpeedSlider" Mode="TwoWay"/>
+                                <Binding Path="Minimum" ElementName="characterSpinSpeedSlider" Mode="OneTime"/>
+                                <Binding Path="Maximum" ElementName="characterSpinSpeedSlider" Mode="OneTime"/>
+                            </MultiBinding>
+                        </TextBox.Text>
+                    </TextBox>
+                </Grid>
+
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

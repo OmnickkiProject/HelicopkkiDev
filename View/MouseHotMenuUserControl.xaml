@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="HelicopkkiDev.View.MouseHotMenuUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HelicopkkiDev.View"
+             mc:Ignorable="d" 
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:converter="clr-namespace:HelicopkkiDev.View.Converter"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Name="mouseHotMenuUserControl"
+             RenderTransformOrigin="0.5 0.5"
+             d:DesignHeight="125" d:DesignWidth="77">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Style/MouseHotMenuStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="GotMouseCapture">
+            <i:InvokeCommandAction Command="{Binding HotMenuUserControlGotFocusCommand}" CommandParameter="1"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    
+    <Canvas x:Name="mouseHotMenuCanvas"
+            Visibility="{Binding MouseModel.AllowsMouseReaction, Mode=OneWay, Converter={converter:BoolToVisibilityConverter}}">
+        <Path x:Name="mouseHotMenuHeadingRangePath"
+              Style="{StaticResource MouseHotMenuPath}"
+              Canvas.Top="{Binding ActualHeight, ElementName=mouseHotMenuUserControl, Mode=OneWay, Converter={StaticResource MathConverter}, ConverterParameter='x*0.5'}"
+              Canvas.Left="{Binding ActualWidth, ElementName=mouseHotMenuUserControl, Mode=OneWay, Converter={StaticResource MathConverter}, ConverterParameter='x*0.5'}">
+            <Path.Data>
+                <EllipseGeometry x:Name="headingRangeGeometry">
+                    <EllipseGeometry.RadiusX>
+                        <MultiBinding Converter="{StaticResource MathConverter}" ConverterParameter="0.5*x*y">
+                            <Binding Path="BasicModel.CharacterSize.Length" Mode="OneWay"/>
+                            <Binding Path="MouseModel.CharacterMaxHeadingScale" Mode="OneWay"/>
+                        </MultiBinding>
+                    </EllipseGeometry.RadiusX>
+                    <EllipseGeometry.RadiusY>
+                        <Binding ElementName="headingRangeGeometry" Path="RadiusX"/>
+                    </EllipseGeometry.RadiusY>
+                </EllipseGeometry>
+            </Path.Data>
+        </Path>
+
+        <Thumb x:Name="mouseHotMenuRotateThumb"
+               Style="{StaticResource MouseHotMenuRotateThumb}"
+               Canvas.Left="{Binding ActualWidth, ElementName=mouseHotMenuUserControl, Mode=OneWay, Converter={StaticResource MathConverter}, ConverterParameter='x*0.5'}">
+            <Canvas.Top>
+                <MultiBinding Converter="{StaticResource MathConverter}" ConverterParameter="-x+0.5*y-43.0">
+                    <Binding Path="RadiusX" ElementName="headingRangeGeometry" Mode="OneWay"/>
+                    <Binding Path="ActualHeight" ElementName="mouseHotMenuUserControl" Mode="OneWay"/>
+                </MultiBinding>
+            </Canvas.Top>
+        </Thumb>
+    </Canvas>
+    
+    <ContentControl.RenderTransform>
+        <RotateTransform Angle="{Binding MouseModel.CharacterTiltedAngle, Mode=OneWay}"/>
+    </ContentControl.RenderTransform>
+</UserControl>

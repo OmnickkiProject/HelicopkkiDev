@@ -1,0 +1,96 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converter="clr-namespace:HelicopkkiDev.View.Converter"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    xmlns:PresentationOptions="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options" 
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    mc:Ignorable="PresentationOptions">
+
+    <!--AudioHotMenuPath-->
+    <Style x:Key="AudioHotMenuPath" TargetType="{x:Type Path}">
+        <Setter Property="Stroke">
+            <Setter.Value>
+                <SolidColorBrush Color="{DynamicResource InversePrimaryLightColor}" Opacity=".38"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="StrokeThickness" Value="4"/>
+        <Setter Property="StrokeDashArray" Value="0 2"/>
+        <Setter Property="StrokeDashCap" Value="Round"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding SystemModel.CurrentSettingIndex, Mode=OneWay}" Value="2">
+                <Setter Property="Stroke">
+                    <Setter.Value>
+                        <SolidColorBrush Color="{DynamicResource InversePrimaryLightColor}" Opacity="1"/>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--RotateThumbPath-->
+    <Style x:Key="RotateThumbPath" TargetType="{x:Type Path}" BasedOn="{StaticResource AudioHotMenuPath}">
+        <Setter Property="Fill">
+            <Setter.Value>
+                <SolidColorBrush PresentationOptions:Freeze="True" Color="#01FFFFFF"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="StrokeThickness" Value="4"/>
+        <Setter Property="StrokeDashArray" Value="0 1.6"/>
+        <Setter Property="StrokeDashOffset" Value="1"/>
+        <Setter Property="Data">
+            <Setter.Value>
+                <EllipseGeometry RadiusX="8"
+                                 RadiusY="8"
+                                 PresentationOptions:Freeze="True">
+                </EllipseGeometry>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--audioHotMenuRotateThumb-->
+    <Style x:Key="AudioHotMenuRotateThumb" TargetType="{x:Type Thumb}">
+        <Setter Property="Cursor" Value="ScrollAll"/>
+        <Setter Property="ToolTip" Value="스핀각 조절"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Path Style="{StaticResource RotateThumbPath}"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=jumpDanceRangePath, Path=Visibility}" Value="Visible">
+                <Setter Property="Canvas.Top">
+                    <Setter.Value>
+                        <MultiBinding Converter="{StaticResource MathConverter}" ConverterParameter="-(x-1.0)*y-50.0">
+                            <Binding Path="AudioModel.CharacterMaxDanceScale" Mode="OneWay"/>
+                            <Binding Path="ActualHeight" ElementName="audioHotMenuUserControl" Mode="OneWay"/>
+                        </MultiBinding>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding ElementName=jumpDanceRangePath, Path=Visibility}" Value="Collapsed">
+                <Setter Property="Canvas.Top">
+                    <Setter.Value>
+                        <MultiBinding Converter="{StaticResource MathConverter}" ConverterParameter="-x+0.5*y-50.0">
+                            <Binding Path="RadiusX" ElementName="scaleDanceRangeGeometry" Mode="OneWay"/>
+                            <Binding Path="ActualHeight" ElementName="audioHotMenuUserControl" Mode="OneWay"/>
+                        </MultiBinding>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--AudioHotMenuSnapPath-->
+    <Style x:Key="AudioHotMenuSnapPath" TargetType="{x:Type Path}">
+        <Setter Property="Stroke" Value="DeepPink"/>
+        <Setter Property="StrokeThickness" Value="0.5"/>
+        <Setter Property="RenderTransformOrigin" Value="0.5 0.5"/>
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <ScaleTransform ScaleY="1.5"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

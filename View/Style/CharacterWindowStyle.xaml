@@ -1,0 +1,83 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:vm="clr-namespace:HelicopkkiDev.ViewModel"
+                    xmlns:gif="http://wpfanimatedgif.codeplex.com"
+                    xmlns:v="clr-namespace:HelicopkkiDev.View"
+                    xmlns:converter="clr-namespace:HelicopkkiDev.View.Converter">
+
+    <!--HotMenu DataTemplate-->
+    <DataTemplate x:Key="BasicHotMenuTemplate">
+        <v:BasicHotMenuUserControl/>
+    </DataTemplate>
+    <DataTemplate x:Key="MouseHotMenuTemplate">
+        <v:MouseHotMenuUserControl/>
+    </DataTemplate>
+    <DataTemplate x:Key="AudioHotMenuTemplate">
+        <v:AudioHotMenuUserControl/>
+    </DataTemplate>
+
+    <!--CharacterDropShadowEffect-->
+    <DropShadowEffect x:Key="CharacterDropShadowEffect"
+                      ShadowDepth="{Binding BasicModel.CharacterShadowDepth, Mode=OneWay}" 
+                      Color="Black" 
+                      Opacity="{Binding BasicModel.CharacterShadowOpacity, Mode=OneWay}" 
+                      BlurRadius="{Binding BasicModel.CharacterShadowRadius, Mode=OneWay}"
+                      Direction="{Binding BasicModel.CharacterShadowDirection, Mode=OneWay, Converter={converter:ShadowDirectionConverter}}"/>
+
+    <!--ShadowGrid-->
+    <Style x:Key="ShadowGrid" TargetType="{x:Type Grid}">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding BasicModel.ShowsCharacterShadow, Mode=OneWay}" Value="True">
+                <Setter Property="Effect">
+                    <Setter.Value>
+                        <DynamicResource ResourceKey="CharacterDropShadowEffect"/>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+    
+    <!--ReactionGrid-->
+    <Style x:Key="ReactionGrid" TargetType="{x:Type Grid}">
+        <Setter Property="RenderTransformOrigin" Value="0.5 0.5"/>
+    </Style>
+
+    <!--ReactionCanvas-->
+    <Style x:Key="ReactionCanvas" TargetType="{x:Type Canvas}">
+        <Setter Property="RenderTransformOrigin" Value="0.5 0.5"/>
+    </Style>
+
+    <!--HotMenuGrid-->
+    <Style x:Key="HotMenuGrid" TargetType="{x:Type Grid}">
+        <Setter Property="Visibility" Value="Collapsed"/>
+        <Style.Triggers>
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding SystemModel.IsAnyWindowActive, Mode=OneWay}" Value="True"/>
+                    <Condition Binding="{Binding BasicModel.ShowsHotMenu, Mode=OneWay}" Value="True"/>
+                </MultiDataTrigger.Conditions>
+                <Setter Property="Visibility" Value="Visible"/>
+            </MultiDataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--CharacterImage-->
+    <Style x:Key="CharacterImage" TargetType="{x:Type Image}">
+        <Setter Property="RenderOptions.BitmapScalingMode" Value="HighQuality"/>
+        <Setter Property="gif:ImageBehavior.AnimatedSource" Value="pack://application:,,,/Resource/Image/Character.gif"/>
+        <Setter Property="RenderTransformOrigin" Value="0.5 0.5"/>
+    </Style>
+
+    <!--CharacterMoveThumb-->
+    <Style x:Key="CharacterMoveThumb" TargetType="{x:Type Thumb}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="RenderTransformOrigin" Value="0.5 0.5"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid Background="#01FFFFFF"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

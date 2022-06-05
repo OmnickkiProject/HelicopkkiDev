@@ -1,0 +1,317 @@
+﻿<Window x:Name="settingWindow" x:Class="HelicopkkiDev.View.SettingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HelicopkkiDev.View"
+        xmlns:m="clr-namespace:HelicopkkiDev.Model"
+        xmlns:vm="clr-namespace:HelicopkkiDev.ViewModel"
+        xmlns:converter="clr-namespace:HelicopkkiDev.View.Converter"
+        xmlns:behavior="clr-namespace:HelicopkkiDev.View.Behavior"
+        xmlns:lb="clr-namespace:HelicopkkiDev.Library"
+        xmlns:attachedBehavior="clr-namespace:HelicopkkiDev.View.AttachedBehavior"
+        mc:Ignorable="d" 
+        
+        WindowStyle="None"
+        AllowsTransparency="True"
+        ResizeMode="NoResize"
+        Background="{x:Null}"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors" 
+        Title="헬리콥끠 Dev 설정"
+        Icon="pack://application:,,,/Resource/Icon/MainIcon.ico"
+        Width="640" Height="640">
+    <Window.DataContext>
+        <vm:SettingWindowViewModel/>
+    </Window.DataContext>
+    <i:Interaction.Behaviors>
+        <behavior:SettingWindowMouseLeftButtonDownBehavior/>
+    </i:Interaction.Behaviors>
+    <attachedBehavior:DataPiping.DataPipes>
+        <attachedBehavior:DataPipeCollection>
+            <attachedBehavior:DataPipe Source="{Binding ElementName=settingWindow, Path=IsActive, Mode=OneWay}"
+                         Target="{Binding SystemModel.IsAnyWindowActive, Mode=OneWayToSource}"/>
+        </attachedBehavior:DataPipeCollection>
+    </attachedBehavior:DataPiping.DataPipes>
+    <Window.Resources>
+        <DataTemplate x:Key="BasicSettingTemplate">
+            <local:BasicSettingUserControl/>
+        </DataTemplate>
+        <DataTemplate x:Key="MouseSettingTemplate">
+            <local:MouseSettingUserControl/>
+        </DataTemplate>
+        <DataTemplate x:Key="AudioSettingTemplate">
+            <local:AudioSettingUserControl/>
+        </DataTemplate>
+        <DataTemplate x:Key="InfoDialogTemplate">
+            <local:InfoDialogUserControl/>
+        </DataTemplate>
+    </Window.Resources>
+    
+    <Grid x:Name="settingWindowBaseGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Style="{StaticResource WindowOutlineRow}"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Style="{StaticResource WindowOutlineRow}"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Style="{StaticResource WindowOutlineColumn}"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Style="{StaticResource WindowOutlineColumn}"/>
+        </Grid.ColumnDefinitions>
+        
+        <Border Style="{StaticResource WindowOuterBorder}"
+                IsEnabled="{Binding SystemModel.IsAnyWindowActive, Mode=OneWay}"
+                Grid.Row="0"
+                Grid.RowSpan="3"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"/>
+        <Border Style="{StaticResource WindowInnerBorder}"
+                Grid.Row="1"
+                Grid.Column="1">
+            <materialDesign:DialogHost>
+                <materialDesign:DialogHost.DialogContent>
+                    <ContentControl x:Name="infoDialogContentControl"
+                                    ContentTemplate="{StaticResource InfoDialogTemplate}"/>
+                </materialDesign:DialogHost.DialogContent>
+                <Grid x:Name="settingWindowInnerGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Style="{StaticResource WindowTitleRow}"/>
+                        <RowDefinition Style="{StaticResource SpaceRow}"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid x:Name="settingWindowTitleBarGrid"
+                          IsEnabled="{Binding SystemModel.IsAnyWindowActive, Mode=OneWay}"
+                          Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Style="{StaticResource SpaceColumn}"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Style="{StaticResource SpaceColumn}"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Style="{StaticResource SpaceColumn}"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Style="{StaticResource SpaceColumn}"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Style="{StaticResource MaterialDesignFlatButton_TitleBar}"
+                                Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+                                Grid.Column="1" Cursor="Hand">
+                            <Path Style="{StaticResource SettingIconPath18}"
+                                  Grid.Column="1"/>
+                        </Button>
+                        <TextBlock Style="{StaticResource MaterialDesignTitleMediumTextBlock}"
+                                   Text="설정"
+                                   Grid.Column="3"/>
+                        <Button x:Name="minimizeSettingWindowButton"
+                                Style="{StaticResource MaterialDesignFlatButton_TitleBar}"
+                                Grid.Column="4">
+                            <Path Style="{StaticResource MinimizeWindowIconPath}"/>
+                            <i:Interaction.Behaviors>
+                                <behavior:MinimizeSettingWindowButtonClickBehavior/>
+                            </i:Interaction.Behaviors>
+                        </Button>
+                        <Button x:Name="closeSettingWindowButton"
+                                Style="{StaticResource MaterialDesignFlatButton_TitleBar}"
+                                Grid.Column="6" Cursor="Hand">
+                            <Path Style="{StaticResource CloseWindowIconPath}"/>
+                            <i:Interaction.Behaviors>
+                                <behavior:CloseSettingWindowButtonClickBehavior/>
+                            </i:Interaction.Behaviors>
+                        </Button>
+                    </Grid>
+                    
+                    <Grid x:Name="settingWindowClientAreaGrid"
+                          Grid.Row="2">
+                        <TabControl Style="{StaticResource MaterialDesignNavigationRailTabControl_Normal}"
+                                    SelectedIndex="{Binding SystemModel.CurrentSettingIndex, Mode=TwoWay}">
+                            <TabItem Style="{StaticResource MaterialDesignNavigationRailTabItem_Normal}">
+                                <TabItem.Header>
+                                    <Path Style="{StaticResource BasicNavigationIconPath}"/>
+                                </TabItem.Header>
+                                <Grid Style="{StaticResource ContentGrid}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Style="{StaticResource HeadRow}"/>
+                                        <RowDefinition Style="{StaticResource SpaceRow}"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+
+                                    <materialDesign:Card Style="{StaticResource MaterialDesignCard_Head}"
+                                         Grid.Row="0"
+                                         Grid.Column="0">
+                                        <Grid x:Name="basicSettingHeadCardGrid">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Style="{StaticResource HalfSpaceColumn}"/>
+                                                <ColumnDefinition Width="1*"/>
+                                                <ColumnDefinition Style="{StaticResource HalfSpaceColumn}"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Style="{StaticResource SpaceRow}"/>
+                                                <RowDefinition Height="1*"/>
+                                                <RowDefinition Style="{StaticResource SpaceRow}"/>
+                                            </Grid.RowDefinitions>
+                                            <Canvas Style="{StaticResource HeadIconClipCanvas}"
+                                            Grid.Row="1"
+                                            Grid.Column="1">
+                                                <Path Canvas.Right="24" Canvas.Bottom="-16" Style="{StaticResource BasicHeadIconPath}"/>
+                                            </Canvas>
+                                            <Rectangle Style="{StaticResource MaterialDesignCardRectangle_BasicHead}"
+                                               Grid.Row="1"
+                                               Grid.Column="1"/>
+                                            <StackPanel Style="{StaticResource MaterialDesignTwoLineListStackPanel}"
+                                                Margin="20 0 0 0"
+                                                Grid.Row="1"
+                                                Grid.Column="1">
+                                                <Border Style="{StaticResource MaterialDesignTitleLargeBorder}"
+                                                Margin="0 0 0 8">
+                                                    <TextBlock Style="{StaticResource MaterialDesignTitleLargeTextBlock}"
+                                                       Text="기본 설정"/>
+                                                </Border>
+                                                <Border Style="{StaticResource MaterialDesignTitleMediumBorder}">
+                                                    <TextBlock Style="{StaticResource MaterialDesignTitleMediumTextBlock}"
+                                                       Text="캐릭터의 기본 속성을 설정합니다."/>
+                                                </Border>
+                                            </StackPanel>
+                                        </Grid>
+                                    </materialDesign:Card>
+
+                                    <ScrollViewer Grid.Row="2"
+                                                  Grid.Column="0">
+                                        <ContentControl x:Name="basicSettingContentControl"
+                                                        Content="{Binding BasicSettingContentView, Mode=OneWay}"
+                                                        ContentTemplate="{StaticResource BasicSettingTemplate}"/>
+                                    </ScrollViewer>
+                                </Grid>
+                            </TabItem>
+                            
+                            <TabItem Style="{StaticResource MaterialDesignNavigationRailTabItem_Normal}">
+                                <TabItem.Header>
+                                    <Path Style="{StaticResource MouseNavigationIconPath}"/>
+                                </TabItem.Header>
+                                <Grid Style="{StaticResource ContentGrid}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Style="{StaticResource HeadRow}"/>
+                                        <RowDefinition Style="{StaticResource SpaceRow}"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+
+                                    <materialDesign:Card Style="{StaticResource MaterialDesignCard_Head}"
+                                         Grid.Row="0"
+                                         Grid.Column="0">
+                                        <Grid x:Name="mouseSettingHeadCardGrid">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Style="{StaticResource HalfSpaceColumn}"/>
+                                                <ColumnDefinition Width="1*"/>
+                                                <ColumnDefinition Style="{StaticResource HalfSpaceColumn}"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Style="{StaticResource SpaceRow}"/>
+                                                <RowDefinition Height="1*"/>
+                                                <RowDefinition Style="{StaticResource SpaceRow}"/>
+                                            </Grid.RowDefinitions>
+                                            <Canvas Style="{StaticResource HeadIconClipCanvas}"
+                                            Grid.Row="1"
+                                            Grid.Column="1">
+                                                <Path Canvas.Right="24" Canvas.Bottom="-16" Style="{StaticResource MouseHeadIconPath}"/>
+                                            </Canvas>
+                                            <Rectangle Style="{StaticResource MaterialDesignCardRectangle_MouseHead}"
+                                               Grid.Row="1"
+                                               Grid.Column="1"/>
+                                            <StackPanel Style="{StaticResource MaterialDesignTwoLineListStackPanel}"
+                                                Margin="20 0 0 0"
+                                                Grid.Row="1"
+                                                Grid.Column="1">
+                                                <Border Style="{StaticResource MaterialDesignTitleLargeBorder}"
+                                                Margin="0 0 0 8">
+                                                    <TextBlock Style="{StaticResource MaterialDesignTitleLargeTextBlock}"
+                                                       Text="커서 반응 설정"/>
+                                                </Border>
+                                                <Border Style="{StaticResource MaterialDesignTitleMediumBorder}">
+                                                    <TextBlock Style="{StaticResource MaterialDesignTitleMediumTextBlock}"
+                                                       Text="마우스 커서에 따른 캐릭터의 반응을 설정합니다."/>
+                                                </Border>
+                                            </StackPanel>
+                                        </Grid>
+                                    </materialDesign:Card>
+                                    <ScrollViewer Grid.Row="2"
+                                                  Grid.Column="0">
+                                        <ContentControl x:Name="mouseSettingContentControl"
+                                                        Content="{Binding MouseSettingContentView, Mode=OneWay}"
+                                                        ContentTemplate="{StaticResource MouseSettingTemplate}"/>
+                                    </ScrollViewer>
+                                </Grid>
+                            </TabItem>
+                            
+                            <TabItem Style="{StaticResource MaterialDesignNavigationRailTabItem_Normal}">
+                                <TabItem.Header>
+                                    <Path Style="{StaticResource AudioNavigationIconPath}"/>
+                                </TabItem.Header>
+                                <Grid Style="{StaticResource ContentGrid}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Style="{StaticResource HeadRow}"/>
+                                        <RowDefinition Style="{StaticResource SpaceRow}"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+
+                                    <materialDesign:Card Style="{StaticResource MaterialDesignCard_Head}"
+                                         Grid.Row="0"
+                                         Grid.Column="0">
+                                        <Grid x:Name="audioSettingHeadCardGrid">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Style="{StaticResource HalfSpaceColumn}"/>
+                                                <ColumnDefinition Width="1*"/>
+                                                <ColumnDefinition Style="{StaticResource HalfSpaceColumn}"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Style="{StaticResource SpaceRow}"/>
+                                                <RowDefinition Height="1*"/>
+                                                <RowDefinition Style="{StaticResource SpaceRow}"/>
+                                            </Grid.RowDefinitions>
+                                            <Canvas Style="{StaticResource HeadIconClipCanvas}"
+                                            Grid.Row="1"
+                                            Grid.Column="1">
+                                                <Path Canvas.Right="24" Canvas.Bottom="-16" Style="{StaticResource AudioHeadIconPath}"/>
+                                            </Canvas>
+                                            <Rectangle Style="{StaticResource MaterialDesignCardRectangle_AudioHead}"
+                                               Grid.Row="1"
+                                               Grid.Column="1"/>
+                                            <StackPanel Style="{StaticResource MaterialDesignTwoLineListStackPanel}"
+                                                Margin="20 0 0 0"
+                                                Grid.Row="1"
+                                                Grid.Column="1">
+                                                <Border Style="{StaticResource MaterialDesignTitleLargeBorder}"
+                                                Margin="0 0 0 8">
+                                                    <TextBlock Style="{StaticResource MaterialDesignTitleLargeTextBlock}"
+                                                       Text="소리 반응 설정"/>
+                                                </Border>
+                                                <Border Style="{StaticResource MaterialDesignTitleMediumBorder}">
+                                                    <TextBlock Style="{StaticResource MaterialDesignTitleMediumTextBlock}"
+                                                       Text="소리 출력에 따른 캐릭터의 반응을 설정합니다."/>
+                                                </Border>
+                                            </StackPanel>
+                                        </Grid>
+                                    </materialDesign:Card>
+
+                                    <ScrollViewer Grid.Row="2"
+                                                  Grid.Column="0">
+                                        <ContentControl x:Name="audioSettingContentControl"
+                                                        Content="{Binding AudioSettingContentView, Mode=OneWay}"
+                                                        ContentTemplate="{StaticResource AudioSettingTemplate}"/>
+                                    </ScrollViewer>
+                                </Grid>
+                            </TabItem>
+                        </TabControl>
+
+                        <Canvas Visibility="{Binding BasicModel.ShowsFps, Mode=OneWay, Converter={converter:BoolToVisibilityConverter}}">
+                            <TextBlock Style="{StaticResource MaterialDesignBodyMediumTextBlock}"
+                                       Canvas.Right="0"
+                                       Foreground="{DynamicResource OnSurfaceVariantLightBrush}"
+                                       Text="{Binding SystemModel.Fps, Mode=OneWay, StringFormat={}FPS : {0}}"/>
+                        </Canvas>
+                    </Grid>
+                </Grid>
+            </materialDesign:DialogHost>
+        </Border>
+    </Grid>
+</Window>

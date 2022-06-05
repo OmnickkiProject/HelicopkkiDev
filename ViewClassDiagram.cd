@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="HelicopkkiDev.View.Behavior.BehaviorBase&lt;T&gt;">
+    <Position X="42" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAQAAAAAAEAQAAAAAAA=</HashCode>
+      <FileName>View\Behavior\BehaviorBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HelicopkkiDev.View.Behavior.CharacterResizeThumbDragBehavior">
+    <Position X="28" Y="3" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AEAAgAAgFAAAAAAAAAAAAAAgIAESAAECQACAAQAAAAA=</HashCode>
+      <FileName>View\Behavior\CharacterResizeThumbDragBehavior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HelicopkkiDev.View.Behavior.CharacterWindowDoubleClickBehavior">
+    <Position X="43" Y="3" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Behavior\CharacterWindowDoubleClickBehavior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HelicopkkiDev.View.Behavior.CharacterWindowLoadedAndClosedBehavior">
+    <Position X="58.25" Y="3" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>gESlQCUhFEAEDICFIOaSGBQFAeTJJlAUjIK0EAJQAik=</HashCode>
+      <FileName>View\Behavior\CharacterWindowLoadedAndClosedBehavior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HelicopkkiDev.View.Behavior.CloseCharacterWindowMenuItemClickBehavior">
+    <Position X="16.75" Y="3" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAFAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Behavior\CloseCharacterWindowMenuItemClickBehavior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HelicopkkiDev.View.Behavior.CloseSettingWindowButtonClickBehavior">
+    <Position X="31.5" Y="3" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Behavior\CloseSettingWindowButtonClickBehavior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HelicopkkiDev.View.Behavior.AllowsAudioReactionCheckBoxClickBehavior">
+    <Position X="46.5" Y="3" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBAAAAFAAAAAAEAAAAAAAAAAAIAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>View\Behavior\AllowsAudioReactionCheckBoxClickBehavior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HelicopkkiDev.View.Behavior.AllowsMouseReactionCheckBoxClickBehavior">
+    <Position X="62.25" Y="3" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAFAAAAAAAACCAABAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>View\Behavior\AllowsMouseReactionCheckBoxClickBehavior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HelicopkkiDev.View.Behavior.MinimizeSettingWindowButtonClickBehavior">
+    <Position X="20.75" Y="3" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Behavior\MinimizeSettingWindowButtonClickBehavior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HelicopkkiDev.View.Behavior.MoveThumbDragBehavior">
+    <Position X="35.25" Y="3" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgFAAAAAAAAAAAAAAgAAEAAAAAQACAAAAAAAA=</HashCode>
+      <FileName>View\Behavior\MoveThumbDragBehavior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HelicopkkiDev.View.Behavior.OpenSettingWindowMenuItemClickBehavior">
+    <Position X="50.75" Y="3" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAFAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Behavior\OpenSettingWindowMenuItemClickBehavior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HelicopkkiDev.View.Behavior.RelocateCharacterWindowMenuItemClickBehavior">
+    <Position X="66.5" Y="3" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBACAEFEAAIAAEACSAABAAAIAIAAAACIAAAAAAAAA=</HashCode>
+      <FileName>View\Behavior\RelocateCharacterWindowMenuItemClickBehavior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HelicopkkiDev.View.Behavior.RotateThumbDragBehavior">
+    <Position X="24.75" Y="3" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>ApAAAAAAFAEAgCAEIAAAAAAQJAAAAADAACCAAAAgEAA=</HashCode>
+      <FileName>View\Behavior\RotateThumbDragBehavior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HelicopkkiDev.View.Behavior.SettingWindowMouseLeftButtonDownBehavior">
+    <Position X="38.75" Y="3" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAFAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Behavior\SettingWindowMouseLeftButtonDownBehavior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HelicopkkiDev.View.Behavior.TaskbarIconDoubleClickBehavior">
+    <Position X="54.75" Y="3" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Behavior\TaskbarIconDoubleClickBehavior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HelicopkkiDev.View.Converter.BoolToVisibilityConverter">
+    <Position X="22.25" Y="12.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Converter\BoolToVisibilityConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HelicopkkiDev.View.Converter.CharacterSizeConverter">
+    <Position X="16.75" Y="12.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgCAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>View\Converter\CharacterSizeConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HelicopkkiDev.View.Converter.ConverterBase">
+    <Position X="24" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Converter\ConverterBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="HelicopkkiDev.View.Converter.MultiConverterBase">
+    <Position X="18.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Converter\MultiConverterBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="HelicopkkiDev.View.Converter.ShadowDirectionConverter">
+    <Position X="25" Y="12.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Converter\ShadowDirectionConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HelicopkkiDev.View.Converter.SliderTextBoxConverter">
+    <Position X="19.5" Y="12.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAIAIAAAAAAgAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Converter\SliderTextBoxConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HelicopkkiDev.View.AttachedBehavior.DataPiping">
+    <Position X="35.75" Y="10" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAgAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\AttachedBehavior\DataPiping.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HelicopkkiDev.View.AttachedBehavior.DataPipeCollection">
+    <Position X="33" Y="10" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\AttachedBehavior\DataPiping.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HelicopkkiDev.View.AttachedBehavior.DataPipe">
+    <Position X="29.5" Y="10" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAQAAAAAAAAACAAAAAAIAAAAAAAAAAACCA=</HashCode>
+      <FileName>View\AttachedBehavior\DataPiping.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HelicopkkiDev.View.AttachedBehavior.HyperlinkExtensions">
+    <Position X="29.5" Y="13.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAABEAAAAAAAAAACCAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\AttachedBehavior\HyperlinkExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HelicopkkiDev.View.AttachedBehavior.InputBindingsManager">
+    <Position X="32.5" Y="13.5" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAEAAAAAAAAAAAAABAAACEAAAAAAAAAAAA=</HashCode>
+      <FileName>View\AttachedBehavior\InputBindingsManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HelicopkkiDev.View.AttachedBehavior.SelectAllFocus">
+    <Position X="37.5" Y="13.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>IAACAAAAACAAAAAAAAAAIAAAAAAAAAAAAAAAAgAAAEA=</HashCode>
+      <FileName>View\AttachedBehavior\SelectAllFocus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

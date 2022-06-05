@@ -1,0 +1,158 @@
+﻿<UserControl x:Class="HelicopkkiDev.View.InfoDialogUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HelicopkkiDev.View"
+             xmlns:attachedBehavior="clr-namespace:HelicopkkiDev.View.AttachedBehavior"
+             xmlns:behavior="clr-namespace:HelicopkkiDev.View.Behavior"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             mc:Ignorable="d" 
+             
+             xmlns:gif="http://wpfanimatedgif.codeplex.com"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             Width="360" Height="480">
+    <UserControl.CacheMode>
+        <BitmapCache EnableClearType="False" 
+                     RenderAtScale="1" 
+                     SnapsToDevicePixels="False"/>
+    </UserControl.CacheMode>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="24"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="24"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="24"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="16"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="16"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="16"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="24"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="24"/>
+        </Grid.RowDefinitions>
+        <materialDesign:Card Style="{StaticResource MaterialDesignCard_Dialog}"
+                             Grid.ColumnSpan="3"
+                             Grid.RowSpan="11"/>
+
+        <Border Style="{StaticResource MaterialDesignHeadlineSmallBorder}"
+                HorizontalAlignment="Center"
+                   Grid.Column="1"
+                   Grid.Row="1">
+            <TextBlock Style="{StaticResource MaterialDesignHeadlineSmallTextBlock}"
+                   Text="헬리콥끄l Dev 2.0"/>
+        </Border>
+
+        <TextBlock Grid.Column="1"
+                   Grid.Row="3"
+                   HorizontalAlignment="Center">
+            <!--<Hyperlink NavigateUri="-"
+                       attachedBehavior:HyperlinkExtensions.IsExternal="True"
+                       TextDecorations="None">
+                <Image gif:ImageBehavior.AnimatedSource="pack://application:,,,/Resource/Image/Character.gif"
+                       RenderOptions.BitmapScalingMode="HighQuality"/>
+            </Hyperlink>-->
+            <Image gif:ImageBehavior.AnimatedSource="pack://application:,,,/Resource/Image/Character.gif"
+                    RenderOptions.BitmapScalingMode="HighQuality"/>
+        </TextBlock>
+
+        <StackPanel Orientation="Vertical"
+                    Grid.Row="5"
+                    Grid.Column="1">
+
+            <Border Style="{StaticResource MaterialDesignBodyMediumBorder}">
+                <TextBlock Style="{StaticResource MaterialDesignBodyMediumTextBlock}"
+                           HorizontalAlignment="Center"
+                       Foreground="{DynamicResource OnSurfaceVariantLightBrush}"
+                   Text="헬리콥끄l Dev는 MIT 라이선스에 따라"/>
+            </Border>
+            <Border Style="{StaticResource MaterialDesignBodyMediumBorder}">
+                <TextBlock Style="{StaticResource MaterialDesignBodyMediumTextBlock}"
+                           HorizontalAlignment="Center"
+                       Foreground="{DynamicResource OnSurfaceVariantLightBrush}"
+                   Text="자유롭게 수정하거나 재배포하실 수 있어요."/>
+            </Border>
+            <Border Style="{StaticResource MaterialDesignBodyMediumBorder}">
+                <TextBlock Style="{StaticResource MaterialDesignBodyMediumTextBlock}"
+                           HorizontalAlignment="Center"
+                       Foreground="{DynamicResource OnSurfaceVariantLightBrush}"
+                   Text="You are free to modify or redistribute"/>
+            </Border>
+            <Border Style="{StaticResource MaterialDesignBodyMediumBorder}">
+                <TextBlock Style="{StaticResource MaterialDesignBodyMediumTextBlock}"
+                           HorizontalAlignment="Center"
+                       Foreground="{DynamicResource OnSurfaceVariantLightBrush}"
+                   Text="this software under the MIT license."/>
+            </Border>
+        </StackPanel>
+
+        <!--<StackPanel Orientation="Vertical"
+                    Grid.Row="5"
+                    Grid.Column="1">
+
+            <Border Style="{StaticResource MaterialDesignBodyMediumBorder}">
+                <TextBlock Style="{StaticResource MaterialDesignBodyMediumTextBlock}"
+                           HorizontalAlignment="Center"
+                       Foreground="{DynamicResource OnSurfaceVariantLightBrush}"
+                   Text="본 소프트웨어는 위 이미지를 소유하고 계신"/>
+            </Border>
+            <Border Style="{StaticResource MaterialDesignBodyMediumBorder}">
+                <TextBlock Style="{StaticResource MaterialDesignBodyMediumTextBlock}"
+                           HorizontalAlignment="Center"
+                       Foreground="{DynamicResource OnSurfaceVariantLightBrush}"
+                   Text="트위치 스트리머 -의 허락 없이는"/>
+            </Border>
+            <Border Style="{StaticResource MaterialDesignBodyMediumBorder}">
+                <TextBlock Style="{StaticResource MaterialDesignBodyMediumTextBlock}"
+                           HorizontalAlignment="Center"
+                       Foreground="{DynamicResource OnSurfaceVariantLightBrush}"
+                   Text="상업적 이용 및 재배포가 불가합니다."/>
+            </Border>
+            <Border Style="{StaticResource MaterialDesignBodyMediumBorder}">
+                <TextBlock Style="{StaticResource MaterialDesignBodyMediumTextBlock}"
+                           HorizontalAlignment="Center"
+                       Foreground="{DynamicResource OnSurfaceVariantLightBrush}"
+                   Text="This software may not be used commercially"/>
+            </Border>
+            <Border Style="{StaticResource MaterialDesignBodyMediumBorder}">
+                <TextBlock Style="{StaticResource MaterialDesignBodyMediumTextBlock}"
+                           HorizontalAlignment="Center"
+                       Foreground="{DynamicResource OnSurfaceVariantLightBrush}"
+                   Text="or redistributed without permisson"/>
+            </Border>
+            <Border Style="{StaticResource MaterialDesignBodyMediumBorder}">
+                <TextBlock Style="{StaticResource MaterialDesignBodyMediumTextBlock}"
+                           HorizontalAlignment="Center"
+                       Foreground="{DynamicResource OnSurfaceVariantLightBrush}"
+                   Text="of the owner of the image above."/>
+            </Border>
+        </StackPanel>-->
+
+        <Border Style="{StaticResource MaterialDesignBodyMediumBorder}"
+                Grid.Row="7"
+                Grid.Column="1">
+            <TextBlock Style="{StaticResource MaterialDesignBodyMediumTextBlock}"
+                       Foreground="{DynamicResource OnSurfaceVariantLightBrush}"
+                   HorizontalAlignment="Center">GitHub : 
+            <Hyperlink NavigateUri="https://github.com/OmnickkiProject/HelicopkkiDev"
+                       attachedBehavior:HyperlinkExtensions.IsExternal="True"
+                       TextDecorations="None">OmnickkiProject/HelicopkkiDev
+            </Hyperlink>
+            </TextBlock>
+        </Border>
+
+        <Button Style="{StaticResource MaterialDesignFlatButton}"
+                HorizontalAlignment="Right"
+                Content="확인"
+                Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                Grid.Column="1"
+                Grid.Row="9" Cursor="Hand"/>
+
+
+    </Grid>
+</UserControl>

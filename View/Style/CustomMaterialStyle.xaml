@@ -1,0 +1,2016 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converter="clr-namespace:HelicopkkiDev.View.Converter"
+                    xmlns:attachedBehavior="clr-namespace:HelicopkkiDev.View.AttachedBehavior"
+                    xmlns:materialConverters="clr-namespace:MaterialDesignThemes.Wpf.Converters;assembly=MaterialDesignThemes.Wpf"
+                    xmlns:materialDesign="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    xmlns:PresentationOptions="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options" 
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:math="http://hexinnovation.com/math"
+                    mc:Ignorable="PresentationOptions">
+    
+    <math:MathConverter x:Key="MathConverter"/>
+
+    <!--Font-->
+    <FontFamily x:Key="MaterialDesignFont">pack://application:,,,/Resource/Font/#메이플스토리</FontFamily>
+
+    <!--Color-->
+    <Color x:Key="PrimaryLightColor">#765A00</Color>
+    <Color x:Key="OnPrimaryLightColor">#FFFFFF</Color>
+    <Color x:Key="PrimaryContainerLightColor">#FFDF8C</Color>
+    <Color x:Key="OnPrimaryContainerLightColor">#251A00</Color>
+
+    <Color x:Key="SecondaryLightColor">#6A5D3F</Color>
+    <Color x:Key="OnSecondaryLightColor">#FFFFFF</Color>
+    <Color x:Key="SecondaryContainerLightColor">#F3E1BB</Color>
+    <Color x:Key="OnSecondaryContainerLightColor">#231A04</Color>
+
+    <Color x:Key="TertiaryLightColor">#486649</Color>
+    <Color x:Key="OnTertiaryLightColor">#FFFFFF</Color>
+    <Color x:Key="TertiaryContainerLightColor">#CAEBC7</Color>
+    <Color x:Key="OnTertiaryContainerLightColor">#05210A</Color>
+
+    <Color x:Key="ErrorLightColor">#BA1B1B</Color>
+    <Color x:Key="OnErrorLightColor">#FFFFFF</Color>
+    <Color x:Key="ErrorContainerLightColor">#FFDAD4</Color>
+    <Color x:Key="OnErrorContainerLightColor">#410001</Color>
+
+    <Color x:Key="BackgroundLightColor">#FFFBF7</Color>
+    <Color x:Key="OnBackgroundLightColor">#1E1B16</Color>
+    <Color x:Key="SurfaceLightColor">#FFFBF7</Color>
+    <Color x:Key="OnSurfaceLightColor">#1E1B16</Color>
+
+    <Color x:Key="SurfaceVariantLightColor">#ECE1CF</Color>
+    <Color x:Key="OnSurfaceVariantLightColor">#4C4639</Color>
+    <Color x:Key="OutlineLightColor">#7E7667</Color>
+
+    <Color x:Key="InverseSurfaceLightColor">#33302A</Color>
+    <Color x:Key="InverseOnSurfaceLightColor">#F7F0E7</Color>
+    <Color x:Key="InversePrimaryLightColor">#EDC148</Color>
+
+    <!--SolidColorBrush-->
+    <!--추후 변경 유동성을 위해 DynamicResource로 참조할 것-->
+    <SolidColorBrush PresentationOptions:Freeze="True" x:Key="PrimaryLightBrush" Color="{DynamicResource PrimaryLightColor}"/>
+    <SolidColorBrush PresentationOptions:Freeze="True" x:Key="OnPrimaryLightBrush" Color="{DynamicResource OnPrimaryLightColor}"/>
+    <SolidColorBrush PresentationOptions:Freeze="True" x:Key="PrimaryContainerLightBrush" Color="{DynamicResource PrimaryContainerLightColor}"/>
+    <SolidColorBrush PresentationOptions:Freeze="True" x:Key="OnPrimaryContainerLightBrush" Color="{DynamicResource OnPrimaryContainerLightColor}"/>
+
+    <SolidColorBrush PresentationOptions:Freeze="True" x:Key="SecondaryLightBrush" Color="{DynamicResource SecondaryLightColor}"/>
+    <SolidColorBrush PresentationOptions:Freeze="True" x:Key="OnSecondaryLightBrush" Color="{DynamicResource OnSecondaryLightColor}"/>
+    <SolidColorBrush PresentationOptions:Freeze="True" x:Key="SecondaryContainerLightBrush" Color="{DynamicResource SecondaryContainerLightColor}"/>
+    <SolidColorBrush PresentationOptions:Freeze="True" x:Key="OnSecondaryContainerLightBrush" Color="{DynamicResource OnSecondaryContainerLightColor}"/>
+
+    <SolidColorBrush PresentationOptions:Freeze="True" x:Key="TertiaryLightBrush" Color="{DynamicResource TertiaryLightColor}"/>
+    <SolidColorBrush PresentationOptions:Freeze="True" x:Key="OnTertiaryLightBrush" Color="{DynamicResource OnTertiaryLightColor}"/>
+    <SolidColorBrush PresentationOptions:Freeze="True" x:Key="TertiaryContainerLightBrush" Color="{DynamicResource TertiaryContainerLightColor}"/>
+    <SolidColorBrush PresentationOptions:Freeze="True" x:Key="OnTertiaryContainerLightBrush" Color="{DynamicResource OnTertiaryContainerLightColor}"/>
+
+    <SolidColorBrush PresentationOptions:Freeze="True" x:Key="ErrorLightBrush" Color="{DynamicResource ErrorLightColor}"/>
+    <SolidColorBrush PresentationOptions:Freeze="True" x:Key="OnErrorLightBrush" Color="{DynamicResource OnErrorLightColor}"/>
+    <SolidColorBrush PresentationOptions:Freeze="True" x:Key="ErrorContainerLightBrush" Color="{DynamicResource ErrorContainerLightColor}"/>
+    <SolidColorBrush PresentationOptions:Freeze="True" x:Key="OnErrorContainerLightBrush" Color="{DynamicResource OnErrorContainerLightColor}"/>
+
+    <SolidColorBrush PresentationOptions:Freeze="True" x:Key="BackgroundLightBrush" Color="{DynamicResource BackgroundLightColor}"/>
+    <SolidColorBrush PresentationOptions:Freeze="True" x:Key="OnBackgroundLightBrush" Color="{DynamicResource OnBackgroundLightColor}"/>
+    <SolidColorBrush PresentationOptions:Freeze="True" x:Key="SurfaceLightBrush" Color="{DynamicResource SurfaceLightColor}"/>
+    <SolidColorBrush PresentationOptions:Freeze="True" x:Key="OnSurfaceLightBrush" Color="{DynamicResource OnSurfaceLightColor}"/>
+
+    <SolidColorBrush PresentationOptions:Freeze="True" x:Key="SurfaceVariantLightBrush" Color="{DynamicResource SurfaceVariantLightColor}"/>
+    <SolidColorBrush PresentationOptions:Freeze="True" x:Key="OnSurfaceVariantLightBrush" Color="{DynamicResource OnSurfaceVariantLightColor}"/>
+    <SolidColorBrush PresentationOptions:Freeze="True" x:Key="OutlineLightBrush" Color="{DynamicResource OutlineLightColor}"/>
+
+    <SolidColorBrush PresentationOptions:Freeze="True" x:Key="InverseSurfaceLightBrush" Color="{DynamicResource InverseSurfaceLightColor}"/>
+    <SolidColorBrush PresentationOptions:Freeze="True" x:Key="InverseOnSurfaceLightBrush" Color="{DynamicResource InverseOnSurfaceLightColor}"/>
+    <SolidColorBrush PresentationOptions:Freeze="True" x:Key="InversePrimaryLightBrush" Color="{DynamicResource InversePrimaryLightColor}"/>
+
+    <SolidColorBrush PresentationOptions:Freeze="True" x:Key="Surface1LightBrush" Color="{DynamicResource PrimaryLightColor}" Opacity=".05"/>
+    <SolidColorBrush PresentationOptions:Freeze="True" x:Key="Surface2LightBrush" Color="{DynamicResource PrimaryLightColor}" Opacity=".08"/>
+    <SolidColorBrush PresentationOptions:Freeze="True" x:Key="Surface3LightBrush" Color="{DynamicResource PrimaryLightColor}" Opacity=".11"/>
+    <SolidColorBrush PresentationOptions:Freeze="True" x:Key="Surface4LightBrush" Color="{DynamicResource PrimaryLightColor}" Opacity=".12"/>
+    <SolidColorBrush PresentationOptions:Freeze="True" x:Key="Surface5LightBrush" Color="{DynamicResource PrimaryLightColor}" Opacity=".14"/>
+
+
+
+    <!--TextBlock-->
+    <Style x:Key="MaterialDesignTextBlock" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontFamily" Value="{StaticResource MaterialDesignFont}"/>
+        <Setter Property="Foreground" Value="{DynamicResource OnSurfaceLightBrush}"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value=".38"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="MaterialDesignHeadlineSmallTextBlock" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource MaterialDesignTextBlock}">
+        <Setter Property="FontSize" Value="24"/>
+    </Style>
+
+    <Style x:Key="MaterialDesignTitleLargeTextBlock" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource MaterialDesignTextBlock}">
+        <Setter Property="FontSize" Value="22"/>
+    </Style>
+
+    <Style x:Key="MaterialDesignTitleMediumTextBlock" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource MaterialDesignTextBlock}">
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+    <Style x:Key="MaterialDesignBodyLargeTextBlock" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource MaterialDesignTextBlock}">
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+    <Style x:Key="MaterialDesignBodyMediumTextBlock" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource MaterialDesignTextBlock}">
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+
+    <Style x:Key="MaterialDesignLabelLargeTextBlock" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource MaterialDesignTextBlock}">
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+
+    <Style x:Key="MaterialDesignTwoLineListStackPanel" TargetType="{x:Type StackPanel}">
+        <Setter Property="Orientation" Value="Vertical"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+
+    <Style x:Key="MaterialDesignHeadlineSmallBorder" TargetType="{x:Type Border}">
+        <Setter Property="Height" Value="32"/>
+    </Style>
+    
+    <Style x:Key="MaterialDesignTitleLargeBorder" TargetType="{x:Type Border}">
+        <Setter Property="Height" Value="28"/>
+    </Style>
+
+    <Style x:Key="MaterialDesignTitleMediumBorder" TargetType="{x:Type Border}">
+        <Setter Property="Height" Value="24"/>
+    </Style>
+
+    <Style x:Key="MaterialDesignBodyLargeBorder" TargetType="{x:Type Border}">
+        <Setter Property="Height" Value="24"/>
+    </Style>
+
+    <Style x:Key="MaterialDesignBodyMediumBorder" TargetType="{x:Type Border}">
+        <Setter Property="Height" Value="20"/>
+    </Style>
+    
+    
+    <!--ContextMenu-->
+    <Style x:Key="MaterialDesignContextMenu" TargetType="{x:Type ContextMenu}" BasedOn="{StaticResource MaterialDesignMenu}">
+        <Setter Property="Width" Value="192"/>
+        <Setter Property="Background" Value="#F4EEE3"/>
+        <Setter Property="FontFamily" Value="{StaticResource MaterialDesignFont}"/>
+        <Setter Property="Foreground" Value="{DynamicResource OnSurfaceLightBrush}"/>
+        <Setter Property="TextBlock.FontSize" Value="16"/>
+        <Setter Property="materialDesign:RippleAssist.Feedback" Value="{DynamicResource PrimaryLightBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type MenuBase}">
+                    <AdornerDecorator CacheMode="{Binding RelativeSource={RelativeSource Self}, Path=(materialDesign:ShadowAssist.CacheMode)}">
+                        <Grid>
+                            <Border Background="{TemplateBinding Background}"
+                                    BorderBrush="{DynamicResource OutlineLightBrush}"
+                                    BorderThickness="1"
+                                    CornerRadius="4"/>
+
+                            <Border Margin="0 8 0 8" Background="Transparent">
+                                <ScrollViewer x:Name="SubMenuScrollViewer" Style="{DynamicResource {ComponentResourceKey ResourceId=MenuScrollViewer, TypeInTargetAssembly={x:Type FrameworkElement}}}">
+                                    <Grid RenderOptions.ClearTypeHint="Enabled">
+                                        <ItemsPresenter x:Name="ItemsPresenter"
+                                                                KeyboardNavigation.DirectionalNavigation="Cycle"
+                                                                Grid.IsSharedSizeScope="True"
+                                                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                                KeyboardNavigation.TabNavigation="Cycle"/>
+                                    </Grid>
+                                </ScrollViewer>
+                            </Border>
+                        </Grid>
+                    </AdornerDecorator>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--Separator-->
+    <Style x:Key="MaterialDesignSeparator" TargetType="{x:Type Separator}">
+        <Setter Property="Background" Value="{DynamicResource SurfaceVariantLightBrush}"/>
+        <Setter Property="MinHeight" Value="1"/>
+        <!--ContextMenu의 BorderThickness와 연결됨-->
+        <Setter Property="Margin" Value="1 0 1 0"/>
+        <Setter Property="SnapsToDevicePixels" Value="true"/>
+        <Setter Property="Height" Value="16"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Separator}">
+                    <Rectangle Height="1" Fill="{TemplateBinding Background}"
+                               HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!--MenuItem-->
+    <Style x:Key="MaterialDesignMenuItem" TargetType="{x:Type MenuItem}">
+        <!--<Setter Property="Padding" Value="24 0 24 0"></Setter>-->
+        <Setter Property="MinHeight" Value="48"/>
+        <Setter Property="Height" Value="48"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type MenuItem}">
+                    <!--<ControlTemplate.Resources>
+                        <Style TargetType="{x:Type materialDesign:PackIcon}" >
+                            <Setter Property="FrameworkElement.Width" Value="16" />
+                            <Setter Property="FrameworkElement.Height" Value="16" />
+                        </Style>
+                    </ControlTemplate.Resources>-->
+                    <Grid ClipToBounds="True">
+                        <Border x:Name="BackgroundRoot"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{DynamicResource Surface2LightBrush}"
+                                SnapsToDevicePixels="True"
+                                Visibility="Collapsed"/>
+                        <materialDesign:Ripple Background="Transparent"
+                                        HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+                                        Focusable="False"
+                                        Feedback="{DynamicResource PrimaryLightBrush}">
+                            <ContentPresenter x:Name="HeaderPresenter"
+                                      ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                      Content="{TemplateBinding Header}"
+                                      ContentStringFormat="{TemplateBinding HeaderStringFormat}"
+                                      ContentSource="Header"
+                                      RecognizesAccessKey="True"
+                                      SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Center"/>
+                        </materialDesign:Ripple>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsHighlighted" Value="True">
+                            <Setter TargetName="BackgroundRoot" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--Dialog-->
+    <Style TargetType="{x:Type materialDesign:DialogHost}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="OverlayBackground" Value="{DynamicResource OnSurfaceLightBrush}"/>
+        <!--<Setter Property="DialogMargin" Value="35" />-->
+        <Setter Property="materialDesign:ShadowAssist.ShadowDepth" Value="Depth0" />
+        <Setter Property="DialogTheme" Value="Inherit" />
+        <Setter Property="PopupStyle" Value="{StaticResource MaterialDesignDialogHostPopup}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="materialDesign:DialogHost">
+                    <Grid x:Name="DialogHostRoot" Focusable="False">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="PopupStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition From="Closed" To="Open">
+                                        <Storyboard>
+                                            <BooleanAnimationUsingKeyFrames Storyboard.TargetName="PART_Popup" Storyboard.TargetProperty="IsOpen">
+                                                <DiscreteBooleanKeyFrame Value="True" KeyTime="0" />
+                                            </BooleanAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_ContentCoverBorder" Storyboard.TargetProperty="Opacity">
+                                                <EasingDoubleKeyFrame Value="0" KeyTime="0" />
+                                                <EasingDoubleKeyFrame Value="0.32" KeyTime="0:0:0.3">
+                                                    <EasingDoubleKeyFrame.EasingFunction>
+                                                        <SineEase EasingMode="EaseInOut" />
+                                                    </EasingDoubleKeyFrame.EasingFunction>
+                                                </EasingDoubleKeyFrame>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_PopupContentElement" Storyboard.TargetProperty="Opacity">
+                                                <EasingDoubleKeyFrame Value="0" KeyTime="0" />
+                                                <EasingDoubleKeyFrame Value="1" KeyTime="0:0:0.3">
+                                                    <EasingDoubleKeyFrame.EasingFunction>
+                                                        <SineEase EasingMode="EaseInOut" />
+                                                    </EasingDoubleKeyFrame.EasingFunction>
+                                                </EasingDoubleKeyFrame>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="CardScaleTransform" Storyboard.TargetProperty="ScaleX">
+                                                <EasingDoubleKeyFrame Value="0" KeyTime="0" />
+                                                <EasingDoubleKeyFrame Value="1" KeyTime="0:0:0.3">
+                                                    <EasingDoubleKeyFrame.EasingFunction>
+                                                        <SineEase EasingMode="EaseInOut" />
+                                                    </EasingDoubleKeyFrame.EasingFunction>
+                                                </EasingDoubleKeyFrame>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="CardScaleTransform" Storyboard.TargetProperty="ScaleY">
+                                                <EasingDoubleKeyFrame Value="0" KeyTime="0" />
+                                                <EasingDoubleKeyFrame Value="1" KeyTime="0:0:0.3">
+                                                    <EasingDoubleKeyFrame.EasingFunction>
+                                                        <SineEase EasingMode="EaseInOut" />
+                                                    </EasingDoubleKeyFrame.EasingFunction>
+                                                </EasingDoubleKeyFrame>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualTransition>
+                                    <VisualTransition From="Open" To="Closed">
+                                        <Storyboard>
+                                            <BooleanAnimationUsingKeyFrames Storyboard.TargetName="PART_Popup" Storyboard.TargetProperty="IsOpen">
+                                                <DiscreteBooleanKeyFrame Value="False" KeyTime="0:0:0.3" />
+                                            </BooleanAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_ContentCoverBorder" Storyboard.TargetProperty="Opacity">
+                                                <EasingDoubleKeyFrame Value="0.32" KeyTime="0" />
+                                                <EasingDoubleKeyFrame Value="0" KeyTime="0:0:0.3">
+                                                    <EasingDoubleKeyFrame.EasingFunction>
+                                                        <SineEase EasingMode="EaseInOut" />
+                                                    </EasingDoubleKeyFrame.EasingFunction>
+                                                </EasingDoubleKeyFrame>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_PopupContentElement" Storyboard.TargetProperty="Opacity">
+                                                <EasingDoubleKeyFrame Value="1" KeyTime="0" />
+                                                <EasingDoubleKeyFrame Value="1" KeyTime="0:0:0.18" />
+                                                <EasingDoubleKeyFrame Value="0" KeyTime="0:0:0.3">
+                                                    <EasingDoubleKeyFrame.EasingFunction>
+                                                        <SineEase EasingMode="EaseInOut" />
+                                                    </EasingDoubleKeyFrame.EasingFunction>
+                                                </EasingDoubleKeyFrame>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="CardScaleTransform" Storyboard.TargetProperty="ScaleX">
+                                                <EasingDoubleKeyFrame Value="1" KeyTime="0" />
+                                                <EasingDoubleKeyFrame Value="1" KeyTime="0:0:0.18" />
+                                                <EasingDoubleKeyFrame Value="0.5" KeyTime="0:0:0.3">
+                                                    <EasingDoubleKeyFrame.EasingFunction>
+                                                        <SineEase EasingMode="EaseInOut" />
+                                                    </EasingDoubleKeyFrame.EasingFunction>
+                                                </EasingDoubleKeyFrame>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="CardScaleTransform" Storyboard.TargetProperty="ScaleY">
+                                                <EasingDoubleKeyFrame Value="1" KeyTime="0" />
+                                                <EasingDoubleKeyFrame Value="1" KeyTime="0:0:0.18" />
+                                                <EasingDoubleKeyFrame Value="0.5" KeyTime="0:0:0.3">
+                                                    <EasingDoubleKeyFrame.EasingFunction>
+                                                        <SineEase EasingMode="EaseInOut" />
+                                                    </EasingDoubleKeyFrame.EasingFunction>
+                                                </EasingDoubleKeyFrame>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualTransition>
+                                </VisualStateGroup.Transitions>
+                                <VisualState x:Name="Open">
+                                    <Storyboard>
+                                        <BooleanAnimationUsingKeyFrames Storyboard.TargetName="PART_Popup" Storyboard.TargetProperty="IsOpen"
+                                                                        Duration="0">
+                                            <DiscreteBooleanKeyFrame Value="True" KeyTime="0" />
+                                        </BooleanAnimationUsingKeyFrames>
+                                        <DoubleAnimation Storyboard.TargetName="PART_ContentCoverBorder" Storyboard.TargetProperty="Opacity"
+                                                         Duration="0"
+                                                         To=".32" />
+                                        <DoubleAnimation Storyboard.TargetName="PART_PopupContentElement" Storyboard.TargetProperty="Opacity"
+                                                         Duration="0"
+                                                         To="1" />
+                                        <DoubleAnimation Storyboard.TargetName="CardScaleTransform" Storyboard.TargetProperty="ScaleX"
+                                                         Duration="0"
+                                                         To="1" />
+                                        <DoubleAnimation Storyboard.TargetName="CardScaleTransform" Storyboard.TargetProperty="ScaleY"
+                                                         Duration="0"
+                                                         To="1" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Closed">
+                                    <Storyboard>
+                                        <BooleanAnimationUsingKeyFrames Storyboard.TargetName="PART_Popup" Storyboard.TargetProperty="IsOpen">
+                                            <DiscreteBooleanKeyFrame Value="False" KeyTime="0" />
+                                        </BooleanAnimationUsingKeyFrames>
+                                        <DoubleAnimation Storyboard.TargetName="PART_ContentCoverBorder" Storyboard.TargetProperty="Opacity"
+                                                         To="0" Duration="0"/>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <materialDesign:PopupEx PlacementTarget="{Binding ElementName=DialogHostRoot, Mode=OneWay}"
+                                     x:Name="PART_Popup" 
+                                     Style="{TemplateBinding PopupStyle}"
+                                     materialDesign:ThemeAssist.Theme="{TemplateBinding DialogTheme}">
+                            <Grid>
+                                <Border Background="Transparent" IsHitTestVisible="{TemplateBinding CloseOnClickAway}">
+                                    <Border.InputBindings>
+                                        <MouseBinding MouseAction="LeftClick"
+                                                  Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                                                  CommandParameter="{TemplateBinding CloseOnClickAwayParameter}"
+                                                  />
+                                    </Border.InputBindings>
+                                </Border>
+                                <materialDesign:Card x:Name="PART_PopupContentElement"
+                                                     Background="Transparent"
+                                          Margin="{TemplateBinding DialogMargin}"
+                                          materialDesign:ShadowAssist.ShadowDepth="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(materialDesign:ShadowAssist.ShadowDepth)}"
+                                          UniformCornerRadius="4"
+                                          TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+                                          FocusManager.IsFocusScope="False"
+                                          Foreground="{DynamicResource MaterialDesignBody}"
+                                          Focusable="True"
+                                          IsTabStop="False"
+                                          IsHitTestVisible="True"
+                                          Opacity="0"
+                                          RenderTransformOrigin=".5,.5"
+                                          Content="{TemplateBinding DialogContent}"
+                                          ContentTemplate="{TemplateBinding DialogContentTemplate}"
+                                          ContentTemplateSelector="{TemplateBinding DialogContentTemplateSelector}"
+                                          ContentStringFormat="{TemplateBinding DialogContentStringFormat}">
+                                    <materialDesign:Card.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform x:Name="CardScaleTransform"
+                                                        ScaleX="0"
+                                                        ScaleY="0" />
+                                        </TransformGroup>
+                                    </materialDesign:Card.RenderTransform>
+                                </materialDesign:Card>
+                            </Grid>
+                        </materialDesign:PopupEx>
+                        <AdornerDecorator>
+                            <ContentPresenter x:Name="ContentPresenter" Opacity="1" Content="{TemplateBinding ContentControl.Content}" 
+                                              ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}" ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}" />
+                        </AdornerDecorator>
+                        <!--CornerRadius는 WindowInnerBorder에 맞춤-->
+                        <Border x:Name="PART_ContentCoverBorder" Background="{Binding OverlayBackground, RelativeSource={RelativeSource TemplatedParent}}" 
+                              Opacity="0" IsHitTestVisible="False" Focusable="False" CornerRadius="16">
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Style.Triggers>
+                                        <Trigger Property="Opacity" Value="0">
+                                            <Setter Property="Visibility" Value="Hidden" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                            <Border.InputBindings>
+                                <MouseBinding MouseAction="LeftClick" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"/>
+                            </Border.InputBindings>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsOpen" Value="True">
+                            <Setter TargetName="PART_ContentCoverBorder" Property="IsHitTestVisible" Value="True" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="MaterialDesignCard_Dialog" TargetType="{x:Type materialDesign:Card}">
+        <Setter Property="UniformCornerRadius" Value="28"/>
+        <Setter Property="materialDesign:ShadowAssist.ShadowDepth" Value="Depth0"/>
+        <Setter Property="Background" Value="#F0E9DC"/>
+    </Style>
+    
+
+    <!--Control-->
+    <Style x:Key="MaterialDesignSlider_Normal" BasedOn="{StaticResource MaterialDesignSlider}" TargetType="{x:Type Slider}">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryLightBrush}"/>
+        <Setter Property="materialDesign:ShadowAssist.ShadowDepth" Value="Depth0" />
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Width" Value="240"/>
+        <Setter Property="materialDesign:SliderAssist.OnlyShowFocusVisualWhileDragging" Value="True"/>
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{DynamicResource OnSurfaceLightBrush}" />
+                <Setter Property="Opacity" Value=".38"/>
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Cursor" Value="Hand"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="MaterialDesignFilledTextBox_SliderValue" BasedOn="{StaticResource MaterialDesignOutlinedTextBox}" TargetType="{x:Type TextBox}">
+        <Setter Property="attachedBehavior:SelectAllFocus.Enable" Value="True"/>
+        <Setter Property="attachedBehavior:InputBindingsManager.UpdatePropertySourceWhenEnterPressed" Value="TextBox.Text"/>
+
+        <Setter Property="FontFamily" Value="{StaticResource MaterialDesignFont}"/>
+        <Setter Property="Width" Value="64"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Background" Value="{DynamicResource Surface4LightBrush}"/>
+        <Setter Property="Foreground">
+            <Setter.Value>
+                <SolidColorBrush Color="{DynamicResource OnSurfaceLightColor}"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="SelectionBrush" Value="{DynamicResource PrimaryLightBrush}"/>
+        <Setter Property="Validation.ErrorTemplate" Value="{x:Null}"/>
+        <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush" Value="{DynamicResource OutlineLightBrush}" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                    <Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Focused">
+                                    <Storyboard TargetName="RippleOnFocusScaleTransform">
+                                        <DoubleAnimation Storyboard.TargetProperty="ScaleX" From="0" To="1" Duration="0:0:0.3">
+                                            <DoubleAnimation.EasingFunction>
+                                                <SineEase EasingMode="EaseOut" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <DoubleAnimation Storyboard.TargetProperty="ScaleY" From="0" To="1" Duration="0:0:0.3">
+                                            <DoubleAnimation.EasingFunction>
+                                                <SineEase EasingMode="EaseOut" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <DoubleAnimation Storyboard.TargetProperty="ScaleX" To="0" BeginTime="0:0:0.45" Duration="0" />
+                                        <DoubleAnimation Storyboard.TargetProperty="ScaleY" To="0" BeginTime="0:0:0.45" Duration="0" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Unfocused">
+                                    <Storyboard TargetName="RippleOnFocusScaleTransform">
+                                        <DoubleAnimation Storyboard.TargetProperty="ScaleX" To="0" Duration="0" />
+                                        <DoubleAnimation Storyboard.TargetProperty="ScaleY" To="0" Duration="0" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Border
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Background="{DynamicResource MaterialDesignTextFieldBoxHoverBackground}"
+                            CornerRadius="{TemplateBinding materialDesign:TextFieldAssist.TextFieldCornerRadius}"
+                            Visibility="{TemplateBinding materialDesign:TextFieldAssist.RippleOnFocusEnabled, Converter={StaticResource BooleanToVisibilityConverter}}"
+                            RenderTransformOrigin="0.5,0.5">
+                            <Border.RenderTransform>
+                                <ScaleTransform x:Name="RippleOnFocusScaleTransform" ScaleX="0" ScaleY="0" />
+                            </Border.RenderTransform>
+                        </Border>
+                        <AdornerDecorator>
+                            <Border
+                                x:Name="border"
+                                Padding="{TemplateBinding Padding}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="{TemplateBinding materialDesign:TextFieldAssist.TextFieldCornerRadius}"
+                                SnapsToDevicePixels="True"
+                                materialDesign:BottomDashedLineAdorner.Brush="{TemplateBinding BorderBrush}"
+                                materialDesign:BottomDashedLineAdorner.Thickness="{TemplateBinding BorderThickness}">
+                                <Grid
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <materialDesign:PackIcon
+                                        Grid.Column="0"
+                                        x:Name="LeadingPackIcon"
+                                        Margin="0 0 6 0"
+                                        VerticalAlignment="Center"
+                                        Height="{TemplateBinding materialDesign:TextFieldAssist.LeadingIconSize}"
+                                        Width="{TemplateBinding materialDesign:TextFieldAssist.LeadingIconSize}"
+                                        Opacity="{TemplateBinding materialDesign:HintAssist.HintOpacity}"
+                                        Visibility="{TemplateBinding materialDesign:TextFieldAssist.HasLeadingIcon, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                        Kind="{TemplateBinding materialDesign:TextFieldAssist.LeadingIcon}" />
+
+                                    <Grid
+                                        Grid.Column="1"
+                                        x:Name="grid"
+                                        MinWidth="1">
+                                        <Grid
+                                            Grid.Column="0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <TextBlock
+                                                Grid.Column="0"
+                                                x:Name="PrefixTextBlock"
+                                                Margin="0 0 2 0"
+                                                FontSize="{TemplateBinding FontSize}"
+                                                Opacity="{TemplateBinding materialDesign:HintAssist.HintOpacity}"
+                                                Text="{TemplateBinding materialDesign:TextFieldAssist.PrefixText}">
+                                                <TextBlock.Visibility>
+                                                    <MultiBinding Converter="{StaticResource PrefixTextVisibilityConverter}">
+                                                        <Binding ElementName="Hint" Path="IsHintInFloatingPosition" />
+                                                        <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(materialDesign:TextFieldAssist.PrefixText)" />
+                                                    </MultiBinding>
+                                                </TextBlock.Visibility>
+                                            </TextBlock>
+
+                                            <ScrollViewer
+                                                Grid.Column="1"
+                                                x:Name="PART_ContentHost"
+                                                Panel.ZIndex="1"
+                                                Focusable="false"
+                                                HorizontalScrollBarVisibility="Hidden"
+                                                VerticalScrollBarVisibility="Hidden"
+                                                VerticalAlignment="Bottom"
+                                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                UseLayoutRounding="{TemplateBinding UseLayoutRounding}"
+                                                materialDesign:ScrollViewerAssist.IgnorePadding="True" />
+
+                                            <TextBlock
+                                                x:Name="SuffixTextBlock"
+                                                Grid.Column="2"
+                                                FontSize="{TemplateBinding FontSize}"
+                                                Opacity="{TemplateBinding materialDesign:HintAssist.HintOpacity}"
+                                                Text="{TemplateBinding materialDesign:TextFieldAssist.SuffixText}" />
+                                        </Grid>
+
+                                        <materialDesign:SmartHint
+                                            x:Name="Hint"
+                                            Grid.Column="0"
+                                            HintProxy="{Binding RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static materialConverters:HintProxyFabricConverter.Instance}}"
+                                            FontSize="{TemplateBinding FontSize}"
+                                            FontFamily="{TemplateBinding materialDesign:HintAssist.FontFamily}"
+                                            HintOpacity="{TemplateBinding materialDesign:HintAssist.HintOpacity}"
+                                            UseFloating="{TemplateBinding materialDesign:HintAssist.IsFloating}"
+                                            FloatingScale="{TemplateBinding materialDesign:HintAssist.FloatingScale}"
+                                            FloatingOffset="{TemplateBinding materialDesign:HintAssist.FloatingOffset}"
+                                            Margin="{TemplateBinding materialDesign:TextFieldAssist.TextBoxViewMargin}">
+                                            <materialDesign:SmartHint.Hint>
+                                                <Border
+                                                    x:Name="HintBackgroundBorder"
+                                                    Background="{TemplateBinding materialDesign:HintAssist.Background}"
+                                                    CornerRadius="2">
+                                                    <ContentPresenter
+                                                        x:Name="HintWrapper"
+                                                        Content="{TemplateBinding materialDesign:HintAssist.Hint}" />
+                                                </Border>
+                                            </materialDesign:SmartHint.Hint>
+                                        </materialDesign:SmartHint>
+
+                                    </Grid>
+
+                                    <materialDesign:PackIcon
+                                        Grid.Column="2"
+                                        x:Name="TrailingPackIcon"
+                                        Margin="4 0 0 0"
+                                        VerticalAlignment="Center"
+                                        Height="{TemplateBinding materialDesign:TextFieldAssist.TrailingIconSize}"
+                                        Width="{TemplateBinding materialDesign:TextFieldAssist.TrailingIconSize}"
+                                        Opacity="{TemplateBinding materialDesign:HintAssist.HintOpacity}"
+                                        Visibility="{TemplateBinding materialDesign:TextFieldAssist.HasTrailingIcon, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                        Kind="{TemplateBinding materialDesign:TextFieldAssist.TrailingIcon}" />
+
+                                    <Button
+                                        Grid.Column="2"
+                                        x:Name="PART_ClearButton"
+                                        Height="Auto"
+                                        Padding="2 0 0 0"
+                                        Focusable="False"
+                                        Style="{DynamicResource MaterialDesignToolButton}">
+                                        <Button.Visibility>
+                                            <MultiBinding Converter="{StaticResource ClearButtonVisibilityConverter}">
+                                                <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(materialDesign:TextFieldAssist.HasClearButton)" />
+                                                <Binding ElementName="Hint" Path="IsContentNullOrEmpty" />
+                                            </MultiBinding>
+                                        </Button.Visibility>
+                                        <materialDesign:PackIcon Margin="0" Kind="CloseCircle" />
+                                    </Button>
+                                </Grid>
+                            </Border>
+                        </AdornerDecorator>
+                        <Border
+                            x:Name="borderUnderline"
+                            Background="{TemplateBinding BorderBrush}"
+                            Height="0"
+                            CornerRadius="{TemplateBinding materialDesign:TextFieldAssist.UnderlineCornerRadius}"
+                            Visibility="{TemplateBinding materialDesign:TextFieldAssist.DecorationVisibility}"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Bottom"
+                            SnapsToDevicePixels="True" />
+                        <materialDesign:Underline
+                            x:Name="Underline"
+                            Visibility="{TemplateBinding materialDesign:TextFieldAssist.DecorationVisibility}"
+                            CornerRadius="{TemplateBinding materialDesign:TextFieldAssist.UnderlineCornerRadius}"
+                            Background="{TemplateBinding materialDesign:TextFieldAssist.UnderlineBrush}" />
+                        <Canvas
+                            VerticalAlignment="Bottom">
+                            <Grid Canvas.Top="2"
+                                  x:Name="FooterGrid"
+                                  Width="{Binding ActualWidth, ElementName=border}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock
+                                    x:Name="HelperTextTextBlock"
+                                    Style="{Binding Path=(materialDesign:HintAssist.HelperTextStyle), RelativeSource={RelativeSource TemplatedParent}}" />
+                                <Border Grid.Column="1" x:Name="CharacterCounterContainer">
+                                    <TextBlock
+                                        x:Name="CharacterCounterTextBlock"
+                                        Style="{Binding Path=(materialDesign:TextFieldAssist.CharacterCounterStyle), RelativeSource={RelativeSource TemplatedParent}}"/>
+                                </Border>
+                            </Grid>
+                        </Canvas>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="materialDesign:HintAssist.IsFloating" Value="True" />
+                                <Condition Property="IsKeyboardFocused" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="Hint" Property="Foreground" Value="{Binding Path=(materialDesign:HintAssist.Foreground), RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="Hint" Property="HintOpacity" Value="1" />
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="materialDesign:HintAssist.IsFloating" Value="True" />
+                                <Condition Property="materialDesign:TextFieldAssist.HasOutlinedTextField" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="Hint" Property="FloatingOffset">
+                                <Setter.Value>
+                                    <MultiBinding Converter="{StaticResource FloatingHintOffsetCalculationConverter}">
+                                        <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="FontFamily" />
+                                        <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="FontSize" />
+                                        <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(materialDesign:HintAssist.FloatingScale)" />
+                                        <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(materialDesign:HintAssist.FloatingOffset)" />
+                                    </MultiBinding>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="grid" Property="Margin">
+                                <Setter.Value>
+                                    <MultiBinding Converter="{StaticResource FloatingHintOffsetCalculationConverter}">
+                                        <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="FontFamily" />
+                                        <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="FontSize" />
+                                        <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(materialDesign:HintAssist.FloatingScale)" />
+                                        <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(materialDesign:HintAssist.FloatingOffset)" />
+                                    </MultiBinding>
+                                </Setter.Value>
+                            </Setter>
+                        </MultiTrigger>
+                        <Trigger Property="materialDesign:TextFieldAssist.HasFilledTextField" Value="True">
+                            <Setter Property="Padding" Value="16 8 12 8" />
+                            <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxBackground}" />
+                            <Setter Property="materialDesign:TextFieldAssist.TextBoxViewMargin" Value="{x:Static materialDesign:Constants.DefaultTextBoxViewMarginEmbedded}" />
+                            <Setter TargetName="HelperTextTextBlock" Property="Margin" Value="16 0 0 0" />
+                        </Trigger>
+                        <Trigger Property="materialDesign:TextFieldAssist.HasOutlinedTextField" Value="True">
+                            <Setter Property="VerticalContentAlignment" Value="Center" />
+                            <!--<Setter Property="BorderThickness" Value="1" />
+                            <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextAreaBorder}" />-->
+                            <Setter Property="Padding" Value="8 0 8 0" />
+                            <Setter Property="materialDesign:TextFieldAssist.TextBoxViewMargin" Value="{x:Static materialDesign:Constants.DefaultTextBoxViewMarginEmbedded}" />
+                            <Setter TargetName="Underline" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="Hint" Property="HintOpacity" Value="1" />
+                            <Setter TargetName="HintWrapper" Property="Opacity"
+                                    Value="{Binding Path=(materialDesign:HintAssist.HintOpacity), RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="Hint" Property="FloatingOffset">
+                                <Setter.Value>
+                                    <MultiBinding Converter="{StaticResource FloatingHintOffsetCalculationConverter}">
+                                        <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="FontFamily" />
+                                        <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="FontSize" />
+                                        <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(materialDesign:HintAssist.FloatingScale)" />
+                                        <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(materialDesign:HintAssist.FloatingOffset)" />
+                                        <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="Padding" />
+                                    </MultiBinding>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="HelperTextTextBlock" Property="Margin" Value="16 0 0 0" />
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="materialDesign:TextFieldAssist.HasOutlinedTextField" Value="True" />
+                                <Condition Property="materialDesign:HintAssist.IsFloating" Value="True" />
+                                <Condition SourceName="Hint" Property="IsHintInFloatingPosition" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="HintBackgroundBorder" Property="Padding" Value="4, 0" />
+                            <Setter Property="materialDesign:HintAssist.Background" Value="{DynamicResource MaterialDesignPaper}" />
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="materialDesign:TextFieldAssist.HasOutlinedTextField" Value="True" />
+                                <Condition Property="materialDesign:HintAssist.IsFloating" Value="True" />
+                                <Condition Property="IsKeyboardFocused" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="HintWrapper" Property="Opacity" Value="1" />
+                        </MultiTrigger>
+                        <DataTrigger Value="0">
+                            <DataTrigger.Binding>
+                                <PriorityBinding>
+                                    <Binding Path="MaxLength" RelativeSource="{RelativeSource Self}" FallbackValue="0" />
+                                    <Binding Source="0" />
+                                </PriorityBinding>
+                            </DataTrigger.Binding>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="CharacterCounterContainer"/>
+                        </DataTrigger>
+
+                        <!-- IsEnabled -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsEnabled" Value="False" />
+                                <Condition Property="materialDesign:TextFieldAssist.HasOutlinedTextField" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="border" Property="BorderBrush" Value="Transparent" />
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsEnabled" Value="False" />
+                                <Condition Property="materialDesign:TextFieldAssist.HasOutlinedTextField" Value="False" />
+                                <Condition Property="materialDesign:TextFieldAssist.HasFilledTextField" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="grid" Property="Opacity" Value="{x:Static materialDesign:Constants.TextBoxNotEnabledOpacity}" />
+                            <Setter TargetName="border" Property="materialDesign:BottomDashedLineAdorner.IsAttached" Value="True" />
+                            <Setter TargetName="borderUnderline" Property="Height" Value="0" />
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsEnabled" Value="False" />
+                                <Condition Property="materialDesign:TextFieldAssist.HasFilledTextField" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="border" Property="Opacity" Value="{x:Static materialDesign:Constants.TextBoxNotEnabledOpacity}" />
+                            <Setter TargetName="borderUnderline" Property="Opacity" Value="{x:Static materialDesign:Constants.TextBoxNotEnabledOpacity}" />
+                            <Setter TargetName="borderUnderline" Property="Height" Value="1" />
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsEnabled" Value="False" />
+                                <Condition Property="materialDesign:TextFieldAssist.HasOutlinedTextField" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextAreaInactiveBorder}" />
+                            <Setter TargetName="PrefixTextBlock" Property="Opacity" Value="{x:Static materialDesign:Constants.TextBoxNotEnabledOpacity}" />
+                            <Setter TargetName="PART_ContentHost" Property="Opacity" Value="{x:Static materialDesign:Constants.TextBoxNotEnabledOpacity}" />
+                            <Setter TargetName="SuffixTextBlock" Property="Opacity" Value="{x:Static materialDesign:Constants.TextBoxNotEnabledOpacity}" />
+                            <Setter TargetName="PART_ClearButton" Property="Opacity" Value="{x:Static materialDesign:Constants.TextBoxNotEnabledOpacity}" />
+                            <Setter TargetName="HintWrapper" Property="Opacity">
+                                <Setter.Value>
+                                    <Binding
+                                        Path="(materialDesign:HintAssist.HintOpacity)"
+                                        RelativeSource="{RelativeSource TemplatedParent}"
+                                        Converter="{StaticResource MathMultiplyConverter}"
+                                        ConverterParameter="{x:Static materialDesign:Constants.TextBoxNotEnabledOpacity}" />
+                                </Setter.Value>
+                            </Setter>
+                        </MultiTrigger>
+
+                        <!-- IsKeyboardFocused -->
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter TargetName="Underline" Property="IsActive" Value="True" />
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsKeyboardFocused" Value="True" />
+                                <Condition Property="materialDesign:TextFieldAssist.HasOutlinedTextField" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <!--<Setter TargetName="border" Property="Margin" Value="-1" />-->
+                            <Setter Property="BorderThickness" Value="1" />
+                            <!--<Setter Property="BorderBrush" Value="{Binding Path=(materialDesign:TextFieldAssist.UnderlineBrush), RelativeSource={RelativeSource Self}}" />-->
+                            <Setter Property="BorderBrush" Value="{DynamicResource OutlineLightBrush}" />
+                            <Setter Property="Background" Value="{DynamicResource PrimaryContainerLightBrush}"/>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsKeyboardFocused" Value="True" />
+                                <Condition Property="materialDesign:TextFieldAssist.HasFilledTextField" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="borderUnderline" Property="Height" Value="2" />
+                        </MultiTrigger>
+
+                        <!-- IsMouseOver -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True" />
+                                <Condition Property="materialDesign:TextFieldAssist.HasFilledTextField" Value="False" />
+                                <Condition Property="materialDesign:TextFieldAssist.HasOutlinedTextField" Value="False" />
+                                <Condition Property="materialDesign:TextFieldAssist.NewSpecHighlightingEnabled" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <Setter Property="BorderBrush" Value="{Binding Path=(materialDesign:TextFieldAssist.UnderlineBrush), RelativeSource={RelativeSource Self}}" />
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True" />
+                                <Condition Property="materialDesign:TextFieldAssist.HasFilledTextField" Value="False" />
+                                <Condition Property="materialDesign:TextFieldAssist.HasOutlinedTextField" Value="False" />
+                                <Condition Property="materialDesign:TextFieldAssist.NewSpecHighlightingEnabled" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="border" Property="BorderThickness" Value="0,0,0,2" />
+                            <Setter TargetName="border" Property="Padding" Value="0,4,0,3" />
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True" />
+                                <Condition Property="materialDesign:TextFieldAssist.HasFilledTextField" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxHoverBackground}" />
+                            <Setter TargetName="borderUnderline" Property="Height" Value="1" />
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True" />
+                                <Condition Property="IsKeyboardFocused" Value="False" />
+                                <Condition Property="materialDesign:TextFieldAssist.HasOutlinedTextField" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <!--<Setter TargetName="border" Property="Margin" Value="-1" />-->
+                            <Setter Property="BorderThickness" Value="1" />
+                        </MultiTrigger>
+
+                        <!-- Validation.HasError -->
+                        <Trigger Property="Validation.HasError" Value="true">
+                            <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignValidationErrorBrush}"/>
+                            <Setter TargetName="Underline" Property="Background" Value="{DynamicResource MaterialDesignValidationErrorBrush}"/>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="Validation.HasError" Value="True" />
+                                <Condition Property="materialDesign:TextFieldAssist.HasOutlinedTextField" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <!--<Setter TargetName="border" Property="Margin" Value="-1" />-->
+                            <Setter Property="BorderThickness" Value="2" />
+                            <Setter Property="BorderBrush" Value="{DynamicResource ErrorLightBrush}" />
+                            <!--<Setter Property="Margin" Value="0,0,1,0" TargetName="FooterGrid" />-->
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsKeyboardFocused" Value="True" />
+                                <Condition Property="Validation.HasError" Value="True" />
+                                <Condition Property="materialDesign:TextFieldAssist.HasOutlinedTextField" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Background" Value="{DynamicResource ErrorContainerLightBrush}"/>
+                        </MultiTrigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Background">
+                                <Setter.Value>
+                                    <SolidColorBrush Color="{DynamicResource PrimaryLightColor}" Opacity="0.0456"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        
+    </Style>
+
+    <Style x:Key="MaterialDesignSlider_Indicator" BasedOn="{StaticResource MaterialDesignSlider_Normal}" TargetType="{x:Type Slider}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Slider}">
+                    <Border
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Background="{TemplateBinding Background}"
+                        SnapsToDevicePixels="True"
+                        UseLayoutRounding="True">
+                        <Grid SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" UseLayoutRounding="{TemplateBinding UseLayoutRounding}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto" MinHeight="{TemplateBinding MinHeight}"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <TickBar x:Name="TopTick" Grid.ColumnSpan="2" Fill="{TemplateBinding Foreground}" Height="4" Margin="0,0,0,2" Placement="Top" Grid.Row="0" Visibility="Collapsed" />
+                            <TickBar x:Name="BottomTick" Grid.ColumnSpan="2" Fill="{TemplateBinding Foreground}" Height="4" Margin="0,2,0,0" Placement="Bottom" Grid.Row="2" Visibility="Collapsed"/>
+                            <Rectangle Grid.Row="1" Grid.ColumnSpan="2" Fill="{TemplateBinding Foreground}" Height="4" Opacity="0.38" VerticalAlignment="Center" RadiusX="2" RadiusY="2" />
+                            <Border
+                                x:Name="activeTrack"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Background="{TemplateBinding Foreground}"
+                                CornerRadius="3,3,3,3"
+                                Height="6"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center">
+                                <Border.Width>
+                                    <MultiBinding Converter="{StaticResource MathConverter}" ConverterParameter="abs(x-y)*0.5">
+                                        <Binding Path="DecreaseRepeatButton.ActualWidth" ElementName="PART_Track"/>
+                                        <Binding Path="IncreaseRepeatButton.ActualWidth" ElementName="PART_Track"/>
+                                    </MultiBinding>
+                                </Border.Width>
+                            </Border>
+                            <!--  Selection range must be wrapped in a Canvas for the position to be updated correctly  -->
+                            <Canvas Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" Height="6">
+                                <Rectangle x:Name="PART_SelectionRange" Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Height="6" RadiusX="2" RadiusY="2" Visibility="Collapsed" />
+                            </Canvas>
+                            <Track x:Name="PART_Track" Grid.Row="1" Grid.ColumnSpan="2" Height="20">
+                                <Track.DecreaseRepeatButton>
+                                    <RepeatButton Command="{x:Static Slider.DecreaseLarge}" Style="{StaticResource MaterialDesignRepeatButton}" />
+                                </Track.DecreaseRepeatButton>
+                                <Track.IncreaseRepeatButton>
+                                    <RepeatButton Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource MaterialDesignRepeatButton}" />
+                                </Track.IncreaseRepeatButton>
+                                <!--  It's important that the Thumb gets added last in the XAML to make sure it is drawn on top of both repeat buttons  -->
+                                <Track.Thumb>
+                                    <Thumb Template="{StaticResource MaterialDesignSliderThumb}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Foreground="{TemplateBinding Foreground}" />
+                                </Track.Thumb>
+                            </Track>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <DataTrigger Value="True">
+                            <DataTrigger.Binding>
+                                <MultiBinding Converter="{StaticResource MathConverter}" ConverterParameter="x&lt;y">
+                                    <Binding Path="DecreaseRepeatButton.ActualWidth" ElementName="PART_Track"/>
+                                    <Binding Path="IncreaseRepeatButton.ActualWidth" ElementName="PART_Track"/>
+                                </MultiBinding>
+                            </DataTrigger.Binding>
+                            <Setter TargetName="activeTrack" Property="Grid.Column" Value="0"/>
+                            <Setter TargetName="activeTrack" Property="HorizontalAlignment" Value="Right"/>
+                        </DataTrigger>
+                        
+                        <Trigger Property="TickPlacement" Value="TopLeft">
+                            <Setter Property="Visibility" TargetName="TopTick" Value="Visible"/>
+                        </Trigger>
+                        <Trigger Property="TickPlacement" Value="BottomRight">
+                            <Setter Property="Visibility" TargetName="BottomTick" Value="Visible"/>
+                        </Trigger>
+                        <Trigger Property="TickPlacement" Value="Both">
+                            <Setter Property="Visibility" TargetName="TopTick" Value="Visible"/>
+                            <Setter Property="Visibility" TargetName="BottomTick" Value="Visible"/>
+                        </Trigger>
+                        <Trigger Property="IsSelectionRangeEnabled" Value="true">
+                            <Setter Property="Visibility" TargetName="PART_SelectionRange" Value="Visible"/>
+                        </Trigger>
+                        <Trigger Property="IsDirectionReversed" Value="True">
+                            <Setter TargetName="activeTrack" Property="CornerRadius" Value="0,3,3,0" />
+                            <Setter TargetName="activeTrack" Property="HorizontalAlignment" Value="Right" />
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="MaterialDesignSwitchToggleButton_Normal" BasedOn="{StaticResource MaterialDesignSwitchToggleButton}" TargetType="{x:Type CheckBox}">
+        <Setter Property="Background" Value="{DynamicResource PrimaryLightBrush}"/>
+        <Setter Property="materialDesign:ToggleButtonAssist.SwitchTrackOnBackground" Value="{DynamicResource PrimaryLightBrush}"/>
+        <Setter Property="materialDesign:ToggleButtonAssist.SwitchTrackOffBackground" Value="{DynamicResource OnSurfaceLightBrush}"/>
+
+        <Setter Property="materialDesign:ShadowAssist.ShadowDepth" Value="Depth0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <ControlTemplate.Resources>
+                        <SineEase x:Key="RippleEasingFunction" EasingMode="EaseInOut"/>
+                        <Storyboard x:Key="ShowRipple">
+                            <DoubleAnimation Storyboard.TargetName="RippleThumb" Storyboard.TargetProperty="Opacity"
+                                             EasingFunction="{StaticResource RippleEasingFunction}"
+                                             To="0.26" Duration="0"/>
+                            <DoubleAnimation Storyboard.TargetName="RippleThumb" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
+                                             EasingFunction="{StaticResource RippleEasingFunction}"
+                                             From="1" To="2.5" Duration="0:0:0.2"/>
+                            <DoubleAnimation Storyboard.TargetName="RippleThumb" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"
+                                             EasingFunction="{StaticResource RippleEasingFunction}"
+                                             From="1" To="2.5" Duration="0:0:0.2"/>
+                        </Storyboard>
+                        <Storyboard x:Key="HideRipple">
+                            <DoubleAnimation Storyboard.TargetName="RippleThumb" Storyboard.TargetProperty="Opacity"
+                                             EasingFunction="{StaticResource RippleEasingFunction}"
+                                             To="0" Duration="0:0:0.3"/>
+                        </Storyboard>
+                    </ControlTemplate.Resources>
+                    <Viewbox Width="34">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CheckStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition From="*" To="Checked">
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" Storyboard.TargetName="ThumbHolder">
+                                                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="23.5">
+                                                    <EasingDoubleKeyFrame.EasingFunction>
+                                                        <QuadraticEase EasingMode="EaseOut"/>
+                                                    </EasingDoubleKeyFrame.EasingFunction>
+                                                </EasingDoubleKeyFrame>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualTransition>
+                                    <VisualTransition From="Checked" To="Unchecked">
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" Storyboard.TargetName="ThumbHolder">
+                                                <EasingDoubleKeyFrame KeyTime="0" Value="23.5"/>
+                                                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0">
+                                                    <EasingDoubleKeyFrame.EasingFunction>
+                                                        <QuadraticEase EasingMode="EaseOut"/>
+                                                    </EasingDoubleKeyFrame.EasingFunction>
+                                                </EasingDoubleKeyFrame>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualTransition>
+                                </VisualStateGroup.Transitions>
+                                <VisualState x:Name="Checked">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" Storyboard.TargetName="ThumbHolder"
+                                                         Duration="0" To="23.5" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Unchecked">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" Storyboard.TargetName="ThumbHolder"
+                                                         Duration="0" To="0" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid>
+                            <Rectangle x:Name="Track" 
+                                       Fill= "{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(materialDesign:ToggleButtonAssist.SwitchTrackOffBackground)}" 
+                                       Opacity="0.26"
+                                       HorizontalAlignment="Left" 
+                                       Height="15" 
+                                       Margin="4.211,5,4.211,0" 
+                                       Stroke="{x:Null}" 
+                                       VerticalAlignment="Top" 
+                                       Width="40" 
+                                       RadiusY="7.5" 
+                                       RadiusX="7.5"/>
+                            <Grid x:Name="ThumbHolder"
+                                  HorizontalAlignment="Left" VerticalAlignment="Top">
+                                <Ellipse x:Name="RippleThumb"
+                                         Fill="{DynamicResource PrimaryLightBrush}"
+                                         Height="25" Width="25"
+                                         IsHitTestVisible="False"
+                                         Opacity="0.26"
+                                         Margin="0"
+                                         HorizontalAlignment="Center" VerticalAlignment="Center"
+                                         RenderTransformOrigin="0.5,0.5">
+                                    <Ellipse.RenderTransform>
+                                        <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                    </Ellipse.RenderTransform>
+                                </Ellipse>
+                                <AdornerDecorator CacheMode="{Binding RelativeSource={RelativeSource Self}, Path=(materialDesign:ShadowAssist.CacheMode)}">
+                                    <!--<Ellipse x:Name="Thumb"
+                                             Fill="#FFFAFAFA" Stroke="{x:Null}" 
+                                             HorizontalAlignment="Center" VerticalAlignment="Center"
+                                             Width="25" Height="25"
+                                             Margin="0,0,0,0"
+                                             RenderTransformOrigin="0.5,0.5"
+                                             Effect="{DynamicResource MaterialDesignShadowDepth1}">
+                                    </Ellipse>-->
+                                    <Ellipse x:Name="Thumb"
+                                             Fill="#FFFAFAFA" Stroke="{x:Null}" 
+                                             HorizontalAlignment="Center" VerticalAlignment="Center"
+                                             Width="25" Height="25"
+                                             Margin="0,0,0,0"
+                                             RenderTransformOrigin="0.5,0.5">
+                                    </Ellipse>
+                                </AdornerDecorator>
+                                <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}"
+                                                  Margin="{TemplateBinding Padding}"
+                                                  x:Name="ContentPresenter"
+                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                                                  FlowDirection="LeftToRight"/>
+                                <Grid.RenderTransform>
+                                    <TranslateTransform X="0" Y="0"/>
+                                </Grid.RenderTransform>
+                            </Grid>
+                        </Grid>
+                    </Viewbox>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="Thumb" Property="Fill" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Background}" />
+                            <Setter TargetName="Track" Property="Fill" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(materialDesign:ToggleButtonAssist.SwitchTrackOnBackground)}" />
+                            <!--<Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}"/>-->
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="True" />
+                                <Condition Property="materialDesign:ToggleButtonAssist.HasOnContent" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="ContentPresenter" Property="Content" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(materialDesign:ToggleButtonAssist.OnContent)}" />
+                            <Setter TargetName="ContentPresenter" Property="ContentTemplate" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(materialDesign:ToggleButtonAssist.OnContentTemplate)}" />
+                        </MultiTrigger>
+                        <!--<Trigger Property="IsChecked" Value="False">
+                            --><!--<Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}"/>-->
+                            <!--Need to set Foreground to Background here instead of hardcoded PrimaryHueMidBrush--><!--
+                        </Trigger>-->
+                        <Trigger Property="Button.IsDefaulted" Value="true"/>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard Storyboard="{StaticResource ShowRipple}"/>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard Storyboard="{StaticResource HideRipple}"/>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="True"/>
+                                <Condition Property="IsEnabled" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <!--SurfaceVarientLight + PrimaryLight .38-->
+                            <Setter TargetName="Thumb" Property="Fill" Value="#BFAD80" />
+                            <!--Default Opacity(.26) * 0.38-->
+                            <Setter TargetName="Track" Property="Opacity" Value=".0988"/>
+                            <!--<Setter TargetName="Track" Property="Fill">
+                                <Setter.Value>
+                                    <SolidColorBrush Color="Black" Opacity=".12" />
+                                </Setter.Value>
+                            </Setter>-->
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="False"/>
+                                <Condition Property="IsEnabled" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="Thumb" Property="Fill" Value="#EEEEEE" />
+                            <Setter TargetName="Track" Property="Opacity" Value="0.0988"/>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="MaterialDesignCheckBox_Normal" TargetType="{x:Type CheckBox}" BasedOn="{StaticResource MaterialDesignCheckBox}">
+        <Setter Property="Background" Value="{DynamicResource PrimaryLightBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryLightBrush}"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Cursor" Value="Hand"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="MaterialDesignDividerRectangle" TargetType="{x:Type Rectangle}">
+        <Setter Property="RadiusX" Value="0.5"/>
+        <Setter Property="RadiusY" Value="0.5"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Fill" Value="{DynamicResource OutlineLightBrush}"/>
+        <Setter Property="Height" Value="1"/>
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value=".38"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="MaterialDesignNavigationRailTabItem_Normal" TargetType="{x:Type TabItem}" BasedOn="{StaticResource MaterialDesignNavigationRailTabItem}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Margin" Value="0 6 0 6"/>
+        <Setter Property="Height" Value="72" />
+        <Setter Property="Width" Value="80" />
+
+        <Setter Property="materialDesign:RippleAssist.Feedback" Value="{DynamicResource PrimaryLightBrush}" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TabItem}">
+                    <Grid x:Name="Root"
+                          Cursor="Hand">
+                        <Grid >
+                            <Rectangle x:Name="stateIndicator"
+                                       Width="56"
+                                       Height="56"
+                                       Visibility="Hidden"
+                                       Fill="{DynamicResource SecondaryContainerLightBrush}"
+                                       RadiusX="28"
+                                       RadiusY="28"/>
+                            <Border Background="{DynamicResource Surface2LightBrush}"
+                                       x:Name="MouseOverBorder"
+                                       Visibility="Hidden"
+                                       CornerRadius="{Binding Path=(materialDesign:NavigationRailAssist.SelectionCornerRadius), RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}"/>
+                            <materialDesign:ColorZone x:Name="colorZone"
+                                           HorizontalAlignment="Stretch"
+                                           VerticalAlignment="Stretch"
+                                           Cursor="Hand"
+                                           Focusable="False"
+                                           Mode="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(materialDesign:ColorZoneAssist.Mode)}" 
+                                           Background="{x:Null}"
+                                           materialDesign:ColorZoneAssist.Background="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(materialDesign:ColorZoneAssist.Background)}"
+                                           materialDesign:ColorZoneAssist.Foreground="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(materialDesign:ColorZoneAssist.Foreground)}">
+                                <materialDesign:Ripple Focusable="False"
+                                            ClipToBounds="True"
+                                            Content="{TemplateBinding Header}"
+                                            ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                            ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+                                            ContentStringFormat="{TemplateBinding HeaderStringFormat}"
+                                            Foreground="{DynamicResource PrimaryLightBrush}"
+                                            HorizontalContentAlignment="Center"
+                                            VerticalContentAlignment="Center"
+                                            RecognizesAccessKey="True"
+                                            x:Name="contentPresenter"
+                                            Opacity="1"
+                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                            Padding="{TemplateBinding Padding}"
+                                            TextBlock.FontWeight="Medium"
+                                            TextBlock.FontSize="15"
+                                            TextOptions.TextFormattingMode="Ideal" 
+                                            TextOptions.TextRenderingMode="Auto">
+                                    <materialDesign:Ripple.Clip>
+                                        <MultiBinding Converter="{StaticResource BorderClipConverter}">
+                                            <Binding ElementName="MouseOverBorder" Path="ActualWidth" />
+                                            <Binding ElementName="MouseOverBorder" Path="ActualHeight" />
+                                            <Binding ElementName="MouseOverBorder" Path="CornerRadius" />
+                                            <Binding ElementName="MouseOverBorder" Path="BorderThickness" />
+                                        </MultiBinding>
+                                    </materialDesign:Ripple.Clip>
+                                </materialDesign:Ripple>
+                            </materialDesign:ColorZone>
+                        </Grid>
+                        <Border x:Name="SelectionHighlightBorder" 
+                                Visibility="Hidden" >
+                            <Border x:Name="PART_BackgroundSelection"
+                                       Background="{TemplateBinding Background}"
+                                       Opacity=".12"
+                                       CornerRadius="{Binding Path=(materialDesign:NavigationRailAssist.SelectionCornerRadius), RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}"/>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <!--<Setter TargetName="contentPresenter" Property="Foreground" Value="red"/>-->
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True" SourceName="Root">
+                            <Setter TargetName="MouseOverBorder" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <!--<Setter TargetName="contentPresenter" Property="Foreground" Value="{DynamicResource OnSecondaryContainerLightBrush}"/>-->
+                            <!--<Setter TargetName="contentPresenter" Property="Foreground" Value="red"/>-->
+                            <Setter TargetName="stateIndicator" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+
+                        <!--<MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsSelected" Value="True"/>
+                                <Condition Property="materialDesign:ColorZoneAssist.Mode" Value="Standard"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="contentPresenter" Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}"/>
+                        </MultiTrigger>-->
+
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="True" />
+                                <Condition Binding="{Binding Path=(materialDesign:NavigationRailAssist.ShowSelectionBackground), RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="True"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter TargetName="SelectionHighlightBorder" Property="Visibility" Value="Visible" />
+                        </MultiDataTrigger>
+
+                        <Trigger Property="materialDesign:ColorZoneAssist.Mode" Value="Standard">
+                            <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignBody}" />
+                            <Setter Property="Background" Value="{DynamicResource MaterialDesignBody}" />
+                        </Trigger>
+                        <Trigger Property="materialDesign:ColorZoneAssist.Mode" Value="PrimaryMid">
+                            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+                            <Setter Property="Background" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+                        </Trigger>
+                        <Trigger Property="materialDesign:ColorZoneAssist.Mode" Value="PrimaryLight">
+                            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueLightForegroundBrush}" />
+                            <Setter Property="Background" Value="{DynamicResource PrimaryHueLightForegroundBrush}" />
+                        </Trigger>
+                        <Trigger Property="materialDesign:ColorZoneAssist.Mode" Value="PrimaryDark">
+                            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueDarkForegroundBrush}" />
+                            <Setter Property="Background" Value="{DynamicResource PrimaryHueDarkForegroundBrush}" />
+                        </Trigger>
+                        <Trigger Property="materialDesign:ColorZoneAssist.Mode" Value="SecondaryLight">
+                            <Setter Property="BorderBrush" Value="{DynamicResource SecondaryHueLightForegroundBrush}" />
+                            <Setter Property="Background" Value="{DynamicResource SecondaryHueLightForegroundBrush}" />
+                        </Trigger>
+                        <Trigger Property="materialDesign:ColorZoneAssist.Mode" Value="SecondaryMid">
+                            <Setter Property="BorderBrush" Value="{DynamicResource SecondaryHueMidForegroundBrush}" />
+                            <Setter Property="Background" Value="{DynamicResource SecondaryHueMidForegroundBrush}" />
+                        </Trigger>
+                        <Trigger Property="materialDesign:ColorZoneAssist.Mode" Value="SecondaryDark">
+                            <Setter Property="BorderBrush" Value="{DynamicResource SecondaryHueDarkForegroundBrush}" />
+                            <Setter Property="Background" Value="{DynamicResource SecondaryHueDarkForegroundBrush}" />
+                        </Trigger>
+                        <Trigger Property="materialDesign:ColorZoneAssist.Mode" Value="Custom">
+                            <Setter Property="BorderBrush" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(materialDesign:ColorZoneAssist.Foreground)}" />
+                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(materialDesign:ColorZoneAssist.Foreground)}" />
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="MaterialDesignNavigationRailTabControl_Normal" TargetType="{x:Type TabControl}" BasedOn="{StaticResource MaterialDesignNavigatilRailTabControl}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TabControl}">
+                    <DockPanel Background="{TemplateBinding Background}" 
+                               KeyboardNavigation.TabNavigation="Local">
+                        <!--tabs-->
+                        <Grid x:Name="TabGrid" DockPanel.Dock="Left" SnapsToDevicePixels="True">
+                            <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(materialDesign:ShadowAssist.ShadowDepth)}"
+                                      materialDesign:ShadowAssist.ShadowEdges="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(materialDesign:ShadowAssist.ShadowEdges)}"
+                                      BorderBrush="{DynamicResource MaterialDesignDivider}"
+                                      BorderThickness="{TemplateBinding BorderThickness}"
+                                      UniformCornerRadius="0" x:Name="shadowCard"
+                                      Background="{TemplateBinding Background}" 
+                                      Visibility="Visible"/>
+
+                            <materialDesign:ColorZone x:Name="PART_ColorZone" 
+                                           VerticalAlignment="Stretch"
+                                           Focusable="False"
+                                           Mode="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(materialDesign:ColorZoneAssist.Mode)}" 
+                                           materialDesign:ColorZoneAssist.Background="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(materialDesign:ColorZoneAssist.Background)}"
+                                           materialDesign:ColorZoneAssist.Foreground="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(materialDesign:ColorZoneAssist.Foreground)}">
+                                <Grid Background="{Binding ElementName=PART_ColorZone, Path=Background}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="1*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="1*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <ContentPresenter Focusable="False"
+                                                      x:Name="FloatingContentPanel"
+                                                      Grid.Row="0"
+                                                      Grid.Column="0"
+                                                      HorizontalAlignment="Center"
+                                                      VerticalAlignment="Center"
+                                                      Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(materialDesign:NavigationRailAssist.FloatingContent)}" />
+                                    <UniformGrid x:Name="HeaderPanel"
+                                                 Grid.Row="1"
+                                                 Grid.Column="0"
+                                                 Columns="1"
+                                                 Rows="0" 
+                                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                 IsItemsHost="True"
+                                                 Focusable="False"
+                                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
+
+                                    <Rectangle x:Name="DividerRect" Fill="{DynamicResource MaterialDesignDivider}"
+                                               Width="1"
+                                               Height="Auto"
+                                               Grid.RowSpan="2"
+                                               HorizontalAlignment="Right"
+                                               Visibility="Collapsed"/>
+                                </Grid>
+                            </materialDesign:ColorZone>
+
+                        </Grid>
+                        <!--selected content-->
+                        <materialDesign:ColorZone x:Name="PART_ColorZoneSelectedContent" 
+                                       Padding="{TemplateBinding Padding}" 
+                                       VerticalAlignment="Stretch"
+                                       HorizontalAlignment="Stretch"
+                                       Mode="Standard" 
+                                       Foreground="{DynamicResource MaterialDesignBody}"
+                                       Background="{x:Null}">
+
+                            <ContentPresenter x:Name="PART_SelectedContentHost"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                              Focusable="False"
+                                              Margin="{TemplateBinding Padding}"
+                                              ContentSource="SelectedContent"
+                                              ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}">
+                            </ContentPresenter>
+                        </materialDesign:ColorZone>
+                    </DockPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="materialDesign:ShadowAssist.ShadowDepth" Value="Depth0">
+                            <Setter TargetName="shadowCard" Property="Visibility" Value="Collapsed" />
+                            <!--<Setter TargetName="DividerRect" Property="Visibility" Value="Visible" />-->
+                            <Setter TargetName="DividerRect" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <Trigger Property="materialDesign:ColorZoneAssist.Mode" Value="Standard">
+                            <Setter TargetName="PART_ColorZone" Property="Background" Value="Transparent"/>
+                        </Trigger>
+                        <Trigger Property="TabStripPlacement" Value="Top">
+                            <Setter Property="materialDesign:ShadowAssist.ShadowEdges" Value="Bottom"/>
+                            <Setter Property="BorderThickness" Value="0,0,0,1" />
+                            <Setter TargetName="TabGrid" Property="DockPanel.Dock" Value="Top"/>
+                            <Setter TargetName="DividerRect" Property="Width" Value="Auto" />
+                            <Setter TargetName="DividerRect" Property="Height" Value="1" />
+                            <Setter TargetName="DividerRect" Property="VerticalAlignment" Value="Bottom" />
+                            <Setter TargetName="DividerRect" Property="HorizontalAlignment" Value="Stretch" />
+                            <Setter TargetName="DividerRect" Property="Grid.ColumnSpan" Value="2" />
+                            <Setter TargetName="DividerRect" Property="Grid.RowSpan" Value="1" />
+                            <Setter TargetName="HeaderPanel" Property="Rows" Value="1"/>
+                            <Setter TargetName="HeaderPanel" Property="Columns" Value="0"/>
+                            <Setter TargetName="HeaderPanel" Property="Grid.Column" Value="1"/>
+                            <Setter TargetName="HeaderPanel" Property="Grid.Row" Value="0"/>
+                        </Trigger>
+                        <Trigger Property="TabStripPlacement" Value="Bottom">
+                            <Setter Property="materialDesign:ShadowAssist.ShadowEdges" Value="Top"/>
+                            <Setter Property="BorderThickness" Value="0,1,0,0" />
+                            <Setter TargetName="TabGrid" Property="DockPanel.Dock" Value="Bottom"/>
+                            <Setter TargetName="DividerRect" Property="Width" Value="Auto" />
+                            <Setter TargetName="DividerRect" Property="Height" Value="1" />
+                            <Setter TargetName="DividerRect" Property="VerticalAlignment" Value="Top" />
+                            <Setter TargetName="DividerRect" Property="HorizontalAlignment" Value="Stretch" />
+                            <Setter TargetName="DividerRect" Property="Grid.ColumnSpan" Value="2" />
+                            <Setter TargetName="DividerRect" Property="Grid.RowSpan" Value="1" />
+                            <Setter TargetName="HeaderPanel" Property="Rows" Value="1"/>
+                            <Setter TargetName="HeaderPanel" Property="Columns" Value="0"/>
+                            <Setter TargetName="HeaderPanel" Property="Grid.Column" Value="1"/>
+                            <Setter TargetName="HeaderPanel" Property="Grid.Row" Value="0"/>
+                        </Trigger>
+                        <Trigger Property="TabStripPlacement" Value="Right">
+                            <Setter Property="materialDesign:ShadowAssist.ShadowEdges" Value="Left"/>
+                            <Setter Property="BorderThickness" Value="1,0,0,0"/>
+                            <Setter TargetName="TabGrid" Property="DockPanel.Dock" Value="Right"/>
+                            <Setter TargetName="DividerRect" Property="HorizontalAlignment" Value="Left" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="MaterialDesignFlatButton" TargetType="{x:Type ButtonBase}">
+        <Setter Property="FontFamily" Value="{StaticResource MaterialDesignFont}"/>
+        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryLightBrush}"/>
+        <Setter Property="TextBlock.FontWeight" Value="Medium"/>
+        <Setter Property="TextBlock.FontSize" Value="14"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="24 0 24 0"/>
+        <Setter Property="Height" Value="40" />
+        <Setter Property="materialDesign:ButtonAssist.CornerRadius" Value="20" />
+        <Setter Property="materialDesign:RippleAssist.Feedback" Value="{DynamicResource PrimaryLightBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ButtonBase}">
+                    <Grid>
+                        <Border Background="{TemplateBinding Background}" x:Name="border" 
+                                CornerRadius="{Binding Path=(materialDesign:ButtonAssist.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
+                                BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                            <materialDesign:Ripple Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" Focusable="False"
+                                        ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                        Padding="{TemplateBinding Padding}"
+                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                                <materialDesign:Ripple.Clip>
+                                    <MultiBinding Converter="{StaticResource BorderClipConverter}">
+                                        <Binding ElementName="border" Path="ActualWidth" />
+                                        <Binding ElementName="border" Path="ActualHeight" />
+                                        <Binding ElementName="border" Path="CornerRadius" />
+                                        <Binding ElementName="border" Path="BorderThickness" />
+                                    </MultiBinding>
+                                </materialDesign:Ripple.Clip>
+                            </materialDesign:Ripple>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" Value="{DynamicResource Surface2LightBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="MaterialDesignFlatButton_TitleBar" TargetType="{x:Type Button}" BasedOn="{StaticResource MaterialDesignFlatButton}">
+        <Setter Property="Width" Value="40"/>
+        <Setter Property="Padding" Value="0 0 0 0"/>
+    </Style>
+
+    <Style x:Key="MaterialDesignFlatButton_Segment" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource MaterialDesignFlatButton}">
+        <Setter Property="TextBlock.FontSize" Value="16"/>
+        <Setter Property="Padding" Value="16 0 24 0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Grid>
+                        <Border Background="{TemplateBinding Background}" x:Name="border" 
+                                CornerRadius="20"
+                                BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                            <materialDesign:Ripple Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" Focusable="False"
+                                        ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                        Padding="{TemplateBinding Padding}"
+                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                                <materialDesign:Ripple.Clip>
+                                    <MultiBinding Converter="{StaticResource BorderClipConverter}">
+                                        <Binding ElementName="border" Path="ActualWidth" />
+                                        <Binding ElementName="border" Path="ActualHeight" />
+                                        <Binding ElementName="border" Path="CornerRadius" />
+                                        <Binding ElementName="border" Path="BorderThickness" />
+                                    </MultiBinding>
+                                </materialDesign:Ripple.Clip>
+                            </materialDesign:Ripple>
+                        </Border>
+                        <Border Background="{DynamicResource Surface4LightBrush}" x:Name="isCheckedBorder" 
+                                CornerRadius="20"
+                                BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
+                                Visibility="Collapsed"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="isCheckedBorder" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource Surface2LightBrush}" />
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="True"/>
+                                <Condition Property="IsEnabled" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="isCheckedBorder" Property="Opacity" Value=".38"/>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--<Style x:Key="MaterialDesignFlatToggleButton_JumpDance" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource MaterialDesignFlatToggleButton_ScaleDance}">
+        <Setter Property="BorderThickness" Value=".5,1,1,1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Border Background="{TemplateBinding Background}"
+                            CornerRadius="0,20,20,0"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter VerticalAlignment="Center"
+                                          HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>-->
+    
+    <!--Window Layout-->
+    <Style x:Key="WindowOuterBorder" TargetType="{x:Type Border}">
+        <Setter Property="CornerRadius" Value="18"/>
+        <!--SurfaceVariantLightBrush + Surface5LightBrush-->
+        <Setter Property="Background" Value="#DCCEB2"/>
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <!--.38 Opacity-->
+                <Setter Property="Background" Value="#EBE1D1"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="WindowInnerBorder" TargetType="{x:Type Border}">
+        <Setter Property="CornerRadius" Value="16"/>
+        <!--<Setter Property="Background" Value="{DynamicResource Surface2LightBrush}"/>-->
+        <Setter Property="Background" Value="#F4EEE4"/>
+    </Style>
+
+    <Style x:Key="ContentGrid" TargetType="{x:Type Grid}">
+        <Setter Property="Margin" Value="8 0 4 8"/>
+    </Style>
+
+    <!--Title Layout-->
+    <Style x:Key="MaterialDesignCard_Head" TargetType="{x:Type materialDesign:Card}">
+        <Setter Property="Margin" Value="0 0 8 0"/>
+        <Setter Property="UniformCornerRadius" Value="12"/>
+        <Setter Property="materialDesign:ShadowAssist.ShadowDepth" Value="Depth0"/>
+        <Setter Property="Background" Value="{DynamicResource SurfaceLightBrush}"/>
+    </Style>
+
+    <Style x:Key="HeadIconClipCanvas" TargetType="{x:Type Canvas}">
+        <Setter Property="ClipToBounds" Value="True"/>
+    </Style>
+
+    <Style x:Key="MaterialDesignCardRectangle_BasicHead" TargetType="{x:Type Rectangle}">
+        <Setter Property="Stroke" Value="{DynamicResource SurfaceVariantLightBrush}"/>
+        <Setter Property="StrokeThickness" Value="4"/>
+        <Setter Property="RadiusX" Value="4"/>
+        <Setter Property="RadiusY" Value="4"/>
+    </Style>
+
+    <Style x:Key="MaterialDesignCardRectangle_MouseHead" TargetType="{x:Type Rectangle}" BasedOn="{StaticResource MaterialDesignCardRectangle_BasicHead}">
+        <Setter Property="StrokeDashArray" Value="4 2"/>
+        <Setter Property="StrokeDashOffset" Value="2"/>
+    </Style>
+
+    <Style x:Key="MaterialDesignCardRectangle_AudioHead" TargetType="{x:Type Rectangle}" BasedOn="{StaticResource MaterialDesignCardRectangle_BasicHead}">
+        <Setter Property="StrokeDashArray" Value="0 2"/>
+        <Setter Property="StrokeDashCap" Value="Round"/>
+    </Style>
+
+    <!--Content Layout-->
+    <Style x:Key="MaterialDesignCard_Body" TargetType="{x:Type materialDesign:Card}">
+        <Setter Property="materialDesign:ShadowAssist.ShadowDepth" Value="Depth0"/>
+        <Setter Property="Background" Value="{DynamicResource SurfaceVariantLightBrush}"/>
+        <Setter Property="UniformCornerRadius" Value="12"/>
+    </Style>
+    
+    <!--Scroll-->
+    <Style TargetType="{x:Type ScrollBar}" BasedOn="{StaticResource MaterialDesignScrollBarMinimal}">
+        <Setter Property="BorderThickness" Value="0"/>
+        <!--외부 border의 CornerRadius 고려하여 Margin 설정함-->
+        <!--<Setter Property="Margin" Value="0 0 0 12"/>-->
+        <Setter Property="Width" Value="8"/>
+        <Setter Property="MinWidth" Value="0"/>
+        <Setter Property="materialDesign:ScrollBarAssist.ThumbWidth" Value="4"/>
+        <Setter Property="materialDesign:ScrollBarAssist.ThumbCornerRadius" Value="2"/>
+    </Style>
+
+    <Style TargetType="{x:Type ScrollViewer}" BasedOn="{StaticResource MaterialDesignScrollViewer}">
+        <Setter Property="materialDesign:ScrollViewerAssist.IsAutoHideEnabled" Value="True"/>
+    </Style>
+
+    <!--Grid.Row-->
+    <Style x:Key="HeadRow" TargetType="{x:Type RowDefinition}">
+        <Setter Property="Height" Value="128"/>
+    </Style>
+    
+    <Style x:Key="SubtitleRow" TargetType="{x:Type RowDefinition}">
+        <Setter Property="Height" Value="48"/>
+    </Style>
+
+    <Style x:Key="SingleLineListRow" TargetType="{x:Type RowDefinition}">
+        <Setter Property="Height" Value="56"/>
+    </Style>
+
+    <Style x:Key="DividerRow" TargetType="{x:Type RowDefinition}">
+        <Setter Property="Height" Value="1"/>
+    </Style>
+
+    <Style x:Key="TwoLineListRow" TargetType="{x:Type RowDefinition}">
+        <Setter Property="Height" Value="72"/>
+    </Style>
+
+    <Style x:Key="SpaceRow" TargetType="{x:Type RowDefinition}">
+        <Setter Property="Height" Value="8"/>
+    </Style>
+
+    <Style x:Key="WindowOutlineRow" TargetType="{x:Type RowDefinition}">
+        <Setter Property="Height" Value="4"/>
+    </Style>
+
+    <Style x:Key="WindowTitleRow" TargetType="{x:Type RowDefinition}">
+        <Setter Property="Height" Value="52"/>
+    </Style>
+
+    <!--Grid.Column-->
+    <Style x:Key="SpaceColumn" TargetType="{x:Type ColumnDefinition}">
+        <Setter Property="Width" Value="16"/>
+    </Style>
+
+    <Style x:Key="HalfSpaceColumn" TargetType="{x:Type ColumnDefinition}">
+        <Setter Property="Width" Value="8"/>
+    </Style>
+
+    <Style x:Key="BodyIconColumn" TargetType="{x:Type ColumnDefinition}">
+        <Setter Property="Width" Value="56"/>
+    </Style>
+
+    <Style x:Key="WindowOutlineColumn" TargetType="{x:Type ColumnDefinition}">
+        <Setter Property="Width" Value="4"/>
+    </Style>
+
+    <!--ToolTip-->
+    <Style TargetType="{x:Type ToolTip}" BasedOn="{StaticResource MaterialDesignToolTip}">
+        <Setter Property="Foreground" Value="{DynamicResource InverseOnSurfaceLightBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource InverseSurfaceLightBrush}"/>
+        <Setter Property="FontFamily" Value="{StaticResource MaterialDesignFont}"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+
+    <Style x:Key="InfoIconPathToolTip" TargetType="{x:Type ToolTip}" BasedOn="{StaticResource MaterialDesignToolTip}">
+        <Setter Property="Foreground" Value="{DynamicResource OnTertiaryContainerLightBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource TertiaryContainerLightBrush}"/>
+        <Setter Property="FontFamily" Value="{StaticResource MaterialDesignFont}"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+
+    <Style x:Key="WarningIconPathToolTip" TargetType="{x:Type ToolTip}" BasedOn="{StaticResource MaterialDesignToolTip}">
+        <Setter Property="Foreground" Value="{DynamicResource OnTertiaryContainerLightBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource PrimaryContainerLightBrush}"/>
+        <Setter Property="FontFamily" Value="{StaticResource MaterialDesignFont}"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+
+    <!--Icon-->
+    <Style x:Key="NavgationIconPath" TargetType="{x:Type Path}">
+        <Setter Property="Width" Value="24"/>
+        <Setter Property="Height" Value="24"/>
+        <Setter Property="Fill" Value="{DynamicResource OnSurfaceVariantLightBrush}"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=TabItem}}" Value="True">
+                <Setter Property="Fill" Value="{DynamicResource OnSecondaryContainerLightBrush}"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="HeadIconPath" TargetType="{x:Type Path}">
+        <Setter Property="Width" Value="24"/>
+        <Setter Property="Height" Value="24"/>
+        <Setter Property="Fill" Value="{DynamicResource Surface2LightBrush}"/>
+        <Setter Property="LayoutTransform">
+            <Setter.Value>
+                <ScaleTransform ScaleX="5" ScaleY="5"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="BodyIconPath" TargetType="{x:Type Path}">
+        <Setter Property="Width" Value="24"/>
+        <Setter Property="Height" Value="24"/>
+        <Setter Property="Fill" Value="{DynamicResource OnSurfaceVariantLightBrush}"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value=".38"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+    <Style x:Key="BasicNavigationIconPath" TargetType="{x:Type Path}" BasedOn="{StaticResource NavgationIconPath}">
+        <Setter Property="Data" Value="M12,17.27l4.15,2.51c0.76,0.46,1.69-0.22,1.49-1.08l-1.1-4.72l3.67-3.18c0.67-0.58,0.31-1.68-0.57-1.75l-4.83-0.41 l-1.89-4.46c-0.34-0.81-1.5-0.81-1.84,0L9.19,8.63L4.36,9.04c-0.88,0.07-1.24,1.17-0.57,1.75l3.67,3.18l-1.1,4.72 c-0.2,0.86,0.73,1.54,1.49,1.08L12,17.27z"/>
+        <!--<Setter Property="Data" Value="M19.5,12c0-0.23-0.01-0.45-0.03-0.68l1.86-1.41c0.4-0.3,0.51-0.86,0.26-1.3l-1.87-3.23c-0.25-0.44-0.79-0.62-1.25-0.42 l-2.15,0.91c-0.37-0.26-0.76-0.49-1.17-0.68l-0.29-2.31C14.8,2.38,14.37,2,13.87,2h-3.73C9.63,2,9.2,2.38,9.14,2.88L8.85,5.19 c-0.41,0.19-0.8,0.42-1.17,0.68L5.53,4.96c-0.46-0.2-1-0.02-1.25,0.42L2.41,8.62c-0.25,0.44-0.14,0.99,0.26,1.3l1.86,1.41 C4.51,11.55,4.5,11.77,4.5,12s0.01,0.45,0.03,0.68l-1.86,1.41c-0.4,0.3-0.51,0.86-0.26,1.3l1.87,3.23c0.25,0.44,0.79,0.62,1.25,0.42 l2.15-0.91c0.37,0.26,0.76,0.49,1.17,0.68l0.29,2.31C9.2,21.62,9.63,22,10.13,22h3.73c0.5,0,0.93-0.38,0.99-0.88l0.29-2.31 c0.41-0.19,0.8-0.42,1.17-0.68l2.15,0.91c0.46,0.2,1,0.02,1.25-0.42l1.87-3.23c0.25-0.44,0.14-0.99-0.26-1.3l-1.86-1.41 C19.49,12.45,19.5,12.23,19.5,12z M12.04,15.5c-1.93,0-3.5-1.57-3.5-3.5s1.57-3.5,3.5-3.5s3.5,1.57,3.5,3.5S13.97,15.5,12.04,15.5z"/>-->
+    </Style>
+
+    <Style x:Key="BasicHeadIconPath" TargetType="{x:Type Path}" BasedOn="{StaticResource HeadIconPath}">
+        <Setter Property="Data" Value="M12,17.27l4.15,2.51c0.76,0.46,1.69-0.22,1.49-1.08l-1.1-4.72l3.67-3.18c0.67-0.58,0.31-1.68-0.57-1.75l-4.83-0.41 l-1.89-4.46c-0.34-0.81-1.5-0.81-1.84,0L9.19,8.63L4.36,9.04c-0.88,0.07-1.24,1.17-0.57,1.75l3.67,3.18l-1.1,4.72 c-0.2,0.86,0.73,1.54,1.49,1.08L12,17.27z"/>
+        <!--<Setter Property="Data" Value="M19.5,12c0-0.23-0.01-0.45-0.03-0.68l1.86-1.41c0.4-0.3,0.51-0.86,0.26-1.3l-1.87-3.23c-0.25-0.44-0.79-0.62-1.25-0.42 l-2.15,0.91c-0.37-0.26-0.76-0.49-1.17-0.68l-0.29-2.31C14.8,2.38,14.37,2,13.87,2h-3.73C9.63,2,9.2,2.38,9.14,2.88L8.85,5.19 c-0.41,0.19-0.8,0.42-1.17,0.68L5.53,4.96c-0.46-0.2-1-0.02-1.25,0.42L2.41,8.62c-0.25,0.44-0.14,0.99,0.26,1.3l1.86,1.41 C4.51,11.55,4.5,11.77,4.5,12s0.01,0.45,0.03,0.68l-1.86,1.41c-0.4,0.3-0.51,0.86-0.26,1.3l1.87,3.23c0.25,0.44,0.79,0.62,1.25,0.42 l2.15-0.91c0.37,0.26,0.76,0.49,1.17,0.68l0.29,2.31C9.2,21.62,9.63,22,10.13,22h3.73c0.5,0,0.93-0.38,0.99-0.88l0.29-2.31 c0.41-0.19,0.8-0.42,1.17-0.68l2.15,0.91c0.46,0.2,1,0.02,1.25-0.42l1.87-3.23c0.25-0.44,0.14-0.99-0.26-1.3l-1.86-1.41 C19.49,12.45,19.5,12.23,19.5,12z M12.04,15.5c-1.93,0-3.5-1.57-3.5-3.5s1.57-3.5,3.5-3.5s3.5,1.57,3.5,3.5S13.97,15.5,12.04,15.5z"/>-->
+    </Style>
+
+
+    <Style x:Key="MouseNavigationIconPath" TargetType="{x:Type Path}" BasedOn="{StaticResource NavgationIconPath}">
+        <Setter Property="Data" Value="M5.25 3.94 19.93 10.08c.83.35 .81 1.53-.02 1.85L14.57 14c-.26.1-.47.31-.57.57l-2.06 5.33c-.32.84-1.51.86-1.86.03l-6.15-14.67c-.33-.83.5-1.66 1.32-1.32z"/>
+    </Style>
+
+    <Style x:Key="MouseHeadIconPath" TargetType="{x:Type Path}" BasedOn="{StaticResource HeadIconPath}">
+        <Setter Property="Data" Value="M5.25 3.94 19.93 10.08c.83.35 .81 1.53-.02 1.85L14.57 14c-.26.1-.47.31-.57.57l-2.06 5.33c-.32.84-1.51.86-1.86.03l-6.15-14.67c-.33-.83.5-1.66 1.32-1.32z"/>
+    </Style>
+
+    <Style x:Key="AudioNavigationIconPath" TargetType="{x:Type Path}" BasedOn="{StaticResource NavgationIconPath}">
+        <Setter Property="Data" Value="M8 18c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1s-1 .45-1 1v10c0 .55.45 1 1 1zm4 4c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1s-1 .45-1 1v18c0 .55.45 1 1 1zm-8-8c.55 0 1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1v2c0 .55.45 1 1 1zm12 4c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1s-1 .45-1 1v10c0 .55.45 1 1 1zm3-7v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1z"/>
+    </Style>
+
+    <Style x:Key="AudioHeadIconPath" TargetType="{x:Type Path}" BasedOn="{StaticResource HeadIconPath}">
+        <Setter Property="Data" Value="M8 18c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1s-1 .45-1 1v10c0 .55.45 1 1 1zm4 4c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1s-1 .45-1 1v18c0 .55.45 1 1 1zm-8-8c.55 0 1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1v2c0 .55.45 1 1 1zm12 4c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1s-1 .45-1 1v10c0 .55.45 1 1 1zm3-7v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1z"/>
+    </Style>
+    
+    <!--BodyIconPath-->
+    <Style x:Key="CharacterSizeIconPath" TargetType="{x:Type Path}" BasedOn="{StaticResource BodyIconPath}">
+        <Setter Property="Data" Value="M21 15h2v2h-2v-2zm0-4h2v2h-2v-2zm2 8h-2v2c1 0 2-1 2-2zM13 3h2v2h-2V3zm8 4h2v2h-2V7zm0-4v2h2c0-1-1-2-2-2zM1 7h2v2H1V7zm16-4h2v2h-2V3zm0 16h2v2h-2v-2zM3 3C2 3 1 4 1 5h2V3zm6 0h2v2H9V3zM5 3h2v2H5V3zm-4 8v8c0 1.1.9 2 2 2h12v-8c0-1.1-.9-2-2-2H1zm2.63 7.19l1.49-1.91c.2-.25.57-.26.78-.01l1.39 1.67 2.1-2.7c.2-.26.6-.26.79.01l2.22 2.96c.25.33.01.8-.4.8H4.02c-.41-.01-.65-.49-.39-.82z"/>
+    </Style>
+    
+    <Style x:Key="CharacterAngleIconPath" TargetType="{x:Type Path}" BasedOn="{StaticResource BodyIconPath}">
+        <Setter Property="Data" Value="M14.83 4.83L12.7 2.7c-.62-.62-1.7-.18-1.7.71v.66C7.06 4.56 4 7.92 4 12c0 3.64 2.43 6.71 5.77 7.68.62.18 1.23-.32 1.23-.96v-.03c0-.43-.27-.82-.68-.94C7.82 17.03 6 14.73 6 12c0-2.97 2.16-5.43 5-5.91v1.53c0 .89 1.07 1.33 1.7.71l2.13-2.08c.4-.38.4-1.02 0-1.42zm4.84 4.93c-.16-.55-.38-1.08-.66-1.59-.31-.57-1.1-.66-1.56-.2l-.01.01c-.31.31-.38.78-.17 1.16.2.37.36.76.48 1.16.12.42.51.7.94.7h.02c.65 0 1.15-.62.96-1.24zM13 18.68v.02c0 .65.62 1.14 1.24.96.55-.16 1.08-.38 1.59-.66.57-.31.66-1.1.2-1.56l-.02-.02c-.31-.31-.78-.38-1.16-.17-.37.21-.76.37-1.16.49-.41.12-.69.51-.69.94zm4.44-2.65c.46.46 1.25.37 1.56-.2.28-.51.5-1.04.67-1.59.18-.62-.31-1.24-.96-1.24h-.02c-.44 0-.82.28-.94.7-.12.4-.28.79-.48 1.17-.21.38-.13.86.17 1.16z"/>
+    </Style>
+
+    <Style x:Key="CharacterOpacityIconPath" TargetType="{x:Type Path}" BasedOn="{StaticResource BodyIconPath}">
+        <Setter Property="Data" Value="M17.65,7.56L17.65,7.56L12.7,2.69c-0.39-0.38-1.01-0.38-1.4,0L6.35,7.56l0,0C4.9,8.99,4,10.96,4,13.13 C4,17.48,7.58,21,12,21c4.42,0,8-3.52,8-7.87C20,10.96,19.1,8.99,17.65,7.56z M7.75,8.99L12,4.81l4.25,4.18 c0.88,0.87,2.04,2.59,1.67,5.01H6.07C5.7,11.58,6.87,9.85,7.75,8.99z"/>
+    </Style>
+
+    <Style x:Key="CharacterScaleXIconPath" TargetType="{x:Type Path}" BasedOn="{StaticResource BodyIconPath}">
+        <Setter Property="Data" Value="M15 21h2v-2h-2v2zm4-12h2V7h-2v2zM3 5v14c0 1.1.9 2 2 2h3c.55 0 1-.45 1-1s-.45-1-1-1H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h2c.55 0 1-.45 1-1s-.45-1-1-1H5c-1.1 0-2 .9-2 2zm16-2v2h2c0-1.1-.9-2-2-2zm-7 20c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1v20c0 .55.45 1 1 1zm7-6h2v-2h-2v2zM15 5h2V3h-2v2zm4 8h2v-2h-2v2zm0 8c1.1 0 2-.9 2-2h-2v2z"/>
+    </Style>
+
+    <Style x:Key="CharacterGifSpeedIconPath" TargetType="{x:Type Path}" BasedOn="{StaticResource BodyIconPath}">
+        <Setter Property="Data" Value="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M10.5,10.5c0,0.28-0.22,0.5-0.5,0.5 H8.5v2h1v-0.5c0-0.29,0.25-0.53,0.55-0.5c0.26,0.02,0.45,0.26,0.45,0.52V13c0,0.55-0.45,1-1,1h-1c-0.55,0-1-0.45-1-1v-2 c0-0.55,0.45-1,1-1H10C10.28,10,10.5,10.22,10.5,10.5z M12,10c0.28,0,0.5,0.22,0.5,0.5v3c0,0.28-0.22,0.5-0.5,0.5s-0.5-0.22-0.5-0.5 v-3C11.5,10.22,11.72,10,12,10z M14,14c-0.28,0-0.5-0.22-0.5-0.5v-3c0-0.28,0.22-0.5,0.5-0.5h2c0.28,0,0.5,0.22,0.5,0.5 S16.28,11,16,11h-1.5v0.5h1c0.28,0,0.5,0.22,0.5,0.5s-0.22,0.5-0.5,0.5h-1v1C14.5,13.78,14.28,14,14,14z"/>
+    </Style>
+
+    <Style x:Key="ShowsCharacterShadowIconPath" TargetType="{x:Type Path}" BasedOn="{StaticResource BodyIconPath}">
+        <Setter Property="Data" Value="M22.6,11.29L20,8.69V5c0-0.55-0.45-1-1-1h-3.69l-2.6-2.6c-0.39-0.39-1.02-0.39-1.41,0L8.69,4H5C4.45,4,4,4.45,4,5v3.69 l-2.6,2.6c-0.39,0.39-0.39,1.02,0,1.41L4,15.3V19c0,0.55,0.45,1,1,1h3.69l2.6,2.6c0.39,0.39,1.02,0.39,1.41,0l2.6-2.6H19 c0.55,0,1-0.45,1-1v-3.69l2.6-2.6C22.99,12.32,22.99,11.68,22.6,11.29z M17.92,12.98c-0.34,2.12-1.85,3.94-3.88,4.66 c-1.21,0.43-2.41,0.45-3.5,0.18c-0.41-0.1-0.48-0.65-0.13-0.9C11.98,15.84,13,14.04,13,12s-1.02-3.84-2.58-4.92 c-0.35-0.24-0.29-0.79,0.13-0.9c1.09-0.27,2.29-0.25,3.5,0.18c2.02,0.72,3.54,2.54,3.88,4.66C17.98,11.35,18,11.68,18,12 C17.99,12.32,17.97,12.65,17.92,12.98z"/>
+    </Style>
+
+    <Style x:Key="CharacterWindowTopmostIconPath" TargetType="{x:Type Path}" BasedOn="{StaticResource BodyIconPath}">
+        <Setter Property="Data" Value="M12.6 18.06c-.36.28-.87.28-1.23 0l-6.15-4.78c-.36-.28-.86-.28-1.22 0-.51.4-.51 1.17 0 1.57l6.76 5.26c.72.56 1.73.56 2.46 0l6.76-5.26c.51-.4.51-1.17 0-1.57l-.01-.01c-.36-.28-.86-.28-1.22 0l-6.15 4.79zm.63-3.02l6.76-5.26c.51-.4.51-1.18 0-1.58l-6.76-5.26c-.72-.56-1.73-.56-2.46 0L4.01 8.21c-.51.4-.51 1.18 0 1.58l6.76 5.26c.72.56 1.74.56 2.46-.01z"/>
+    </Style>
+
+    <Style x:Key="IsHeadingMouseIconPath" TargetType="{x:Type Path}" BasedOn="{StaticResource BodyIconPath}">
+        <Setter Property="Data" Value="M12 10.9c-.61 0-1.1.49-1.1 1.1s.49 1.1 1.1 1.1c.61 0 1.1-.49 1.1-1.1s-.49-1.1-1.1-1.1zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm2.19 12.19L6 18l3.81-8.19L18 6l-3.81 8.19z"/>
+    </Style>
+    
+    <Style x:Key="CharacterFollowIntensityIconPath" TargetType="{x:Type Path}" BasedOn="{StaticResource BodyIconPath}">
+        <Setter Property="Data" Value="M2.7,17.29c0.39,0.39,1.02,0.39,1.41,0l4.59-4.59c0.39-0.39,1.02-0.39,1.41,0l1.17,1.17c1.17,1.17,3.07,1.17,4.24,0 l4.18-4.17l1.44,1.44c0.31,0.31,0.85,0.09,0.85-0.35V6.5C22,6.22,21.78,6,21.5,6h-4.29c-0.45,0-0.67,0.54-0.35,0.85l1.44,1.44 l-4.17,4.17c-0.39,0.39-1.02,0.39-1.41,0l-1.17-1.17c-1.17-1.17-3.07-1.17-4.24,0L2.7,15.88C2.32,16.27,2.32,16.91,2.7,17.29z"/>
+    </Style>
+
+    <Style x:Key="CharacterFlipIntensityIconPath" TargetType="{x:Type Path}" BasedOn="{StaticResource BodyIconPath}">
+        <Setter Property="Data" Value="M21.65,7.65l-2.79-2.79C18.54,4.54,18,4.76,18,5.21V7H4C3.45,7,3,7.45,3,8s0.45,1,1,1h14v1.79c0,0.45,0.54,0.67,0.85,0.35 l2.79-2.79C21.84,8.16,21.84,7.84,21.65,7.65z M20,15H6v-1.79c0-0.45-0.54-0.67-0.85-0.35l-2.79,2.79c-0.2,0.19-0.2,0.51-0.01,0.7l2.79,2.79C5.46,19.46,6,19.24,6,18.79 V17h14c0.55,0,1-0.45,1-1S20.55,15,20,15z"/>
+    </Style>
+
+    <Style x:Key="CharacterTiltIntensityIconPath" TargetType="{x:Type Path}" BasedOn="{StaticResource BodyIconPath}">
+        <Setter Property="Data" Value="M17.65 17.65c1.63-1.63 2.57-3.94 2.31-6.48-.37-3.67-3.35-6.69-7.02-7.1C8.09 3.52 4 7.27 4 12c0 3.19 1.87 5.93 4.56 7.21.67 .32 1.44-.16 1.44-.9 0-.37-.2-.72-.53-.88-2.43-1.13-3.97-3.84-3.31-6.8.49-2.22 2.3-4.01 4.52-4.48C14.56 5.31 18 8.26 18 12c0 1.66-.69 3.14-1.78 4.22l-1.51-1.51c-.63-.63-1.71-.19-1.71.7L13 19c0 .55.45 1 1 1L17.59 20c.89 0 1.34-1.08.71-1.71l-.65-.64z"/>
+    </Style>
+
+    <Style x:Key="InfoIconPath" TargetType="{x:Type Path}" BasedOn="{StaticResource BodyIconPath}">
+        <Setter Property="Fill" Value="{DynamicResource SecondaryLightBrush}"/>
+        <Setter Property="Data" Value="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 15c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1s1 .45 1 1v4c0 .55-.45 1-1 1zm1-8h-2V7h2v2z"/>
+    </Style>
+
+    <Style x:Key="WarningIconPath" TargetType="{x:Type Path}" BasedOn="{StaticResource BodyIconPath}">
+        <Setter Property="Fill" Value="{DynamicResource SecondaryLightBrush}"/>
+        <Setter Property="Data" Value="M2.725 21Q2.15 21 1.875 20.5Q1.6 20 1.875 19.5L11.125 3.5Q11.4 3 12 3Q12.6 3 12.875 3.5L22.125 19.5Q22.4 20 22.125 20.5Q21.85 21 21.275 21ZM12 10Q11.575 10 11.288 10.287Q11 10.575 11 11V14Q11 14.425 11.288 14.712Q11.575 15 12 15Q12.425 15 12.713 14.712Q13 14.425 13 14V11Q13 10.575 12.713 10.287Q12.425 10 12 10ZM12 18Q12.425 18 12.713 17.712Q13 17.425 13 17Q13 16.575 12.713 16.288Q12.425 16 12 16Q11.575 16 11.288 16.288Q11 16.575 11 17Q11 17.425 11.288 17.712Q11.575 18 12 18Z"/>
+    </Style>
+
+    <!--IconBorder-->
+    <Style x:Key="InfoIconBorder" TargetType="{x:Type Border}">
+        <Setter Property="ToolTipService.ShowDuration" Value="{x:Static Member=sys:Int32.MaxValue}"/>
+        <Setter Property="ToolTipService.InitialShowDelay" Value="0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="CornerRadius" Value="12"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Color="White" Opacity=".01"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="MaterialDesignTitleBarCommandButton" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Width" Value="36"/>
+        <Setter Property="Height" Value="36"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="18"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter/>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Background" Value="{DynamicResource Surface2LightBrush}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--<Style x:Key="MaterialDesignTitleMediumTextBlock_TitleBar" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource MaterialDesignTitleMediumTextBlock}">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding SystemModel.IsAnyWindowActive, Mode=OneWay}" Value="False">
+                <Setter Property="Foreground">
+                    <Setter.Value>
+                        <SolidColorBrush Color="{DynamicResource OnSurfaceLightColor}" Opacity=".38"/>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>-->
+
+    <Style x:Key="CharacterMaxDanceScaleIconPath" TargetType="{x:Type Path}" BasedOn="{StaticResource BodyIconPath}">
+        <Setter Property="Data" Value="M15.85,3.85L17.3,5.3l-2.18,2.16c-0.39,0.39-0.39,1.03,0,1.42l0,0c0.39,0.39,1.03,0.39,1.42,0L18.7,6.7l1.45,1.45 C20.46,8.46,21,8.24,21,7.79V3.5C21,3.22,20.78,3,20.5,3h-4.29C15.76,3,15.54,3.54,15.85,3.85z M3.85,8.15L5.3,6.7l2.16,2.18 c0.39,0.39,1.03,0.39,1.42,0l0,0c0.39-0.39,0.39-1.03,0-1.42L6.7,5.3l1.45-1.45C8.46,3.54,8.24,3,7.79,3H3.5 C3.22,3,3,3.22,3,3.5v4.29C3,8.24,3.54,8.46,3.85,8.15z M8.15,20.15L6.7,18.7l2.18-2.16c0.39-0.39,0.39-1.03,0-1.42l0,0 c-0.39-0.39-1.03-0.39-1.42,0L5.3,17.3l-1.45-1.45C3.54,15.54,3,15.76,3,16.21v4.29C3,20.78,3.22,21,3.5,21h4.29 C8.24,21,8.46,20.46,8.15,20.15z M20.15,15.85L18.7,17.3l-2.16-2.18c-0.39-0.39-1.03-0.39-1.42,0l0,0 c-0.39,0.39-0.39,1.03,0,1.42l2.18,2.16l-1.45,1.45C15.54,20.46,15.76,21,16.21,21h4.29c0.28,0,0.5-0.22,0.5-0.5v-4.29 C21,15.76,20.46,15.54,20.15,15.85z"/>
+    </Style>
+
+    <Style x:Key="CharacterDanceIntensityIconPath" TargetType="{x:Type Path}" BasedOn="{StaticResource BodyIconPath}">
+        <Setter Property="Data" Value="M10.67,21L10.67,21c-0.35,0-0.62-0.31-0.57-0.66L11,14H7.5c-0.88,0-0.33-0.75-0.31-0.78c1.26-2.23,3.15-5.53,5.65-9.93 c0.1-0.18,0.3-0.29,0.5-0.29h0c0.35,0,0.62,0.31,0.57,0.66L13.01,10h3.51c0.4,0,0.62,0.19,0.4,0.66c-3.29,5.74-5.2,9.09-5.75,10.05 C11.07,20.89,10.88,21,10.67,21z"/>
+    </Style>
+
+    <Style x:Key="AudioVolumeWeightIconPath" TargetType="{x:Type Path}" BasedOn="{StaticResource BodyIconPath}">
+        <Setter Property="Data" Value="M18,12L18,12c0,0.55,0.45,1,1,1h2c0.55,0,1-0.45,1-1v0c0-0.55-0.45-1-1-1h-2C18.45,11,18,11.45,18,12z M16.59,16.82c-0.33,0.44-0.24,1.05,0.2,1.37c0.53,0.39,1.09,0.81,1.62,1.21c0.44,0.33,1.06,0.24,1.38-0.2 c0-0.01,0.01-0.01,0.01-0.02c0.33-0.44,0.24-1.06-0.2-1.38c-0.53-0.4-1.09-0.82-1.61-1.21c-0.44-0.33-1.06-0.23-1.39,0.21 C16.6,16.81,16.59,16.82,16.59,16.82z M19.81,4.81c0-0.01-0.01-0.01-0.01-0.02c-0.33-0.44-0.95-0.53-1.38-0.2c-0.53,0.4-1.1,0.82-1.62,1.22 c-0.44,0.33-0.52,0.95-0.19,1.38c0,0.01,0.01,0.01,0.01,0.02c0.33,0.44,0.94,0.53,1.38,0.2c0.53-0.39,1.09-0.82,1.62-1.22 C20.05,5.87,20.13,5.25,19.81,4.81z M8,9H4c-1.1,0-2,0.9-2,2v2c0,1.1,0.9,2,2,2h1v3c0,0.55,0.45,1,1,1h0c0.55,0,1-0.45,1-1v-3h1l5,3V6L8,9z M15.5,12c0-1.33-0.58-2.53-1.5-3.35v6.69C14.92,14.53,15.5,13.33,15.5,12z"/>
+    </Style>
+
+    <Style x:Key="AllowsCharacterToScaleDanceIconPath" TargetType="{x:Type Path}" BasedOn="{StaticResource BodyIconPath}">
+        <Setter Property="Data" Value="M16 12C16 10.9 16.9 10 18 10S20 10.9 20 12 19.1 14 18 14 16 13.1 16 12M10 12C10 10.9 10.9 10 12 10S14 10.9 14 12 13.1 14 12 14 10 13.1 10 12M4 12C4 10.9 4.9 10 6 10S8 10.9 8 12 7.1 14 6 14 4 13.1 4 12M13 18C13 16.9 13.9 16 15 16S17 16.9 17 18 16.1 20 15 20 13 19.1 13 18M7 18C7 16.9 7.9 16 9 16S11 16.9 11 18 10.1 20 9 20 7 19.1 7 18M13 6C13 4.9 13.9 4 15 4S17 4.9 17 6 16.1 8 15 8 13 7.1 13 6M7 6C7 4.9 7.9 4 9 4S11 4.9 11 6 10.1 8 9 8 7 7.1 7 6"/>
+    </Style>
+
+    <Style x:Key="AllowsCharacterToJumpDanceIconPath" TargetType="{x:Type Path}" BasedOn="{StaticResource BodyIconPath}">
+        <Setter Property="Data" Value="M12 16C13.1 16 14 16.9 14 18S13.1 20 12 20 10 19.1 10 18 10.9 16 12 16M12 10C13.1 10 14 10.9 14 12S13.1 14 12 14 10 13.1 10 12 10.9 10 12 10M12 4C13.1 4 14 4.9 14 6S13.1 8 12 8 10 7.1 10 6 10.9 4 12 4M6 16C7.1 16 8 16.9 8 18S7.1 20 6 20 4 19.1 4 18 4.9 16 6 16M6 10C7.1 10 8 10.9 8 12S7.1 14 6 14 4 13.1 4 12 4.9 10 6 10M6 4C7.1 4 8 4.9 8 6S7.1 8 6 8 4 7.1 4 6 4.9 4 6 4M18 16C19.1 16 20 16.9 20 18S19.1 20 18 20 16 19.1 16 18 16.9 16 18 16M18 10C19.1 10 20 10.9 20 12S19.1 14 18 14 16 13.1 16 12 16.9 10 18 10M18 4C19.1 4 20 4.9 20 6S19.1 8 18 8 16 7.1 16 6 16.9 4 18 4Z"/>
+    </Style>
+
+    <Style x:Key="CloseWindowIconPath" TargetType="{x:Type Path}" BasedOn="{StaticResource BodyIconPath}">
+        <Setter Property="Data" Value="M18.3 5.71c-.39-.39-1.02-.39-1.41 0L12 10.59 7.11 5.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z"/>
+    </Style>
+
+    <Style x:Key="MinimizeWindowIconPath" TargetType="{x:Type Path}" BasedOn="{StaticResource BodyIconPath}">
+        <Setter Property="Data" Value="M7 19h10c.55 0 1 .45 1 1s-.45 1-1 1H7c-.55 0-1-.45-1-1s.45-1 1-1z"/>
+    </Style>
+
+    <Style x:Key="SettingIconPath" TargetType="{x:Type Path}" BasedOn="{StaticResource BodyIconPath}">
+        <Setter Property="Data" Value="M19.5,12c0-0.23-0.01-0.45-0.03-0.68l1.86-1.41c0.4-0.3,0.51-0.86,0.26-1.3l-1.87-3.23c-0.25-0.44-0.79-0.62-1.25-0.42 l-2.15,0.91c-0.37-0.26-0.76-0.49-1.17-0.68l-0.29-2.31C14.8,2.38,14.37,2,13.87,2h-3.73C9.63,2,9.2,2.38,9.14,2.88L8.85,5.19 c-0.41,0.19-0.8,0.42-1.17,0.68L5.53,4.96c-0.46-0.2-1-0.02-1.25,0.42L2.41,8.62c-0.25,0.44-0.14,0.99,0.26,1.3l1.86,1.41 C4.51,11.55,4.5,11.77,4.5,12s0.01,0.45,0.03,0.68l-1.86,1.41c-0.4,0.3-0.51,0.86-0.26,1.3l1.87,3.23c0.25,0.44,0.79,0.62,1.25,0.42 l2.15-0.91c0.37,0.26,0.76,0.49,1.17,0.68l0.29,2.31C9.2,21.62,9.63,22,10.13,22h3.73c0.5,0,0.93-0.38,0.99-0.88l0.29-2.31 c0.41-0.19,0.8-0.42,1.17-0.68l2.15,0.91c0.46,0.2,1,0.02,1.25-0.42l1.87-3.23c0.25-0.44,0.14-0.99-0.26-1.3l-1.86-1.41 C19.49,12.45,19.5,12.23,19.5,12z M12.04,15.5c-1.93,0-3.5-1.57-3.5-3.5s1.57-3.5,3.5-3.5s3.5,1.57,3.5,3.5S13.97,15.5,12.04,15.5z"/>
+    </Style>
+
+    <Style x:Key="SettingIconPath18" TargetType="{x:Type Path}" BasedOn="{StaticResource BodyIconPath}">
+        <Setter Property="Width" Value="18"/>
+        <Setter Property="Height" Value="18"/>
+        <!--<Setter Property="Data" Value="M 9.0675 2.1825 C 7.56 0.675 5.3025 0.3675 3.4875 1.2525 L 6.21 3.975 c 0.2925 0.2925 0.2925 0.765 0 1.0575 L 5.0175 6.225 c -0.2925 0.3 -0.765 0.3 -1.0575 0 L 1.2375 3.5025 C 0.36 5.325 0.6675 7.5675 2.175 9.075 c 1.395 1.395 3.435 1.7625 5.1675 1.11 l 5.97 5.97 c 0.7725 0.7725 2.0175 0.7725 2.7825 0 c 0.7725 -0.7725 0.7725 -2.0175 0 -2.7825 L 10.155 7.425 c 0.69 -1.755 0.33 -3.825 -1.0875 -5.2425 z"/>-->
+        <!--<Setter Property="Data" Value="M 15.7425 13.4925 l -3.705 -3.705 l -1.59 1.59 l 3.705 3.705 c 0.4425 0.4425 1.155 0.4425 1.59 0 C 16.1775 14.64 16.1775 13.9275 15.7425 13.4925 z M 13.2375 7.5 c 1.4475 0 2.625 -1.1775 2.625 -2.625 c 0 -0.435 -0.12 -0.84 -0.3075 -1.2 l -2.025 2.025 l -1.1175 -1.1175 l 2.025 -2.025 C 14.0775 2.37 13.6725 2.25 13.2375 2.25 c -1.4475 0 -2.625 1.1775 -2.625 2.625 c 0 0.3075 0.06 0.6 0.1575 0.87 l -1.3875 1.3875 l -1.335 -1.335 l 0 0 c 0.2925 -0.2925 0.2925 -0.765 0 -1.0575 l -0.5325 -0.5325 l 1.59 -1.59 c -0.8775 -0.8775 -2.3025 -0.8775 -3.18 0 L 3.81 4.74 c -0.2925 0.2925 -0.2925 0.765 0 1.0575 l 0.5325 0.5325 H 2.4375 c -0.1425 0 -0.2775 0.0525 -0.375 0.1575 c -0.21 0.21 -0.21 0.54 0 0.75 l 1.905 1.905 c 0.21 0.21 0.54 0.21 0.75 0 c 0.0975 -0.0975 0.1575 -0.2325 0.1575 -0.375 V 6.8625 L 5.4 7.3875 c 0.2925 0.2925 0.765 0.2925 1.0575 0 l 1.335 1.335 l -4.7625 4.7625 c -0.4425 0.4425 -0.4425 1.155 0 1.59 v 0 c 0.4425 0.4425 1.155 0.4425 1.59 0 L 12.36 7.3425 C 12.6375 7.44 12.93 7.5 13.2375 7.5 z"/>-->
+        <Setter Property="Data" Value="M 14.625 9 c 0 -0.1725 -0.0075 -0.3375 -0.0225 -0.51 l 1.395 -1.0575 c 0.3 -0.225 0.3825 -0.645 0.195 -0.975 l -1.4025 -2.4225 c -0.1875 -0.33 -0.5925 -0.465 -0.9375 -0.315 l -1.6125 0.6825 c -0.2775 -0.195 -0.57 -0.3675 -0.8775 -0.51 l -0.2175 -1.7325 C 11.1 1.785 10.7775 1.5 10.4025 1.5 h -2.7975 C 7.2225 1.5 6.9 1.785 6.855 2.16 L 6.6375 3.8925 c -0.3075 0.1425 -0.6 0.315 -0.8775 0.51 L 4.1475 3.72 c -0.345 -0.15 -0.75 -0.015 -0.9375 0.315 L 1.8075 6.465 c -0.1875 0.33 -0.105 0.7425 0.195 0.975 l 1.395 1.0575 C 3.3825 8.6625 3.375 8.8275 3.375 9 s 0.0075 0.3375 0.0225 0.51 l -1.395 1.0575 c -0.3 0.225 -0.3825 0.645 -0.195 0.975 l 1.4025 2.4225 c 0.1875 0.33 0.5925 0.465 0.9375 0.315 l 1.6125 -0.6825 c 0.2775 0.195 0.57 0.3675 0.8775 0.51 l 0.2175 1.7325 C 6.9 16.215 7.2225 16.5 7.5975 16.5 h 2.7975 c 0.375 0 0.6975 -0.285 0.7425 -0.66 l 0.2175 -1.7325 c 0.3075 -0.1425 0.6 -0.315 0.8775 -0.51 l 1.6125 0.6825 c 0.345 0.15 0.75 0.015 0.9375 -0.315 l 1.4025 -2.4225 c 0.1875 -0.33 0.105 -0.7425 -0.195 -0.975 l -1.395 -1.0575 C 14.6175 9.3375 14.625 9.1725 14.625 9 z M 9.03 11.625 c -1.4475 0 -2.625 -1.1775 -2.625 -2.625 s 1.1775 -2.625 2.625 -2.625 s 2.625 1.1775 2.625 2.625 S 10.4775 11.625 9.03 11.625 z"/>
+    </Style>
+
+    <Style x:Key="PowerIconPath" TargetType="{x:Type Path}" BasedOn="{StaticResource BodyIconPath}">
+        <Setter Property="Data" Value="M12 3c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1s1-.45 1-1V4c0-.55-.45-1-1-1zm5.14 2.86c-.39.39-.38 1-.01 1.39 1.13 1.2 1.83 2.8 1.87 4.57.09 3.83-3.08 7.13-6.91 7.17C8.18 19.05 5 15.9 5 12c0-1.84.71-3.51 1.87-4.76.37-.39.37-1-.01-1.38-.4-.4-1.05-.39-1.43.02C3.98 7.42 3.07 9.47 3 11.74c-.14 4.88 3.83 9.1 8.71 9.25 5.1.16 9.29-3.93 9.29-9 0-2.37-.92-4.51-2.42-6.11-.38-.41-1.04-.42-1.44-.02z"/>
+    </Style>
+
+    <Style x:Key="RelocationIconPath" TargetType="{x:Type Path}" BasedOn="{StaticResource BodyIconPath}">
+        <Setter Property="Data" Value="M3 5h2V3c-1.1 0-2 .9-2 2zm0 8h2v-2H3v2zm4 8h2v-2H7v2zM3 9h2V7H3v2zm10-6h-2v2h2V3zm6 0v2h2c0-1.1-.9-2-2-2zM5 21v-2H3c0 1.1.9 2 2 2zm-2-4h2v-2H3v2zM9 3H7v2h2V3zm2 18h2v-2h-2v2zm8-8h2v-2h-2v2zm0 8c1.1 0 2-.9 2-2h-2v2zm0-12h2V7h-2v2zm0 8h2v-2h-2v2zm-4 4h2v-2h-2v2zm0-16h2V3h-2v2zM8 17h8c.55 0 1-.45 1-1V8c0-.55-.45-1-1-1H8c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1zm1-8h6v6H9V9z"/>
+    </Style>
+
+</ResourceDictionary>

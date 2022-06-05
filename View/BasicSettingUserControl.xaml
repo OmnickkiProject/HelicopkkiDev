@@ -1,0 +1,473 @@
+﻿<UserControl x:Class="HelicopkkiDev.View.BasicSettingUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HelicopkkiDev.View"
+             xmlns:attachedBehavior="clr-namespace:HelicopkkiDev.View.AttachedBehavior"
+             mc:Ignorable="d" 
+             
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignWidth="560"
+             xmlns:converter="clr-namespace:HelicopkkiDev.View.Converter"
+             xmlns:behavior="clr-namespace:HelicopkkiDev.View.Behavior"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors">
+
+    <Grid x:Name="basicSettingGrid" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="generalBasicSettingHandleGrid" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Style="{StaticResource SpaceColumn}"/>
+                <ColumnDefinition Style="{StaticResource BodyIconColumn}"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Style="{StaticResource SpaceColumn}"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Style="{StaticResource SpaceColumn}"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Style="{StaticResource SubtitleRow}"/>
+                <RowDefinition Style="{StaticResource SpaceRow}"/>
+                <RowDefinition Style="{StaticResource SingleLineListRow}"/>
+                <RowDefinition Style="{StaticResource SingleLineListRow}"/>
+                <RowDefinition Style="{StaticResource SingleLineListRow}"/>
+                <RowDefinition Style="{StaticResource SingleLineListRow}"/>
+                <RowDefinition Style="{StaticResource SingleLineListRow}"/>
+
+                <RowDefinition Style="{StaticResource SpaceRow}"/>
+                <RowDefinition Style="{StaticResource DividerRow}"/>
+                <RowDefinition Style="{StaticResource SpaceRow}"/>
+
+                <RowDefinition Style="{StaticResource SingleLineListRow}"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Style="{StaticResource SpaceRow}"/>
+            </Grid.RowDefinitions>
+
+            <materialDesign:Card Style="{StaticResource MaterialDesignCard_Body}"
+                                 Grid.Row="1"
+                                 Grid.RowSpan="12"
+                                 Grid.ColumnSpan="7"/>
+
+            <TextBlock Style="{StaticResource MaterialDesignBodyMediumTextBlock}"
+                       Text="일반"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       Grid.ColumnSpan="7"/>
+
+            <Path Style="{StaticResource CharacterSizeIconPath}"
+                  Grid.Row="2"
+                  Grid.Column="1"/>
+            <TextBlock Style="{StaticResource MaterialDesignBodyLargeTextBlock}"
+                       Text="크기"
+                       Grid.Row="2"
+                       Grid.Column="2"/>
+            <Slider Style="{StaticResource MaterialDesignSlider_Normal}"
+                    x:Name="characterSizeSlider"
+                    Minimum="1"
+                    Maximum="100"
+                    Grid.Row="2"
+                    Grid.Column="3">
+                <Slider.Value>
+                    <MultiBinding Converter="{converter:CharacterSizeConverter}">
+                        <Binding Path="BasicModel.CharacterSize" Mode="TwoWay"/>
+                        <Binding Path="SystemModel.CharacterMaxSize" Mode="OneTime"/>
+                    </MultiBinding>
+                </Slider.Value>
+            </Slider>
+            <TextBox Style="{StaticResource MaterialDesignFilledTextBox_SliderValue}"
+                     Grid.Row="2"
+                     Grid.Column="5">
+                <TextBox.Text>
+                    <MultiBinding Converter="{converter:SliderTextBoxConverter}" StringFormat="{}{0:0} %">
+                        <Binding Path="Value" ElementName="characterSizeSlider" Mode="TwoWay"/>
+                        <Binding Path="Minimum" ElementName="characterSizeSlider" Mode="OneTime"/>
+                        <Binding Path="Maximum" ElementName="characterSizeSlider" Mode="OneTime"/>
+                    </MultiBinding>
+                </TextBox.Text>
+            </TextBox>
+
+            <Path Style="{StaticResource CharacterAngleIconPath}"
+                  Grid.Row="3"
+                  Grid.Column="1"/>
+            <TextBlock Style="{StaticResource MaterialDesignBodyLargeTextBlock}"
+                       Text="회전각"
+                       Grid.Row="3"
+                       Grid.Column="2"/>
+            <Slider Style="{StaticResource MaterialDesignSlider_Indicator}"
+                    x:Name="characterAngleSlider"
+                    Minimum="-179.99"
+                    Maximum="180"
+                    Value="{Binding BasicModel.CharacterAngle, Mode=TwoWay}"
+                    Grid.Row="3"
+                    Grid.Column="3">
+            </Slider>
+            <TextBox Style="{StaticResource MaterialDesignFilledTextBox_SliderValue}"
+                     Grid.Row="3"
+                     Grid.Column="5" Cursor="IBeam">
+                <TextBox.Text>
+                    <MultiBinding Converter="{converter:SliderTextBoxConverter}" StringFormat="{}{0:0} °">
+                        <Binding Path="Value" ElementName="characterAngleSlider" Mode="TwoWay"/>
+                        <Binding Path="Minimum" ElementName="characterAngleSlider" Mode="OneTime"/>
+                        <Binding Path="Maximum" ElementName="characterAngleSlider" Mode="OneTime"/>
+                    </MultiBinding>
+                </TextBox.Text>
+            </TextBox>
+
+            <Path Style="{StaticResource CharacterOpacityIconPath}"
+                  Grid.Row="4"
+                  Grid.Column="1"/>
+            <TextBlock Style="{StaticResource MaterialDesignBodyLargeTextBlock}"
+                       Text="불투명도"
+                       Grid.Row="4"
+                       Grid.Column="2"/>
+            <Slider Style="{StaticResource MaterialDesignSlider_Normal}"
+                    x:Name="characterOpacitySlider"
+                    Minimum="0"
+                    Maximum="1"
+                    Value="{Binding BasicModel.CharacterOpacity, Mode=TwoWay}"
+                    Grid.Row="4"
+                    Grid.Column="3">
+            </Slider>
+            <TextBox Style="{StaticResource MaterialDesignFilledTextBox_SliderValue}"
+                     Grid.Row="4"
+                     Grid.Column="5">
+                <TextBox.Text>
+                    <MultiBinding Converter="{converter:SliderTextBoxConverter}" StringFormat="{}{0:0.##}">
+                        <Binding Path="Value" ElementName="characterOpacitySlider" Mode="TwoWay"/>
+                        <Binding Path="Minimum" ElementName="characterOpacitySlider" Mode="OneTime"/>
+                        <Binding Path="Maximum" ElementName="characterOpacitySlider" Mode="OneTime"/>
+                    </MultiBinding>
+                </TextBox.Text>
+            </TextBox>
+
+            <Path Style="{StaticResource CharacterScaleXIconPath}"
+                  Grid.Row="5"
+                  Grid.Column="1"/>
+            <TextBlock Style="{StaticResource MaterialDesignBodyLargeTextBlock}"
+                       Text="좌우 늘림"
+                       Grid.Row="5"
+                       Grid.Column="2"/>
+            <Slider Style="{StaticResource MaterialDesignSlider_Indicator}"
+                    x:Name="characterScaleXSlider"
+                    Minimum="-1"
+                    Maximum="1"
+                    Value="{Binding BasicModel.CharacterScaleX, Mode=TwoWay}"
+                    Grid.Row="5"
+                    Grid.Column="3">
+            </Slider>
+            <TextBox Style="{StaticResource MaterialDesignFilledTextBox_SliderValue}"
+                     Grid.Row="5"
+                     Grid.Column="5" Cursor="IBeam">
+                <TextBox.Text>
+                    <MultiBinding Converter="{converter:SliderTextBoxConverter}" StringFormat="{}x {0:0.##}">
+                        <Binding Path="Value" ElementName="characterScaleXSlider" Mode="TwoWay"/>
+                        <Binding Path="Minimum" ElementName="characterScaleXSlider" Mode="OneTime"/>
+                        <Binding Path="Maximum" ElementName="characterScaleXSlider" Mode="OneTime"/>
+                    </MultiBinding>
+                </TextBox.Text>
+            </TextBox>
+
+            <Path Style="{StaticResource CharacterGifSpeedIconPath}"
+                  Grid.Row="6"
+                  Grid.Column="1"/>
+            <TextBlock Style="{StaticResource MaterialDesignBodyLargeTextBlock}"
+                       Text="GIF 속도"
+                       Grid.Row="6"
+                       Grid.Column="2"/>
+            <Slider Style="{StaticResource MaterialDesignSlider_Normal}"
+                    x:Name="characterGifSpeedSlider"
+                    Minimum="0.5"
+                    Maximum="2"
+                    Value="{Binding BasicModel.CharacterGifSpeed, Mode=TwoWay}"
+                    Grid.Row="6"
+                    Grid.Column="3">
+            </Slider>
+            <TextBox Style="{StaticResource MaterialDesignFilledTextBox_SliderValue}"
+                     Grid.Row="6"
+                     Grid.Column="5">
+                <TextBox.Text>
+                    <MultiBinding Converter="{converter:SliderTextBoxConverter}" StringFormat="{}x {0:0.##}">
+                        <Binding Path="Value" ElementName="characterGifSpeedSlider" Mode="TwoWay"/>
+                        <Binding Path="Minimum" ElementName="characterGifSpeedSlider" Mode="OneTime"/>
+                        <Binding Path="Maximum" ElementName="characterGifSpeedSlider" Mode="OneTime"/>
+                    </MultiBinding>
+                </TextBox.Text>
+            </TextBox>
+
+            <Rectangle Style="{StaticResource MaterialDesignDividerRectangle}"
+                       Grid.Row="8"
+                       Grid.Column="1"
+                       Grid.ColumnSpan="5"/>
+
+            <Path Style="{StaticResource ShowsCharacterShadowIconPath}"
+                  Grid.Row="10"
+                  Grid.Column="1"/>
+            <TextBlock Style="{StaticResource MaterialDesignBodyLargeTextBlock}"
+                       Text="그림자"
+                       Grid.Row="10"
+                       Grid.Column="2"/>
+            <CheckBox x:Name="isShadowCheckBox"
+                      Style="{StaticResource MaterialDesignSwitchToggleButton_Normal}"
+                      IsChecked="{Binding BasicModel.ShowsCharacterShadow, Mode=TwoWay}"
+                      Grid.Row="10"
+                      Grid.Column="5">
+            </CheckBox>
+
+            <Grid x:Name="shadowSettingGrid"
+                  IsEnabled="{Binding IsChecked, ElementName=isShadowCheckBox}"
+                  Grid.Row="11"
+                  Grid.Column="1"
+                  Grid.ColumnSpan="5">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Style="{StaticResource SingleLineListRow}"/>
+                    <RowDefinition Style="{StaticResource SingleLineListRow}"/>
+                    <RowDefinition Style="{StaticResource SingleLineListRow}"/>
+                    <RowDefinition Style="{StaticResource SingleLineListRow}"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Style="{StaticResource SpaceColumn}"/>
+                    <ColumnDefinition Style="{StaticResource BodyIconColumn}"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Style="{StaticResource SpaceColumn}"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Style="{StaticResource MaterialDesignBodyLargeTextBlock}"
+                       Text="깊이"
+                       Grid.Row="0"
+                       Grid.Column="0"/>
+                <Slider Style="{StaticResource MaterialDesignSlider_Normal}"
+                        x:Name="characterShadowDepthSlider"
+                        Minimum="0"
+                        Maximum="100"
+                        Value="{Binding BasicModel.CharacterShadowDepth, Mode=TwoWay}"
+                        Grid.Row="0"
+                        Grid.Column="3">
+                </Slider>
+                <TextBox Style="{StaticResource MaterialDesignFilledTextBox_SliderValue}"
+                     Grid.Row="0"
+                     Grid.Column="6">
+                    <TextBox.Text>
+                        <MultiBinding Converter="{converter:SliderTextBoxConverter}" StringFormat="{}{0:0}">
+                            <Binding Path="Value" ElementName="characterShadowDepthSlider" Mode="TwoWay"/>
+                            <Binding Path="Minimum" ElementName="characterShadowDepthSlider" Mode="OneTime"/>
+                            <Binding Path="Maximum" ElementName="characterShadowDepthSlider" Mode="OneTime"/>
+                        </MultiBinding>
+                    </TextBox.Text>
+                </TextBox>
+                
+                <TextBlock Style="{StaticResource MaterialDesignBodyLargeTextBlock}"
+                       Text="방향"
+                       Grid.Row="1"
+                       Grid.Column="0"/>
+                <Slider Style="{StaticResource MaterialDesignSlider_Indicator}" 
+                        x:Name="characterShadowDirectionSlider"
+                        Minimum="-179.99"
+                        Maximum="180"
+                        Value="{Binding BasicModel.CharacterShadowDirection, Mode=TwoWay}"
+                        Grid.Row="1"
+                        Grid.Column="3">
+                    <!--<i:Interaction.Triggers>
+                        <i:EventTrigger EventName="ValueChanged">
+                            <i:InvokeCommandAction Command="{Binding CharacterShadowDirectionValueChangedCommand}" PassEventArgsToCommand="True"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>-->
+                </Slider>
+                <TextBox Style="{StaticResource MaterialDesignFilledTextBox_SliderValue}"
+                     Grid.Row="1"
+                     Grid.Column="6">
+                    <TextBox.Text>
+                        <MultiBinding Converter="{converter:SliderTextBoxConverter}" StringFormat="{}{0:0} °">
+                            <Binding Path="Value" ElementName="characterShadowDirectionSlider" Mode="TwoWay"/>
+                            <Binding Path="Minimum" ElementName="characterShadowDirectionSlider" Mode="OneTime"/>
+                            <Binding Path="Maximum" ElementName="characterShadowDirectionSlider" Mode="OneTime"/>
+                        </MultiBinding>
+                    </TextBox.Text>
+                </TextBox>
+
+
+                <TextBlock Style="{StaticResource MaterialDesignBodyLargeTextBlock}"
+                       Text="불투과도"
+                       Grid.Row="2"
+                       Grid.Column="0"/>
+                <Slider Style="{StaticResource MaterialDesignSlider_Normal}"
+                        x:Name="characterShadowOpacitySlider"
+                        Minimum="0"
+                        Maximum="1"
+                        Value="{Binding BasicModel.CharacterShadowOpacity, Mode=TwoWay}"
+                        Grid.Row="2"
+                        Grid.Column="3">
+                    <!--<i:Interaction.Triggers>
+                        <i:EventTrigger EventName="ValueChanged">
+                            <i:InvokeCommandAction Command="{Binding CharacterShadowOpacityValueChangedCommand}" PassEventArgsToCommand="True"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>-->
+                </Slider>
+                <TextBox Style="{StaticResource MaterialDesignFilledTextBox_SliderValue}"
+                     Grid.Row="2"
+                     Grid.Column="6">
+                    <TextBox.Text>
+                        <MultiBinding Converter="{converter:SliderTextBoxConverter}" StringFormat="{}{0:0.##}">
+                            <Binding Path="Value" ElementName="characterShadowOpacitySlider" Mode="TwoWay"/>
+                            <Binding Path="Minimum" ElementName="characterShadowOpacitySlider" Mode="OneTime"/>
+                            <Binding Path="Maximum" ElementName="characterShadowOpacitySlider" Mode="OneTime"/>
+                        </MultiBinding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <TextBlock Style="{StaticResource MaterialDesignBodyLargeTextBlock}"
+                       Text="흐림 반경"
+                       Grid.Row="3"
+                       Grid.Column="0"/>
+                <Border Style="{StaticResource InfoIconBorder}"
+                        Grid.Row="3"
+                        Grid.Column="2">
+                    <Border.ToolTip>
+                        <ToolTip Style="{StaticResource WarningIconPathToolTip}">
+                            <TextBlock Text="너무 높게 설정하면 렉이 걸릴 수 있어요."/>
+                        </ToolTip>
+                    </Border.ToolTip>
+                    <Path Style="{StaticResource WarningIconPath}"/>
+                </Border>
+                <Slider Style="{StaticResource MaterialDesignSlider_Normal}"
+                        x:Name="characterShadowRadiusSlider"
+                        Minimum="0"
+                        Maximum="50"
+                        Value="{Binding BasicModel.CharacterShadowRadius, Mode=TwoWay}"
+                        Grid.Row="3"
+                        Grid.Column="3">
+                    <!--<i:Interaction.Triggers>
+                        <i:EventTrigger EventName="ValueChanged">
+                            <i:InvokeCommandAction Command="{Binding CharacterShadowRadiusValueChangedCommand}" PassEventArgsToCommand="True"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>-->
+                </Slider>
+                <TextBox Style="{StaticResource MaterialDesignFilledTextBox_SliderValue}"
+                     Grid.Row="3"
+                     Grid.Column="6">
+                    <TextBox.Text>
+                        <MultiBinding Converter="{converter:SliderTextBoxConverter}" StringFormat="{}{0:0}">
+                            <Binding Path="Value" ElementName="characterShadowRadiusSlider" Mode="TwoWay"/>
+                            <Binding Path="Minimum" ElementName="characterShadowRadiusSlider" Mode="OneTime"/>
+                            <Binding Path="Maximum" ElementName="characterShadowRadiusSlider" Mode="OneTime"/>
+                        </MultiBinding>
+                    </TextBox.Text>
+                </TextBox>
+            </Grid>
+        </Grid>
+        <Grid x:Name="advancedBasicSettingHandleGrid" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Style="{StaticResource SpaceColumn}"/>
+                <ColumnDefinition Style="{StaticResource BodyIconColumn}"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Style="{StaticResource SpaceColumn}"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Style="{StaticResource SpaceColumn}"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Style="{StaticResource SubtitleRow}"/>
+                
+                <RowDefinition Style="{StaticResource SpaceRow}"/>
+                <RowDefinition Style="{StaticResource TwoLineListRow}"/>
+                <RowDefinition Style="{StaticResource SpaceRow}"/>
+                <RowDefinition Style="{StaticResource DividerRow}"/>
+                <RowDefinition Style="{StaticResource SpaceRow}"/>
+                <RowDefinition Style="{StaticResource TwoLineListRow}"/>
+                <RowDefinition Style="{StaticResource SpaceRow}"/>
+                <RowDefinition Style="{StaticResource DividerRow}"/>
+                <RowDefinition Style="{StaticResource SpaceRow}"/>
+                <RowDefinition Style="{StaticResource TwoLineListRow}"/>
+                <RowDefinition Style="{StaticResource SpaceRow}"/>
+            </Grid.RowDefinitions>
+
+            <materialDesign:Card Style="{StaticResource MaterialDesignCard_Body}"
+                                 Grid.Row="1"
+                                 Grid.RowSpan="11"
+                                 Grid.ColumnSpan="7"/>
+
+            <TextBlock Style="{StaticResource MaterialDesignBodyMediumTextBlock}"
+                       Text="고급"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       Grid.ColumnSpan="7"/>
+
+            <StackPanel Style="{StaticResource MaterialDesignTwoLineListStackPanel}"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="3">
+                <Border Style="{StaticResource MaterialDesignBodyLargeBorder}">
+                    <TextBlock Style="{StaticResource MaterialDesignBodyLargeTextBlock}"
+                       Text="항상 위 (엄크 주의)"/>
+                </Border>
+                <Border Style="{StaticResource MaterialDesignBodyMediumBorder}">
+                    <TextBlock Style="{StaticResource MaterialDesignBodyMediumTextBlock}"
+                       Text="캐릭터를 모든 창에 대하여 항상 위에 배치합니다."/>
+                </Border>
+            </StackPanel>
+            <CheckBox Style="{StaticResource MaterialDesignCheckBox_Normal}"
+                      IsChecked="{Binding BasicModel.CharacterWindowTopmost, Mode=TwoWay}"
+                      Grid.Row="2"
+                      Grid.Column="5">
+            </CheckBox>
+
+            <Rectangle Style="{StaticResource MaterialDesignDividerRectangle}"
+                       Grid.Row="4"
+                       Grid.Column="1"
+                       Grid.ColumnSpan="5"/>
+
+            <StackPanel Style="{StaticResource MaterialDesignTwoLineListStackPanel}"
+                        Grid.Row="6"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="3">
+                <Border Style="{StaticResource MaterialDesignBodyLargeBorder}">
+                    <TextBlock Style="{StaticResource MaterialDesignBodyLargeTextBlock}"
+                       Text="빠른 메뉴 보이기"/>
+                </Border>
+                <Border Style="{StaticResource MaterialDesignBodyMediumBorder}">
+                    <TextBlock Style="{StaticResource MaterialDesignBodyMediumTextBlock}"
+                       Text="캐릭터 및 설정 화면 클릭 시 빠른 메뉴를 보여줍니다."/>
+                </Border>
+            </StackPanel>
+            <CheckBox Style="{StaticResource MaterialDesignCheckBox_Normal}"
+                      IsChecked="{Binding BasicModel.ShowsHotMenu, Mode=TwoWay}"
+                      Grid.Row="6"
+                      Grid.Column="5">
+            </CheckBox>
+
+            <Rectangle Style="{StaticResource MaterialDesignDividerRectangle}"
+                       Grid.Row="8"
+                       Grid.Column="1"
+                       Grid.ColumnSpan="5"/>
+
+            <StackPanel Style="{StaticResource MaterialDesignTwoLineListStackPanel}"
+                        Grid.Row="10"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="3">
+                <Border Style="{StaticResource MaterialDesignBodyLargeBorder}">
+                    <TextBlock Style="{StaticResource MaterialDesignBodyLargeTextBlock}"
+                       Text="FPS 표시"/>
+                </Border>
+                <Border Style="{StaticResource MaterialDesignBodyMediumBorder}">
+                    <TextBlock Style="{StaticResource MaterialDesignBodyMediumTextBlock}"
+                       Text="설정 화면 우측 상단에 초당 프레임 수(FPS)를 표시합니다."/>
+                </Border>
+            </StackPanel>
+            <CheckBox Style="{StaticResource MaterialDesignCheckBox_Normal}"
+                      IsChecked="{Binding BasicModel.ShowsFps, Mode=TwoWay}"
+                      Grid.Row="10"
+                      Grid.Column="5">
+                <i:Interaction.Behaviors>
+                    <behavior:ShowsFpsCheckBoxClickBehavior CalculateFps="{Binding SystemModel.CalculateFps, Mode=OneTime}"
+                                                            ShowsFps="{Binding BasicModel.ShowsFps, Mode=OneWay}"/>
+                </i:Interaction.Behaviors>
+            </CheckBox>
+        </Grid>
+    </Grid>
+</UserControl>

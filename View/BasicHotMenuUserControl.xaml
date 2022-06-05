@@ -1,0 +1,85 @@
+﻿<UserControl x:Class="HelicopkkiDev.View.BasicHotMenuUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HelicopkkiDev.View"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:converter="clr-namespace:HelicopkkiDev.View.Converter"
+             xmlns:vm="clr-namespace:HelicopkkiDev.ViewModel"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:behavior="clr-namespace:HelicopkkiDev.View.Behavior"
+             mc:Ignorable="d"
+             x:Name="basicHotMenuUserControl"
+             RenderTransformOrigin="0.5 0.5"
+             d:DesignHeight="125" d:DesignWidth="77">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Style/BasicHotMenuStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="GotMouseCapture">
+            <i:InvokeCommandAction Command="{Binding HotMenuUserControlGotFocusCommand}" CommandParameter="0"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <Canvas x:Name="basicHotMenuCanvas">
+        <Path x:Name="basicHotMenuImagePath"
+              Style="{StaticResource BasicHotMenuPath}">
+            <Path.Data>
+                <RectangleGeometry RadiusX="1"
+                                   RadiusY="1">
+                    <RectangleGeometry.Rect>
+                        <MultiBinding Converter="{StaticResource MathConverter}" ConverterParameter="0.0,0.0,x,y">
+                            <Binding Path="ActualWidth" ElementName="basicHotMenuUserControl" Mode="OneWay"/>
+                            <Binding Path="ActualHeight" ElementName="basicHotMenuUserControl" Mode="OneWay"/>
+                        </MultiBinding>
+                    </RectangleGeometry.Rect>
+                </RectangleGeometry>
+            </Path.Data>
+        </Path>
+
+        <Thumb x:Name="basicHotMenuResizeThumb"
+               Style="{StaticResource BasicHotMenuResizeThumb}"
+               Canvas.Right="0"
+               Canvas.Bottom="0"
+               Cursor="SizeNWSE">
+            <i:Interaction.Behaviors>
+                <behavior:ResizeThumbDragBehavior ObjectSizeToBeModified="{Binding BasicModel.CharacterSize, Mode=TwoWay}"
+                                                  ObjectAngle="{Binding BasicModel.CharacterAngle, Mode=OneWay}"
+                                                  ObjectMinSize="{Binding SystemModel.CharacterMinSize, Mode=OneTime}"
+                                                  ObjectMaxSize="{Binding SystemModel.CharacterMaxSize, Mode=OneTime}"
+                                                  ObjectAspectRatio="{Binding SystemModel.CharacterAspectRatio, Mode=OneTime}"/>
+            </i:Interaction.Behaviors>
+        </Thumb>
+
+        <Thumb x:Name="basicHotMenuRotateThumb"
+               Style="{StaticResource BasicHotMenuRotateThumb}"
+               Canvas.Top="-25"
+               Canvas.Left="{Binding ActualWidth, ElementName=basicHotMenuUserControl, Mode=OneWay, Converter={StaticResource MathConverter}, ConverterParameter='x*0.5'}">
+            <i:Interaction.Behaviors>
+                <behavior:RotateThumbDragBehavior ObjectAngleToBeModified="{Binding BasicModel.CharacterAngle, Mode=TwoWay}"
+                                                  ObjectSize="{Binding BasicModel.CharacterSize, Mode=OneWay}"
+                                                  ObjectPosition="{Binding BasicModel.CharacterPosition, Mode=OneWay}"
+                                                  IsObjectSnapped="{Binding IsBasicHotMenuSnapped, Mode=OneWayToSource}"/>
+            </i:Interaction.Behaviors>
+        </Thumb>
+
+        <Path x:Name="basicHotMenuSnapPath"
+              Style="{StaticResource BasicHotMenuSnapPath}"
+              Canvas.Left="{Binding ActualWidth, ElementName=basicHotMenuUserControl, Mode=OneWay, Converter={StaticResource MathConverter}, ConverterParameter='x*0.5'}"
+              Visibility="{Binding IsBasicHotMenuSnapped, Mode=OneWay, Converter={converter:BoolToVisibilityConverter}}">
+            <Path.Data>
+                <LineGeometry StartPoint="0,0"
+                              EndPoint="{Binding ActualHeight, ElementName=basicHotMenuUserControl, Mode=OneWay, Converter={StaticResource MathConverter}, ConverterParameter='0.0,x'}"/>
+            </Path.Data>
+        </Path>
+    </Canvas>
+    
+    <ContentControl.RenderTransform>
+        <RotateTransform Angle="{Binding BasicModel.CharacterAngle, Mode=OneWay}"/>
+    </ContentControl.RenderTransform>
+</UserControl>

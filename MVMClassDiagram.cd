@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="HelicopkkiDev.Model.AudioModel">
+    <Position X="25.5" Y="10.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AACAEoAAAEAgAAAAAiACAAABQIDACAQEQAAAAAACAmA=</HashCode>
+      <FileName>Model\AudioModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HelicopkkiDev.Model.BasicModel">
+    <Position X="28.75" Y="10.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>FEEAQIAAAEAALIQAAgQACAQEBEAAgAABwoAkAgAAAAA=</HashCode>
+      <FileName>Model\BasicModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HelicopkkiDev.Model.ModelBase">
+    <Position X="24.25" Y="8.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\ModelBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="HelicopkkiDev.Model.MouseModel">
+    <Position X="19.5" Y="10.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AEAgAAABAAAAAAABBgIAAEAAAAABIgAASAIIgAAAgAQ=</HashCode>
+      <FileName>Model\MouseModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HelicopkkiDev.Model.SystemModel">
+    <Position X="22.5" Y="10.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEIAAAACAAAEgAAQAAAAIAAAAIAQAUgCADSIAE=</HashCode>
+      <FileName>Model\SystemModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HelicopkkiDev.ViewModel.Command.RelayCommand&lt;T&gt;">
+    <Position X="42.25" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEACAAQAAECAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\Command\RelayCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="HelicopkkiDev.ViewModel.AudioSettingUserControlViewModel">
+    <Position X="26.25" Y="2.75" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAkAAAAAQSCAAAAAAAAEAAgEAA=</HashCode>
+      <FileName>ViewModel\AudioSettingUserControlViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HelicopkkiDev.ViewModel.BasicSettingUserControlViewModel">
+    <Position X="34.5" Y="2.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAEAAAAAAAAAAAABAAAAAAAEAA=</HashCode>
+      <FileName>ViewModel\BasicSettingUserControlViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HelicopkkiDev.ViewModel.CharacterWindowViewModel">
+    <Position X="20" Y="2.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAQAIIkAAAAAAAAAIAABAAAEAAAEAA=</HashCode>
+      <FileName>ViewModel\CharacterWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HelicopkkiDev.ViewModel.HotMenuUserControlViewModel">
+    <Position X="30.75" Y="2.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>ABABgAAAAAACAAAQgIAkAAAABAAAAAAABAAAEAAAEAE=</HashCode>
+      <FileName>ViewModel\HotMenuUserControlViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HelicopkkiDev.ViewModel.MouseSettingUserControlViewModel">
+    <Position X="38" Y="2.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>ABAAgAAAAAACAAAAAIAUAAAAAAIAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>ViewModel\MouseSettingUserControlViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HelicopkkiDev.ViewModel.SettingWindowViewModel">
+    <Position X="23" Y="2.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>QQAAAAAAAAAAIAEQAEAEAAAAAAoAAAAABAAAAAAQEAA=</HashCode>
+      <FileName>ViewModel\SettingWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HelicopkkiDev.ViewModel.ViewModelBase">
+    <Position X="29.75" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\ViewModelBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
