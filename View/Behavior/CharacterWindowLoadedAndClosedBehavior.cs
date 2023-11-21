@@ -538,17 +538,18 @@ namespace HelicopkkiDev.View.Behavior
             #endregion
 
             #region Initialize Basic Element
+            CharacterSize = CharacterMaxSize * Properties.BasicModel.Default.CharacterSizeRatio;
+            // 반드시 사이즈 초기화 후 위치 초기화
             var rawCharacterPosition = new Point(Properties.BasicModel.Default.CharacterPositionX, Properties.BasicModel.Default.CharacterPositionY);
-            if(rawCharacterPosition.X == 0.0 && rawCharacterPosition.Y == 0.0)
+            if (rawCharacterPosition.X == 0.0 && rawCharacterPosition.Y == 0.0)
             {
                 // 초기 위치가 (0, 0)일 경우(최초 실행 시)에만 화면 정중앙에 배치
-                CharacterPosition = new Point((screenSize.X  - CharacterSize.X ) * 0.5, (screenSize.Y - CharacterSize.Y) * 0.5);
+                CharacterPosition = new Point((screenSize.X - CharacterSize.X) * 0.5, (screenSize.Y - CharacterSize.Y) * 0.5);
             }
             else
             {
                 CharacterPosition = rawCharacterPosition;
             }
-            CharacterSize = CharacterMaxSize * Properties.BasicModel.Default.CharacterSizeRatio;
             CharacterAngle = Properties.BasicModel.Default.CharacterAngle;
             CharacterOpacity = Properties.BasicModel.Default.CharacterOpacity;
             CharacterScaleX = Properties.BasicModel.Default.CharacterScaleX;
