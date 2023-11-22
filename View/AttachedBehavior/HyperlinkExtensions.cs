@@ -1,7 +1,7 @@
 ﻿/*
  * Original Code
  * https://stackoverflow.com/questions/10238694/example-using-hyperlink-in-wpf
- * modified by RawCow
+ * modified by HGS
  */
 using System;
 using System.Collections.Generic;

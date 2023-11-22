@@ -38,7 +38,7 @@ namespace HelicopkkiDev.View.Behavior
         /*
          * Original Code
          * https://kojaedoo.tistory.com/538
-         * modified by RawCow
+         * modified by HGS
          */
         protected static TElement FindVisualParentByName<TElement>(FrameworkElement _Control, string _FindControlName) where TElement : FrameworkElement
         {
@@ -67,7 +67,7 @@ namespace HelicopkkiDev.View.Behavior
         /*
          * Original Code
          * https://kojaedoo.tistory.com/538
-         * modified by RawCow
+         * modified by HGS
          */
         protected static TElement FindVisualChildByName<TElement>(DependencyObject _Control, string _FindControlName) where TElement : DependencyObject
         {

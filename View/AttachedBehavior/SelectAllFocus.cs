@@ -1,7 +1,7 @@
 ﻿/*
  * Original Code
  * https://www.codeproject.com/Tips/1249276/WPF-Select-All-Focus-Behavior
- * modified by RawCow
+ * modified by HGS
  */
 using System;
 using System.Collections.Generic;

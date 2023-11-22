@@ -979,7 +979,7 @@
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Center">
                                 <Border.Width>
-                                    <MultiBinding Converter="{StaticResource MathConverter}" ConverterParameter="abs(x-y)*0.5">
+                                    <MultiBinding Converter="{StaticResource MathConverter}" ConverterParameter="Abs(x-y)*0.5">
                                         <Binding Path="DecreaseRepeatButton.ActualWidth" ElementName="PART_Track"/>
                                         <Binding Path="IncreaseRepeatButton.ActualWidth" ElementName="PART_Track"/>
                                     </MultiBinding>
@@ -1176,7 +1176,7 @@
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsChecked" Value="True" />
-                                <Condition Property="materialDesign:ToggleButtonAssist.HasOnContent" Value="True" />
+                                <!--<Condition Property="materialDesign:ToggleButtonAssist.HasOnContent" Value="True" />-->
                             </MultiTrigger.Conditions>
                             <Setter TargetName="ContentPresenter" Property="Content" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(materialDesign:ToggleButtonAssist.OnContent)}" />
                             <Setter TargetName="ContentPresenter" Property="ContentTemplate" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(materialDesign:ToggleButtonAssist.OnContentTemplate)}" />

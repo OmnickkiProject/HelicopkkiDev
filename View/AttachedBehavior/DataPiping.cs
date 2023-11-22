@@ -1,7 +1,7 @@
 ﻿/*
  * Original Code
  * https://stackoverflow.com/questions/1083224/pushing-read-only-gui-properties-back-into-viewmodel/3667609#3667609
- * modified by RawCow
+ * modified by HGS
  */
 using System;
 using System.Collections.Generic;

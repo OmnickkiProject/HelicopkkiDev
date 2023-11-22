@@ -1,7 +1,7 @@
 ﻿/*
  * Original Code
  * https://stackoverflow.com/questions/563195/bind-textbox-on-enter-key-press
- * modified by RawCow
+ * modified by HGS
  */
 using System;
 using System.Collections.Generic;

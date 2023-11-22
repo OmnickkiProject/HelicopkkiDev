@@ -1,7 +1,7 @@
 ﻿/*
  * Original Code
  * https://forum.dotnetdev.kr/t/wpf-icommand/1035/2
- * modified by RawCow
+ * modified by HGS
  */
 using System;
 using System.Collections.Generic;

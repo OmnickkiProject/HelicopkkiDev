@@ -7,11 +7,11 @@
       <FileName>View\Behavior\BehaviorBase.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="HelicopkkiDev.View.Behavior.CharacterResizeThumbDragBehavior">
+  <Class Name="HelicopkkiDev.View.Behavior.ResizeThumbDragBehavior">
     <Position X="28" Y="3" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AEAAgAAgFAAAAAAAAAAAAAAgIAESAAECQACAAQAAAAA=</HashCode>
-      <FileName>View\Behavior\CharacterResizeThumbDragBehavior.cs</FileName>
+      <HashCode>AEAAgAAgFAAAAAAAAAAAAAAAIAASAAECQACAAQAAAAA=</HashCode>
+      <FileName>View\Behavior\ResizeThumbDragBehavior.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="HelicopkkiDev.View.Behavior.CharacterWindowDoubleClickBehavior">
@@ -24,7 +24,7 @@
   <Class Name="HelicopkkiDev.View.Behavior.CharacterWindowLoadedAndClosedBehavior">
     <Position X="58.25" Y="3" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>gESlQCUhFEAEDICFIOaSGBQFAeTJJlAUjIK0EAJQAik=</HashCode>
+      <HashCode>gFChQSUsVEAIHICFIOYTOVQFAeaBIggUDoZ8MIJQACk=</HashCode>
       <FileName>View\Behavior\CharacterWindowLoadedAndClosedBehavior.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -45,15 +45,15 @@
   <Class Name="HelicopkkiDev.View.Behavior.AllowsAudioReactionCheckBoxClickBehavior">
     <Position X="46.5" Y="3" Width="3.5" />
     <TypeIdentifier>
-      <HashCode>AAQBAAAAFAAAAAAEAAAAAAAAAAAIAAAAAAAAAAEAAAA=</HashCode>
-      <FileName>View\Behavior\AllowsAudioReactionCheckBoxClickBehavior.cs</FileName>
+      <HashCode>AAAAAQAAFAAAEAAAAAAAAAAAAAAAAAAACAQAAIAAAAA=</HashCode>
+      <FileName>View\Behavior\AllowsAudioReactCheckBoxClickBehavior.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="HelicopkkiDev.View.Behavior.AllowsMouseReactionCheckBoxClickBehavior">
     <Position X="62.25" Y="3" Width="3.5" />
     <TypeIdentifier>
-      <HashCode>AAAAACAAFAAAAAAAACCAABAAAAAAAAAAAAAAAAEAAAA=</HashCode>
-      <FileName>View\Behavior\AllowsMouseReactionCheckBoxClickBehavior.cs</FileName>
+      <HashCode>AAAAAAAEVAAAAACAAAAQAAAAAAAAIAAQDAAAAAAAAAA=</HashCode>
+      <FileName>View\Behavior\AllowsMouseReactCheckBoxClickBehavior.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="HelicopkkiDev.View.Behavior.MinimizeSettingWindowButtonClickBehavior">
@@ -75,13 +75,6 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAFAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>View\Behavior\OpenSettingWindowMenuItemClickBehavior.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="HelicopkkiDev.View.Behavior.RelocateCharacterWindowMenuItemClickBehavior">
-    <Position X="66.5" Y="3" Width="3.5" />
-    <TypeIdentifier>
-      <HashCode>AAQBACAEFEAAIAAEACSAABAAAIAIAAAACIAAAAAAAAA=</HashCode>
-      <FileName>View\Behavior\RelocateCharacterWindowMenuItemClickBehavior.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="HelicopkkiDev.View.Behavior.RotateThumbDragBehavior">
