@@ -22,6 +22,7 @@
     <None Remove="Resource\Flower.ico" />
     <None Remove="Resource\Font\Maplestory Light.ttf" />
     <None Remove="Resource\Image\Character.gif" />
+    <None Remove="Resource\Image\Character_old.gif" />
     <None Remove="Resource\Test.gif" />
   </ItemGroup>
 
@@ -45,7 +46,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resource\Image\Character.gif">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Image\Character_old.gif">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
 
